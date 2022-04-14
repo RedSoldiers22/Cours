@@ -1,0 +1,65 @@
+<header> 
+    <h1>Adaptive Layout with Media Queries</h1> 
+    <style>
+    body             { width: 90% ; margin: 0 5% ; }
+    header, footer     { display: block ; width:auto ; }
+    nav ul             {   list-style: none; margin:0 ; padding: 0 ; }
+    nav a              {   display: block;
+                        margin: 1em;
+                        padding: 1em; outline: 4px dashed black; }
+    img                { max-width: 100px; display: block ; margin: 0.5em     auto } 
+    div                { display:table ; outline:none; padding:0 }
+    nav, article, aside { display: table-cell; }
+    nav , aside     { width: 25% ; }
+    article          { width: 50% ; }
+    
+    #msg480,#msg800     { display: none ; }
+    #msg801,#msg800     { display: inherit ; }
+    
+    @media screen and (max-width: 800px) and (min-width: 501px) { 
+        h1 { font-size: 110%; } 
+        article, aside { display: block; } 
+        article { width: 60%; float: left; margin-right: 0; } 
+        aside { width: 20%; font-size: 80%; float: right; margin: 1.2em; margin-left: 0; } 
+        img { max-width: 60px; }
+        #msg480, #msg801 { display: none; } #msg800 { display: inherit; }
+    }
+    
+    @media screen and (max-width: 500px) {
+        h1        { font-size: 105%; }
+        nav        { padding: 0; }
+        nav a    { margin:0 ; padding: 0.25em 0.5em ; }
+        article, aside { display:block ; width: auto ; }
+        #msg800 , #msg801 { display:none ; }
+        #msg480 { display: inherit ;}
+    }
+    
+    
+    </style>
+    </header> 
+    
+    <div>
+    
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">contact</a></li>
+        </ul> 
+    </nav> 
+    
+    <article>
+        <p>I never am really satisfied...</p> 
+    </article> 
+    
+    <aside>
+            This page is a demo for media queries.
+            <img src="imghtml/puppy.png">
+    </aside> 
+    </div> 
+    
+    <footer>
+    <span id="msg480">Vue 500px ou moins</span>
+    <span id="msg800">Vue entre 500 et 800</span>
+    <span id="msg801">vue 800 ou plus</span>
+    </footer>

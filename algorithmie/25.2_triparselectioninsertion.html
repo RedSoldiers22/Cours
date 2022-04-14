@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <script>
+        //trier avec une partie du tableau qui est triée et l'autre non
+        //comparer les élément non triés un par un dans la partie non triée et les insérer dans la partie triée
+        function insertionSort(arr){
+            //Start from the second element.
+            for(let i = 1; i < arr.length;i++){
+
+                //Go through the elements behind it.
+                for(let j = i - 1; j > -1; j--){
+                    
+                    //value comparison using ascending order.
+                    if(arr[j + 1] < arr[j]){
+
+                        //swap
+                        [arr[j+1],arr[j]] = [arr[j],arr[j + 1]];
+
+                    }
+                }
+            };
+
+  return arr;
+}
+
+console.log(insertionSort([23, 1, 10, 5, 2]));
+    </script>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>

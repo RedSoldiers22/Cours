@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <script>
+        function nbrfois()
+        {
+            var Nb_piles=0;
+            var Nb_faces=0;
+            for(var i=1; i<1001; i++)
+            {
+            var x=Math.random();
+            if(x<0.5)
+            {
+                Nb_piles=Nb_piles+1;
+            }
+            else
+            {
+                Nb_faces=Nb_faces+1;
+            }
+        }
+        console.log("Nombre de piles:" + Nb_piles);
+        console.log("Nombre de faces:" + Nb_faces);
+        }
+        nbrfois()
+    </script>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>

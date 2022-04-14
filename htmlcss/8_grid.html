@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 1000px;
+            background-color: aqua;
+            display: grid;
+            grid-template-rows: 150px 150px;
+            grid-template-columns: 1fr 1fr 1fr; /* ou repeat(2,150px)*/ /*ou 1fr 1fr 1fr ou repeat(3,1fr)*/
+            grid-row-gap: 10px;
+            align-items: center;
+            justify-items: center;
+        }
+        .items {
+            font-size: 25px;
+            padding: 20px;
+        }
+        .it1{
+            background-color: brown;
+        }
+        .it2{
+            background-color: orangered;
+        }
+        .it3{
+            background-color: yellow;
+        }
+        .it4{
+            background-color: green;
+        }
+        .it5{
+            background-color: blue;
+        }
+        .it6{
+            background-color: purple;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="items it1">1</div>
+        <div class="items it2">2</div>
+        <div class="items it3">3</div>
+        <div class="items it4">4</div>
+        <div class="items it5">5</div>
+        <div class="items it6">6</div>
+    </div>
+</body>
+</html>

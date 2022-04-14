@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <script>
+        function fact(x){
+            var result=1; // part de ce nombre
+            for(var i=1; i<=x; i++){ //tant que ce n'est pas égale ou supérieur a x faire +1
+                result=result*i// resultat multiplié par son
+            }
+            return result
+        }
+        console.log(fact(5))//  1*2*3*4*5=120
+
+        function fact2(n){
+            var result=1;
+            if(n<+1){
+                return 1;
+            }else{
+                return n*fact2(n-1);
+            }
+        }
+        console.log(fact2(8))
+
+    </script>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>

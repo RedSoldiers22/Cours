@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #un {
+            height: 200px;
+            width: 200px;
+            background-color: orange;
+        }
+
+        #deux {
+            height: 200px;
+            width: 200px;
+            background-color: blueviolet;
+            position: absolute; /* !! si un relative avant se positionne par rapport à lui, sinon par rapport à l'écan */
+            top: 100px;
+            left: 100px;
+        }
+        #container {
+            position: relative;
+            margin-left: 200px;
+            margin-top: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="un">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere ullam accusamus nemo repellendus vero cumque excepturi minima odit incidunt quaerat hic, facilis laboriosam saepe expedita, amet dignissimos aperiam eveniet ducimus.
+        </div>
+        <div id="deux">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere ullam accusamus nemo repellendus vero cumque excepturi minima odit incidunt quaerat hic, facilis laboriosam saepe expedita, amet dignissimos aperiam eveniet ducimus.
+        </div>
+    </div>
+</body>
+</html>

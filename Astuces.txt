@@ -1,0 +1,1 @@
+text-align -> aligner le texte au centre

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <script>
+        var array = [3,2,1,5,6,4,4]
+        function sort(tab){
+            var tabs = []
+            var lenthInitial=tab.length
+            for(var i=lenthInitial; i>0; i--){
+                //Valeur max
+                var valMax=Math.max(...tab)
+                var index=tab.indexOf(valMax)
+                tab.splice(index,1);
+
+                tabs.unshift(valMax);
+                //console.log(i)
+            }
+            return tabs;
+            };
+            test=sort(array);
+            console.log(test)
+            </script>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>

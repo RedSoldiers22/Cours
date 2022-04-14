@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <script>
+        function Node(value){
+            this.value=value
+            this.left=null
+            this.right=null
+        }
+
+        //Utilisation
+        var root = new Node(2) //créé le 1er noeud avec valeur 2 et left et right null
+        root.left = new Node(1) //créé le noeud left avec la valeur 1 (et plus null) et left et right en valeur null
+        root.right=new Node(3) //créé le noeud right avec la valeur 3 (et plus null) et left et right en valeur null
+
+        root.left.left = new Node(5)//créer les noeufs suivants
+        root.left.right = new Node(6)
+
+        root.right.left = new Node(7)
+        root.right.right = new Node(8)
+
+        //ou
+
+        var rll = new Node(5)
+        var rlr = new Node(6)
+    
+        root.left   = new Node(rll)
+        root.right  = new Node(rlr)
+
+        console.log(root)
+    </script>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>

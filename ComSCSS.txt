@@ -1,0 +1,9 @@
+Dans le terminal:
+	sass nomdufichier.scss
+	-> affiche le contenu
+	
+	sass nomdufichier.scss nomdufichier.css
+	-> traduit le contenu du fichier scss et crée un fichier css avec le contenu
+
+	cat nomdufichier.scss
+	->affiche le contenu et crée un fichier css.map qui indique la position du fichier

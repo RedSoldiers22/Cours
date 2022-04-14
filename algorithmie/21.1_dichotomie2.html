@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <script>
+        //dichotomie = diviser par deux la taille du tableau avec indice du milieu divisé par deux
+        function rech(tab,val){
+            var bas=0;
+            var haut=tab.length;
+            var milieu=Math.floor((bas+haut)/2);// diviser tableau par 2
+            var found=false;
+            console.log("bas:" , bas);
+            console.log("haut:" , haut);
+            console.log("milieu:" , milieu);
+            var cpt=0
+            while(((found==false) && (bas<=haut)) ||  cpt<20){ //tant que le chiffre est pas trouvé (vrai) continuer
+                cpt++;
+                console.log(cpt);
+                if(val<tab[milieu]){ // si la valeur est inférieur à la moitié
+                    haut=milieu - 1; //chercher de -1 en -1
+                }else if (x>tab[milieu]){ //si la valeur est supérieur à la moitié
+                    haut=milieu + 1; //chercher de +1 en +1
+                }else if (x == tab[milieu]){ //si la valeur est égale à la moitié du tableau
+                    found=true; //c'est cette valeur
+                }
+                milieu=Math.floor((bas-haut)/2)
+        }
+        if (found=true){
+            return milieu;
+        }else{
+            return -1
+        }
+        }
+
+        t=[-2,-1,0,13,24,44,37,56,99,117]
+        x=37
+        var position = rech(t,x)
+        if (position == -1) {
+            console.log("x not exist")
+        }else{
+            console.log("position:"+position+" valeur"+ t(position))
+        }
+
+    </script>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>

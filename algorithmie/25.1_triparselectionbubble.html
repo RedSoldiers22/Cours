@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <script>
+        //format bubble (scan deux premiers éléments et les inverses si besoin jusqu'a ce que tous soient dans l'ordre)
+        function bubbleSort(arr){
+
+        //Outer pass
+        for(let i = 0; i < arr.length; i++){
+
+        //Inner pass
+        for(let j = 0; j < arr.length - i - 1; j++){
+
+            //Value comparison using ascending order
+
+            if(arr[j + 1] < arr[j]){
+
+                //Swapping
+                [arr[j + 1],arr[j]] = [arr[j],arr[j + 1]]
+            }
+        }
+    };
+    return arr;
+    };
+
+    console.log(bubbleSort([5,3,8,4,6]));
+    </script>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>

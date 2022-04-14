@@ -1,0 +1,30 @@
+<html>
+<head>
+<script>
+
+function tribulle (tab) {
+//pour i allant de taille de t-1 a 1
+ for (var i= tab.length; i>0; i--){
+    // pour j allant de 0 a j-1
+    for (var j=0; j<i-1; j++){
+        if (tab[j+1] < tab[j]){
+            // (T[j+1],[j]) = (T[j],T[j+1])
+            var tmp = tab[j];
+            tab[j] = tab[j+1];
+            tab[j+1] = tmp;
+        }
+    }
+  }
+}
+
+var tabx = [5,8,11,6,1,9,3];
+
+tribulle (tabx);
+console.log(tabx);
+
+
+</script>
+</head>
+</html>
+
+<!-- Tri de tableau -->

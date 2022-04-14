@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            border:0 ;
+            padding:0;
+        }
+        .container {
+            background-color: grey ;
+            display:flex ;
+            width: 800px;
+        }
+
+        .item {
+            color:white ;
+            width: 100px ;
+            height:50px ;
+            background-color: blueviolet;
+        }
+
+        .item:nth-child(1) {
+          
+            flex-basis: 200px ;    
+                        /* 
+                        largeur initiale de l'item sur l'axe principal  va prendre le dessus sur width
+                        par contre sera soumis à (min-width - max-width)  
+                        */
+            flex-grow: 1; 
+        }
+
+        .item:nth-child(2) {
+            flex-grow: 1; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item">1</div>
+        <div class="item">2</div>    
+    </div>
+</body>
+</html>

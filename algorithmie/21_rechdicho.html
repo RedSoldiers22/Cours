@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <script>
+        var tab=[-2,-1,0,13,24,37,44,56,99,117];
+        var result=0
+        console.log("Veuillez saisir la valeur de X à rechercher dans le tableau")
+        function rechdicho(){
+           result=cherche(tab,x);
+           if (result==-1){
+               return "Le nombre " + x + "n'est pas dans le tableau"
+           }else{
+               return "Le nombre " + x + "est dans le tableau"
+           }
+        }
+
+        function rechercheEntier(){
+            var iBas=0
+            var iHaut=parseInt(tab.length-1)
+            var iMilieu=parseInt(iBas+iHaut)/2
+            var find=false
+            while (find!=true && (iBas<=iHaut))
+                if(y<tab[iMilieu]){
+                    iHaut=parseInt (iMilieu-1)
+                }else{
+                    if(y>tab[iMilieu]){
+                    iBas=parseInt(iMilieu+1)
+                }else{
+                    find=true
+                }
+            }
+            iMilieu=parseInt((iBas+iHaut)/2)
+        if(find=true){
+            return iMilieu;
+            }else{
+                return -1
+            }
+        }
+    </script>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
