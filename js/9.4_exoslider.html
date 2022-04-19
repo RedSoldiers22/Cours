@@ -71,10 +71,10 @@
 
     
     <script>
-        let sliderimg = document.querySelectorAll(".slide"),
+        let sliderimg = document.querySelectorAll(".slide"), //cherche toute les images définies en classe slide
         gauche = document.querySelector("#gauche"),
         droite = document.querySelector("#droite"),
-        current = 0
+        current = 0 //met le compteur à 0
 
         //clear les images
         function reset(){
@@ -102,7 +102,6 @@
             reset();
             sliderimg[current+1].style.display="block";
             current++;
-            let 
             if (current === sliderimg.length - 1){ //remets le compteur à 0
                 current = -1;
             }

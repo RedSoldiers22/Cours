@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    #mag {
+     text-align: center;
+     margin-top: 50px;   
+    }
+
+    #menu {
+        text-align: center;
+        font-size: 25px;
+    }
+    #menu li {
+        width: 100px;
+        display: inline-block;
+        text-decoration: none;
+        margin: 150px 170px;
+    }
+
+    .hom {
+        background-image: url("imgjs/hom.jpg");
+    }
+    .fem {
+        background-image: url("imgjs/fem.jpg");
+    }
+    .enf {
+        background-image: url("imgjs/enf.jpg");
+    }
+</style>
+<body>
+    <h1 id="mag">Magasin</h1>
+    <nav>
+        <ul id="menu">
+            <li>Hommes</li>
+            <li>Femmes</li>
+            <li>Enfants</li>
+        </ul>
+        <div id="image_principale">
+            <div class="prod hom"></div>
+            <div class="prod fem"></div>
+            <div class="prod enf"></div>
+        </div>
+    </nav>
+    <script>
+        //faire page par page
+        homme = document.querySelector(".hom"),
+        femme = document.querySelector(".fem"),
+        enfant = document.querySelector(".enf")
+            //
+    // depuis E6 on peut servir du backquote pour entourer une chaine de caractères en multiligne et pouvoir utiliser des ' et des " sans se soucier 
+    // de la prédécence des quotes ' avec les doubles quotes ".  
+    //
+    // voici un tableau d'objets en json ayant 2 objet categories dont les clés sont (hommes,femmes) et les valeurs de ces clés sont des tableaux
+    // d'objets contenant les valeurs noms/ prenoms.
+    // 
+    // Object.keys renvoi les clés  et Object.values renvoi les values 
+    // 
+    
+    var jsonProduits = `[ 
+                            { "hommes":[
+                                { "nom_produit":"short homme"     , "prix":26.00, "photo": "img1.jpg" },
+                                { "nom_produit":"pantalon homme" , "prix":28.00, "photo": "imgA.jpg" },
+                                { "nom_produit":"t-shirt homme"  , "prix":35.00, "photo": "img22.jpg" },
+                                { "nom_produit":"chaussurehomme", "prix":15.00, "photo": "img59.jpg" }
+                              ]},
+                            { "femmes":[
+                                { "nom_produit":"robe femme" , "prix":25.00, "photo": "fimg1.jpg" },
+                                { "nom_produit":"pantalon femme" , "prix":28.00, "photo": "fimgA.jpg" },
+                                { "nom_produit":"t-shirt femme"  , "prix":35.00, "photo": "fimg22.jpg" },
+                                { "nom_produit":"chaussure femme", "prix":15.00, "photo": "fimg59.jpg" }
+                              ]},
+                              { "enfants":[
+                                { "nom_produit":"robe enfant" , "prix":25.00, "photo": "eimg1.jpg" },
+                                { "nom_produit":"pantalon enfant" , "prix":28.00, "photo": "fimgA.jpg" },
+                                { "nom_produit":"t-shirt enfant"  , "prix":35.00, "photo": "fimg22.jpg" },
+                                { "nom_produit":"chaussure enfant", "prix":15.00, "photo": "fimg59.jpg" }
+                              ]}  
+                        ]`;
+
+// on transforme la chaine repésentant le Json 
+var tobj = JSON.parse(jsonProduits);
+// tobj est un objet ressemblant beaucoup au Json ci-dessus 
+  
+var clefs = Object.keys(tobj);
+ console.log("clefs de tobj:",clefs);
+var vals = Object.values(tobj);
+ console.log("categories",vals);
+ 
+for(let i=0; i < vals.length; i++ ) {
+
+  // Object.keys renvoi un tableau, ici un tableau avec seulement un nom
+  // de categorie (femme/homme) , je transforme ce tableau en chaine avec toString
+  // et je peux l'insérer dans la page HTML 
+  
+    // même s'il n'y a qu'un valeur Object.keys renvoi toujours un tableau d'au la nécessite de 
+    // prendre le 1er élémnet de ce tableau
+    //var nomCateg = (Object.keys(vals[i]))[0];
+    // il y avait aussi possibilité de transformer ce tableau en chaine de caractère.
+     var nomCateg = Object.keys(vals[i]).toString();
+     console.log("CATEG:",nomCateg);
+    // --> ici, je suis toujours dans la boucle et je peux insérer le nom de la categorie dans un menu 
+    // genre : $("ul#menu").append("<li>"+nomcateg+"</li>"); (rappel sur display:inline-block pour la liste)
+   
+    var categ = Object.values(vals[i]);
+     console.log("CATEGORIE :",categ);
+    var produits = categ[0];
+    console.log("PRODUITS:",produits);
+    for(let j = 0 ; j < produits.length ; j++ ) {
+        console.log(produits[j]);
+    }
+}
+    </script>
+</body>
+</html>
