@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let tableau = ["aaa","bbb","cccc","Rerr","errrr"] ;
+        // for ( let number = 0; number < tableau.length; number++) 
+        //     { document.write(number+":"+tableau[number]+"<br>"); }
+        // function multiplier(factor)  { 
+        //     return function(number) 
+        //         { return number * factor ;  }
+        // }
+
+        // let mdeux = multiplier(2) ;
+        // console.log(mdeux(55));
+        // let m3 = multiplier(3) ;
+        // console.log(m3(4));
+
+        // let o = { nom: "pol"} ;
+        // console.log(typeof o);
+
+        let day1 = { squirrel: false, events: ["work", "touched tree", "pizza", "running"] }; 
+        console.log("day1.squirrel:"+day1.squirrel) ;
+        console.log("day1.events1:"+day1.events[1]) ;
+        let journal = [ 
+        {    
+        titre: "article1",
+        events: ["work", "touched tree", "pizza", "running", "television"], 
+        squirrel: false
+        }, 
+        {
+        titre: "article2",
+        events: ["work", "ice cream", "cauliflower", "lasagna", "touched tree", "brushed teeth"], 
+        squirrel: false
+        }, 
+        {
+        titre: "article3",
+        events: ["weekend", "cycling", "break", "peanuts", "beer"], 
+        squirrel: true
+        }
+        ]
+        /*je vais chercher les titres dans journal*/
+        for(var i=0;i<journal.length;i++){ 
+            console.log(journal[i]); /*j'affiche dans la console*/
+            document.write("<h1>"+journal[i].titre+"</h1>");/*écrit les titres entre <h1> dans la page html*/
+            /*je vais chercher chaque events de chaque tableau dans journal*/
+            
+            for(let j=0; j<journal[i].events.length; j++){
+                console.log(journal[i]); /*j'affiche dans la console*/
+                document.write("<li>" + journal[i].events[j] + "</li>")/*écrit les events entre <li> dans la page html*/
+            }
+            
+        }
+        /* for ( let i = 0; i < journal.length; i++) {
+            document.write("<h1>"+journal[i].titre+"</h1>" + "<ul>");
+            // console.log(journal[i].events)
+            
+                for ( let j = 0; j < journal[i].events.length ; j++) {
+                     document.write("<li>"+journal[i].events[j]+"</li>" );
+                 }
+            document.write("</ul>")
+        } */
+
+    </script>
+</body>
+</html>

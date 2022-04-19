@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // ... operateur spread
+        let t1 = [1,2,3,4];
+        let t2 = [5,6,7];
+
+        t1 = t1.concat(t2);
+        console.log(t1);
+
+        //ou
+
+        let t3 = [...t1,...t2]; // ... -> permettent de mettre les valeurs indépdendantes dans un tableau
+        console.log(t3)
+
+        // destructuring array
+        let nombres = [1,2,3];
+        [a,b,c] = nombres;
+        console.log(a)
+        console.log(typeof a)
+
+        let x = 2 ; // remplace le x=tmp;x=y;y=tmp
+        let y = 4 ;
+        [y,x] = [x,y]
+
+        // for/of
+        let fruits = ["fraise","orange","banane"]
+        for (f of fruits) {
+            console.log(f)
+        }
+
+        // bacquote
+        let deuxmots = "sera chaud";
+        let chaine = `l'été "spécial" ${deuxmots}`; // ` -> permettent de mettre des "" dans une chaîne (altgr+7)
+        console.log(chaine);                        // ${} dans `` -> permettent d'insérer dedans
+
+        // destructuring object
+        const person = {
+            nom:"Smith",
+            prenom: "John"
+        }
+
+        const {nom, prenom} = person;
+        // ou const {nom} = person;r
+        console.log(nom);
+        console.log(prenom)
+
+        const persons = [
+            {nom: "Polo"},
+            {nom: "Jack"}
+        ]
+
+        for (const {nom} of persons) {
+            console.log(nom)
+        }
+
+
+    </script>
+</body>
+</html>
