@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Depuis le site https://www.jsdelivr.com/-->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <title>Document</title>
+    <style>
+        div#test2 {background-color: blueviolet; width: 50px; height: 50px; position: absolute;}
+    </style>
+    <script>
+        
+        $(document).ready(function(){ //le faire à chaque fois au début du jquery
+            $("#btn1").click(function(){
+                $("#test").text("texte")
+            })
+
+            //correspond à ça en JS:
+           /*
+           document.getElementById("btn1").addEventListener("click", function(){
+               document.getElementById("texte").innerHTML="texte"
+           })
+           */
+
+
+           $("#btn2").click(function(){ //change le css
+                $("#test2").css("color", "red")
+            })
+            $("#btn3").click(function(){ //alterne entre show et hide
+                $("#test2").toggle()
+            })
+            $("#btn4").click(function(){ //pour remettre lentement le texte
+                $("#test2").fadeIn(5000)
+            })
+            $("#btn5").click(function(){ //pour cacher lentement le texte
+                $("#test2").fadeOut(5000)
+            })
+            $("#btn6").click(function(){
+                $("#test2").animate({left:"250px", top:"300px", width:"200px", height:"200px"}) //pour animer la div
+            })
+
+
+
+
+        })
+    </script>
+</head>
+<body>
+    <button id="btn1">Ajoute texte</button>
+    <button id="btn2">Ajoute couleur</button>
+    <button id="btn3">Toggle</button>
+    <button id="btn4">FadeIn</button>
+    <button id="btn5">FadeOut</button>
+    <button id="btn6">Anime</button>
+    <div id="test"></div>
+    <div id="test2">Coucou</div>
+</body>
+</html>

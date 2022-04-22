@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+<meta charset="UTF-8" >
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+<title>Horloge</title>
+<style>
+
+/* Positions des chiffres sur le cadran*/
+ 	#chiffre12{position: absolute; top: 100px; left: 200px}
+	#chiffre11{position: absolute; top: 113px; left: 150px}
+	#chiffre10{position: absolute; top: 150px; left: 113px}
+	#chiffre9 {position: absolute; top: 200px; left: 100px}
+	#chiffre8 {position: absolute; top: 250px; left: 113px}
+	#chiffre7 {position: absolute; top: 287px; left: 150px}
+	#chiffre6 {position: absolute; top: 300px; left: 200px}
+	#chiffre5 {position: absolute; top: 287px; left: 250px}
+	#chiffre4 {position: absolute; top: 250px; left: 287px}
+	#chiffre3 {position: absolute; top: 200px; left: 300px}
+	#chiffre2 {position: absolute; top: 150px; left: 287px}
+	#chiffre1 {position: absolute; top: 113px; left: 250px}
+/* Position du rond central*/
+	#centre {position: absolute; top: 200px; left: 200px; font-family: arial}
+	
+/* Positions initiales des aiguilles */
+	#aiguilleheure {position: absolute; top: 110px; left: 200px}
+	#aiguilleminute {position: absolute; top: 110px; left: 200px}
+ 
+</style>
+
+<script>
+	// 1) utiliser la fonction setTimeout( uneFonction(){} , 1000 ) => execute la fonction dans une seconde
+	// 2) modulo sur un entier   =>   1 % 40 = 1  , 2 % 12 = 2 ...etc
+	// 3) modifier la fonction pour l'effectuer avec setInterval() 
+	//	https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_win_clearinterval
+	var compteur_minutes=0;
+	var compteur_heures=0;
+		
+	function tourne(){
+        if (compteur_minutes <= 12){
+			var toPo = $("#chiffre"+compteur_minutes).css("top");
+			var lePo = $("#chiffre"+compteur_minutes).css("left");
+			$("#aiguilleminute").animate({top:toPo, left:lePo});
+		}else{
+			compteur_minutes=1;
+			var toPo2 = $("#chiffre"+compteur_minutes).css("top");
+			var lePo2 = $("#chiffre"+compteur_minutes).css("left");
+			$("#aiguilleminute").animate({top:toPo, left:lePo});
+			compteur_heures++;
+		}
+		if (compteur_heures <=12){
+			var toPo2 = $("#chiffre"+compteur_heures).css("top");
+			var lePo2 = $("#chiffre"+compteur_heures).css("left");
+			$("#aiguilleheure").animate({top:toPo2, left:lePo2})
+		}else if (compteur_heures=1){
+			var toPo2 = $("#chiffre"+compteur_heures).css("top");
+			var lePo2 = $("#chiffre"+compteur_heures).css("left");
+			$("#aiguilleheure").animate({top:toPo2, left:lePo2})
+		}
+		compteur_minutes++;
+
+
+
+		if (indic==true){
+			window.setTimeout("tourne()", "1000");
+		}else if (indic==false){
+			clearTimeout();
+		}
+	}
+
+		
+</script>
+
+</head>
+<body>
+
+<p>Une petite horloge...<input type="button" value="Lancer!" onclick="indic=true; tourne()"><input type="button" value="Arrêter!" onclick="indic=false"></p>
+<div id="chiffre1"><p>1</p></div>
+<div id="chiffre2"><p>2</p></div>
+<div id="chiffre3"><p>3</p></div>
+<div id="chiffre4"><p>4</p></div>
+<div id="chiffre5"><p>5</p></div>
+<div id="chiffre6"><p>6</p></div>
+<div id="chiffre7"><p>7</p></div>
+<div id="chiffre8"><p>8</p></div>
+<div id="chiffre9"><p>9</p></div>
+<div id="chiffre10"><p>10</p></div>
+<div id="chiffre11"><p>11</p></div>
+<div id="chiffre12"><p>12</p></div>
+<div id="centre"><p>o</p></div>
+
+<div><img alt="heures" src="imgjs/rondbleu.png" height="21" id="aiguilleheure" width="21"></div>
+<div><img alt="minutes" src="imgjs/rondrouge.png" height="21" id="aiguilleminute" width="21"></div>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+
+    <!--affiche ce qu'on tape dans l'un dans l'autre-->
+    <form name="form2">
+        saisir ici <input type="text" name="leinput" value="">
+        <input type="button" onclick="afficher('form2')" value="afficher">
+        afficher ici <input type="text" name="leoutput">
+    </form>
+
+    <script>
+        /*function afficher(form2){
+        var saisie = document.form2.leinput.value
+        document.form2.leoutput.value = saisie
+        }*/
+        $(document).ready(function(){
+            $("button").keyup(function(){
+                let ret = $("#leinput").val()
+                $("#leoutput").val() = ret
+            })
+        })
+    </script>
+</body>
+</html>
