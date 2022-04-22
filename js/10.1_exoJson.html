@@ -102,35 +102,35 @@ for(let i=0; i < vals.length; i++ ) {
     affimenu.insertAdjacentHTML("beforeend",`<li><button id="${nomCateg}">${nomCateg}</button></li>`);
 
     document.getElementById(nomCateg).addEventListener('click', function(event){    
-        // montrer que nomCateg
+
         // $(".catalog").hide()
-        let nc = event.target.getAttribute("id")
-        let cata = document.querySelectorAll(".catalog")
+        let nc = event.target.getAttribute("id") //je vais chercher id du bouton sur lequel je clic (donne hommes)
+        let cata = document.querySelectorAll(".catalog") //je prends tout ce qu'il y a dans la classe catalog
         
         // $("#"+nomCateg).show()
-        cata.forEach((i)=>{i.style.display="none"})
-        let categ = document.querySelectorAll("."+nc)
-        categ.forEach((j)=>{j.style.display="block"})
+        cata.forEach((i)=>{i.style.display="none"}) //je cache tout
+        let categ = document.querySelectorAll("."+nc) // dans categ je prends l'id et rajoute . pour faire .id (.hommes)
+        categ.forEach((j)=>{j.style.display="block"}) // pour chaque .id qui correspont j'affiche ce qu'il contient en block
 
     })
 
     for(let j = 0 ; j < produits.length ; j++ ) { // boucle qui va chercher tout les produits dans produits
-    var nomProd = Object.keys(produits[j]).toString();
+    var nomProd = Object.keys(produits[j]).toString(); //je mets en string
     var prod = Object.values(produits[j]);
     var liste = prod[0];
     let divProd = document.getElementById("produits")
 
-    let unProduit = document.createElement('div');
-    unProduit.classList.add(nomCateg) ; //ajoute une classe
-    unProduit.classList.add("catalog") ;
+    let unProduit = document.createElement('div'); //je crée des div
+    unProduit.classList.add(nomCateg) ; //ajoute une classe avec le nomCateg
+    unProduit.classList.add("catalog") ; //ajoute la classe catalog en plus
    
-    let prodName = document.createElement("h1");
-    prodName.append(`${produits[j].nom_produit} / ${produits[j].prix}€`);
-    let prodImg = document.createElement("img");
-    prodImg.setAttribute("src", produits[j].photo)
-    unProduit.append(prodName);
-    unProduit.append(prodImg);
-    divProd.append(unProduit)
+    let prodName = document.createElement("h1"); // dans prodName que je crée je crée un h1
+    prodName.append(`${produits[j].nom_produit} / ${produits[j].prix}€`); //j'injecte ce qu'il y aura a mettre dans le h1
+    let prodImg = document.createElement("img"); // dans prodImg que je crée je crée une img
+    prodImg.setAttribute("src", produits[j].photo) //j'injecte ce qu'il y aura à mettre dans le img depuis le jSON
+    unProduit.append(prodName); //j'injecte ce qu'il y a dans prodName dans unProduit
+    unProduit.append(prodImg); //j'injecte ce qu'il y a dans prodImg dans unProduit
+    divProd.append(unProduit) //j'injecte ce qu'il y a dans unProduit dans divProd
     }   
 } 
 

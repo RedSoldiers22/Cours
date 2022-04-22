@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Person(nom,lage){ // utiise beaucoup de mémoire
+            //datas
+            this.name = nom,
+            this.age = lage,
+            //methodes
+            //this.presente = function(){console.log("Hello je suis "+this.name+" et j'ai "+this.age+" ans")}
+        
+        Person.prototype.presente=function(){
+            //avec les prototypes ne pas utiliser de fonctions fléchées
+            {console.log("Hello je suis "+this.name+" et j'ai "+this.age+" ans")}
+            }
+        }
+
+        let tom = new Person("Tom",44)
+        let polo = new Person("Polo",33)
+        tom.presente();
+        polo.presente();
+
+    </script>
+</body>
+</html>
