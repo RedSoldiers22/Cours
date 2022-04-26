@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <title>Magasin de pantalons</title>
+
+    <style>
+        .produit {
+            padding: 25px;
+            margin: 10px;
+            width: 250px;
+            background-color: aqua;
+            text-align: center;
+            border: 3px solid darkcyan;
+            border-radius: 8px;
+        }
+
+        .produit:hover {
+            opacity:0.5
+        }
+
+        button {
+            padding: 25px;
+            margin: 10px;
+            font-size: 30px;
+            border: 5px solid darkcyan;
+            border-radius: 15px;
+        }
+
+        button:hover {
+            background-color: aquamarine;
+        }
+
+    </style>
+
+
+
+    <script> 
+    $(document).ready (function() {
+        // $(".produit").on( "click", function() {     
+            // pour chaque element qui appartient à la class produit si je clique j'affiche son id (attr("id")))
+            // mais si je rajoute un élément <p> que se passe-t-'il ?
+            // il n'affiche pas l'id du nouvel element créé car l'ecouteru d'evenement a été créer au chargement de la page.
+            // ne fonctionne que sur les éléments présents au lancement de la page
+        //     alert( $(this).attr('id') );
+        // })
+
+        // Pour régler ce problème on va connecter un écouteur d'événement sur tout le document et puis lui dire de surveiller l'event sur chaque produit ainsi
+        $(document).on ( 'click',".produit", function() {        // fontionne même pour un élément créé après le lancement de la page
+            console.log( $(this).attr("id") );
+        })
+
+        // je peux donx rajouter un produit et l'evet fonctionnera pluisque qu'on ecoute sur tout les document et qu'on verifi
+        // qu'on est sur un element de class produit .
+
+        // Ici on va détecter le bouton bouton Liman bouton quand on clique sur ce bouton on exécute l'action qui se trouve entre accolade après
+        // Donc sécurisé nous permet de créer en même temps grâce a à peine le code HTML et le texte qui aura dans ce code c'est beaucoup plus rapide
+
+        $("button").click( () => {
+            console.log("click")
+            $("#container").append(`<div class="produit" id="prod-id4">pantalon jogging</div>`)
+        })
+
+
+
+       
+
+            
+
+    } ) 
+
+    </script>
+
+    
+
+</head>
+
+<body>
+
+
+
+    <button>ajouter produit</button>
+
+
+
+    <div id="container">
+
+        <div class="produit" id="prod-id1">pantalon tergal</div>
+
+        <div class="produit" id="prod-id2">pantalon jean</div>
+
+        <div class="produit" id="prod-id3">ponalon chino</div>
+
+    </div>
+
+    
+
+</body>
+
+</html>
