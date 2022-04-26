@@ -22,9 +22,10 @@ debug($employes);
 debug($employes[0]["name"]);
 
 foreach($employes as $key => $values){
-    <h1>employés</h1>
 
     foreach($values as $keys => $val);
     debug($val);
     //afficher l'employé en html autre que <pre>
 }
+
+?>
