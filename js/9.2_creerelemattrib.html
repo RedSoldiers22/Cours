@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p.rouge {color: red;}
+
+        p.pied {
+            color: red;
+            background-color: black;
+            }
+        .vert {
+            color: green;
+            font-size: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form id="formulaire">
+        <h1>dom détection</h1>
+        <p id="description" class="rouge">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae, doloremque! Dolorem illum ex mollitia quod praesentium? Culpa cum animi nobis ut repudiandae. Totam nesciunt unde tenetur autem at repellat nulla.</p>
+        <p>
+            <input type="text" id="nom" name="lenom">
+            <input type="password" id="pass" name="lepass">
+        </p>
+    </form>
+    <form id="formulaire">
+        <p>
+            <input type="text" id="nom" name="lenom">
+            <input type="password" id="pass" name="lepass">
+        </p>
+    </form>
+    <div id="toto"></div>
+    <div id="lien"></div> <!--Pas oublier de créer la div-->
+    <p id="footer" class="rouge pied">pied de page</p>
+
+    <script>
+        //créer <a href="http://example.com" title="Exemple">le site example.com</a>
+        let anchor = document.createElement("a"); //<a></a>
+        anchor.setAttribute("href", "http://example.com")
+        anchor.setAttribute("target","_blank")
+        anchor.setAttribute("title","Example")
+
+        let montexte = document.createTextNode("le site example.com");
+        anchor.appendChild(montexte)
+
+        document.getElementById("lien").appendChild(anchor);
+
+        let lr = document.querySelectorAll(".rouge");
+        let tr = [...lr]
+        tr.forEach(function(item){
+            console.log(item)
+        })
+
+    </script>
+</body>
+</html>

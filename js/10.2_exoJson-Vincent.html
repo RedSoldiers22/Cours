@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <style>
+    body {
+      font-family: Helvetica Neue, Helvetica, sans-serif;
+      background: tomato;
+    }
+
+    .menu {
+      text-align: center;
+      margin-top: 9em;
+    }
+
+    .menu ul {
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      transform: skew(-25deg);
+    }
+
+    .menu ul li {
+      background: #fff;
+      float: left;
+      border-right: 1px solid #eee;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+      text-transform: uppercase;
+      color: #555;
+      font-weight: bolder;
+      transition: all 0.3s linear;
+
+    }
+
+    .menu ul li:first-child {
+      border-radius: 7px 0 0 7px;
+    }
+
+    .menu ul li:last-child {
+      border-right: none;
+      border-radius: 0 7px 7px 0;
+    }
+
+    .menu ul li:hover {
+      background: #eee;
+      color: tomato;
+    }
+
+    a {
+      display: block;
+      padding: 1em 2em;
+      color: inherit;
+      text-decoration: none;
+      transform: skew(25deg);
+    }
+
+    #content {
+      width: 40%;
+      height: auto;
+      margin: 20px auto auto auto;
+      background: #fff;
+      display: none;
+
+    }
+
+
+    #mainImg {
+      width: 40%;
+      height: auto;
+      margin: 20px auto 20px auto;
+      background: #fff;
+      display: none;
+    }
+
+
+    h1 {
+      text-transform: uppercase;
+      color: #555;
+      font-weight: bolder;
+      padding: 10px;
+    }
+
+    img {
+      display: block;
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <nav class="menu">
+    <ul>
+      <li><a href="#" id="h">Homme</a></li>
+      <li><a href="#" id="f">Femme</a></li>
+      <li><a href="#" id="e">Enfant</a></li>
+    </ul>
+  </nav>
+  <div id="mainImg"></div>
+  <div id="content" class="container">
+  </div>
+  <script>
+    const json = `[ 
+                        { "hommes":[
+                            { "nom_produit":"short homme"     , "prix":26.00, "photo": "https://assets.laboutiqueofficielle.com/w_450,q_auto,f_auto/media/products/2017/07/28/lbo_98379_fab-shalbo-119_20180828T142308_05.jpg" },
+                            { "nom_produit":"pantalon homme" , "prix":28.00, "photo": "https://www.jules.com/dw/image/v2/AAHK_PRD/on/demandware.static/-/Sites-core-master-catalog/default/dw0daa3e78/images/1000352_11861_V1.jpg?sw=1562&sh=1800&sm=fit" },
+                            { "nom_produit":"t-shirt homme"  , "prix":35.00, "photo": "https://assets.laboutiqueofficielle.com/w_450,q_auto,f_auto/media/products/2019/04/23/lbo_181051_FAB_SHALBO-727_20190527T165921_01.jpg" },
+                            { "nom_produit":"chaussurehomme", "prix":15.00, "photo": "https://static.galerieslafayette.com/media/678/67850170/G_67850170_85_ZP_1.jpg" }
+                          ]},
+                        { "femmes":[
+                            { "nom_produit":"robe femme" , "prix":25.00, "photo": "fimg1.jpg" },
+                            { "nom_produit":"pantalon femme" , "prix":28.00, "photo": "fimgA.jpg" },
+                            { "nom_produit":"t-shirt femme"  , "prix":35.00, "photo": "fimg22.jpg" },
+                            { "nom_produit":"chaussure femme", "prix":15.00, "photo": "fimg59.jpg" }
+                          ]},
+                          { "enfants":[
+                            { "nom_produit":"robe enfant" , "prix":25.00, "photo": "eimg1.jpg" },
+                            { "nom_produit":"pantalon enfant" , "prix":28.00, "photo": "fimgA.jpg" },
+                            { "nom_produit":"t-shirt enfant"  , "prix":35.00, "photo": "fimg22.jpg" },
+                            { "nom_produit":"chaussure enfant", "prix":15.00, "photo": "fimg59.jpg" }
+                          ]}  
+                    ]`;
+
+
+    var obj = JSON.parse(json);
+
+
+    var keys = Object.keys(obj);
+    console.log("keys de obj:", keys);
+    var vals = Object.values(obj);
+    console.log("values:", vals);
+
+
+    function generateList(x) {
+      document.getElementById("content").innerHTML = "";
+      var value = Object.values(vals[x]);
+      console.log("value", value)
+      var product = value[0];
+      console.log("product", product)
+      for (j = 0; j < product.length; j++) {
+        console.log(product[j])
+        let productNamePrice = document.createElement("h1");
+        productNamePrice.append(`${product[j].nom_produit} / ${product[j].prix}€`);
+        let productPhoto = document.createElement("img");
+        productPhoto.setAttribute("src", product[j].photo);
+        let content = document.getElementById("content");
+        content.style.display = "block"
+        content.append(productNamePrice);
+        content.append(productPhoto);
+
+
+
+      }
+      let newImg = document.createElement("img");
+
+      newImg.setAttribute("src", `img${x}.jpeg`);
+      document.getElementById("mainImg").innerHTML = "";
+      let mainImg = document.getElementById("mainImg");
+      mainImg.style.display = "block";
+      mainImg.append(newImg);
+
+    }
+
+    document.getElementById("h").addEventListener("click", function () {
+      generateList(0)
+    })
+    document.getElementById("f").addEventListener("click", function () {
+      generateList(1)
+    })
+    document.getElementById("e").addEventListener("click", function () {
+      generateList(2)
+    })
+
+    //Ajouter écouteur évén
+  </script>
+</body>
+
+</html>

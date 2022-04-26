@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <!--<a href="http://www.afpa.fr">GO TO AFPA</a>!-->
+    <!--<input></input>!-->
+    <div>COUCOU</div>
+
+    <script>
+        //empêche le lien de se lancer
+        /*let lien=document.querySelector("a")
+        lien.addEventListener("click", (event) => {
+            console.log("NON!!!")
+            event.preventDefault() //empêche l'exécution
+        })*/
+
+        //affiche les lettres ou actions tapées/faites dans l'input
+        /*let leinput = document.querySelector("input")
+        leinput.addEventListener("keydown", (event) =>{
+            console.log(event.key)
+        })*/
+
+        //crée une alerte danger quand on fait ctrl+a
+        /*let leinput = document.querySelector("input") 
+        leinput.addEventListener("keydown", (event) => {
+            if(event.ctrlKey && event.key == 'a') {
+                alert("DANGER !!!!!")
+            }
+        })*/
+
+        // affiche la position X et Y du click dans la div
+        let lediv=document.querySelector("div")
+        lediv.addEventListener("click", (event) => {
+            console.log("X:", event.pageX)
+            console.log("Y:", event.pageY)
+        })
+    </script>
+</body>
+</html>

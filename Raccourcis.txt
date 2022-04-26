@@ -1,0 +1,4 @@
+Raccourcis VSC:
+	clic sur la ligne + alt + shift + flèche du bas => duplique la ligne
+	alt enfoncé + clic => permet de taper le même texte là où on a cliqué
+	taper par ex : div#toto + entrée => crée directement <div id="toto"></div>

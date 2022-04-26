@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>GO</button>
+    <script>
+    //quand on click dans GO la detection d'événement click est désactivée
+        /*let btn = document.querySelector("button")
+        btn.addEventListener("click", () => { 
+            console.log("go clicked")
+            btn.removeEventListener("click")
+        })*/
+
+        //affiche event dans la console quand on clique
+        let btn = document.querySelector("button")
+        btn.addEventListener("click", (event) => { 
+            console.log("event")
+        })
+
+        //detecte quel partie de la souris a clické et où
+        /*let btn = document.querySelector("button")
+        btn.addEventListener("mousedown", (event) => {
+            console.log(event) 
+            if(event.button==0){
+                console.log("bouton gauche")
+            }else if(event.button==1){
+                console.log("bouton milieu")
+            }else if(event.button==2){
+                console.log("bouton droit")
+            }
+        })*/
+    </script>
+</body>
+</html>

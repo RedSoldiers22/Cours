@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Depuis le site https://www.jsdelivr.com/-->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <title>Document</title>
+    <style>
+        .produit{background-color: aqua; border: 1px solid red; width: 150px; height: 50px;}
+    </style>
+</head>
+<body>
+    <button>ajoute un produit</button><br>
+    <div id="container">
+    <div class="produit" id="pid1">pantalon tergal</div>
+    <div class="produit" id="pid2">pantalon jean</div>
+    <div class="produit" id="pid3">robe</div>
+    </div>
+    <script>
+        //ajouter un produit et/ou identifier la div par le clic
+        $(document).ready(function(){ //le faire à chaque fois au début du jquery
+            /*$(".produit").click(function(){
+                console.log($(this).attr("id")) //this permet de récpurer le nom dans la console et avec .attr("id")
+                                                // seulement l'id
+            })
+            $("button").click(function(){
+                $("#container").append('<div class="produit" id="pid4">robe 2</div>') //ajoute un produit dans une div
+            })*/
+
+            $(document).on("click",".produit", function(){
+                (console.log($(this).attr("id"))) //ou  $(this).remove(); -> pour enlever les div quand on clic
+            })
+            $("button").click(function(){
+                $("#container").append('<div class="produit" id="pid4">robe 2</div>')
+            })    
+
+        })
+    </script>
+</body>
+</body>
+</body>
+</html>

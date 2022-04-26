@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p.rouge {color: red;}
+
+        p.pied {
+            color: red;
+            background-color: black;
+            }
+        .vert {
+            color: green;
+            font-size: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form id="formulaire">
+        <h1>dom détection</h1>
+        <p id="description" class="rouge">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae, doloremque! Dolorem illum ex mollitia quod praesentium? Culpa cum animi nobis ut repudiandae. Totam nesciunt unde tenetur autem at repellat nulla.</p>
+        <p>
+            <input type="text" id="nom" name="lenom">
+            <input type="password" id="pass" name="lepass">
+        </p>
+    </form>
+    <form id="formulaire">
+        <p>
+            <input type="text" id="nom" name="lenom">
+            <input type="password" id="pass" name="lepass">
+        </p>
+    </form>
+    <div id="toto"></div>
+    <div id="lien"></div>
+
+    <button id="go">Go</button>
+
+    <p id="footer" class="rouge pied">pied de page</p>
+
+    <script>
+        document.getElementById("go").addEventListener('click',function(){   //pour connecter la fonction sur l'élément   //{ alert("GO BROOOOO")} possible après qui crée une alerte sur la page html
+           // document.getElementsByTagName("h1")[0].style.color= "#ff0000";                             
+           // document.getElementById("description").style.display="none";
+           let lnom = document.getElementById("nom").value; //va chercher l'input avec l'id "nom"
+           let h1 = document.getElementsByTagName("h1")[0].innerHTML = lnom //change le titre du h1 avec le "go"
+        });
+
+        /*document.getElementById("nom").addEventListener('blur',function(){
+            alert("je sors de input nom")   
+        })*/
+
+    </script>
+</body>
+</html>

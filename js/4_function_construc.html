@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Person(nom,age,salaire){
+            //attributs
+            this.name=nom;
+            this.old=age;
+            this.money=salaire
+            //méthodes
+            // this.affiche=function(){console.log("Hello my name is "+this.name+" i am "+this.old)}
+
+            //fonction fléchée
+            this.affiche=() => console.log("Hello my name is "+this.name+" i am "+this.old)
+            this.gagne=()=>console.log("Jam gagne "+this.money+" €")
+        }
+        let jam = new Person("jam",44,4000)
+        let fred = new Person("Fred",34,1200)
+
+        jam.affiche();
+        fred.affiche();
+
+        jam.gagne() /*jam gagne 4000€*/
+        /*console.log(jam.affiche());
+        console.log(fred.affiche())*/
+
+    </script>
+</body>
+</html>
