@@ -1,5 +1,5 @@
 <?php
-require_once("6.2fonctions.php");
+require_once("6.2.fonctions.php");
 
 // on créé un tableau de tableaux
 $employes = [

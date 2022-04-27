@@ -8,7 +8,7 @@
 </head>
 <body>
 <?php 
-require_once("6.2fonctions.php");
+require_once("6.2.fonctions.php");
 // En PHP on ne met pas à jour un élément précis puisque le PHP regenere toute une page HTML côté serveur 
 // on peut pas aller modifier un élément précis
 
