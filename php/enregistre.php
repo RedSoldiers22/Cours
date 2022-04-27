@@ -10,4 +10,6 @@ $annuaire = fopen("annuaire.txt","a+"); //crée un fichier, l'ouvre en écriture
 $content = $_POST["nom"].":".$_POST["prenom"].":".$_POST["age"]; // $_POST est un tableau associatif
 fwrite($annuaire,$content);
 
+header('Location: form01.php');
+// ce programme enregistre les o
 ?>
