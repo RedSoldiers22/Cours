@@ -17,7 +17,7 @@
     <?php
     $annuaire = fopen("annuaire.txt","r");
  ?>
- <table>
+ <table border=1> <!-- crée un tableau !-->
     <?php
     while (($buffer = fgets($annuaire, 4096)) !== false){ ?>
     <tr>
@@ -31,5 +31,3 @@
     </table>
 </body>
 </html>
-Quand on utilise la méthode Get dans les forms les valeurs sont passées dans l'URL
-Il faut plutôt utiliser la méthode POST car il peut y avoir trop de données

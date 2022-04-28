@@ -8,7 +8,16 @@ $femmes = [
     [ "nom_produit"=>"chaussure femme", "prix"=>15.00, "photo"=> "https://www.terrebleue.com/files/cache/square_two/files/421-3305-00-856-b-614d9ffc186b1.jpg"] 
 ];
 
-foreach($femmes as $key => $values){ ?>
+for($i = 0 ; $i <count($femmes) ; $i++) //boucle for
+        {
+            echo '<img src='.$femmes[$i]["photo"].'>'; // /!\
+            echo "<br>";
+            echo $femmes[$i]["nom_produit"]." : ".$femmes[$i]["prix"]." €"."<br>";
+            echo "<br>";
+
+        }
+
+/*foreach($femmes as $key => $values){ ?>
     <h1>Catalogue femmes</h1>
 <?php
 foreach($values as $keys => $val) {
@@ -18,4 +27,4 @@ foreach($values as $keys => $val) {
 <hr>
 <?php }
 
-?>
+?>*/

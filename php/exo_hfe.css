@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+    background-color: red;
+    text-align: center;
+    
+}
+body{
+    background-color: red;
+
+}
+
+h1{
+    margin: 100px;
+}
+
+nav{
+    margin: 100px;
+}
+
+nav a{
+    margin:auto 50px;
+}
