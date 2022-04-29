@@ -47,6 +47,9 @@ require_once("6.2.fonctions.php");
 
   ];
 
+ $categorie = $_GET["cata"];
+  if( $categorie == "femmes") {
+    echo $categorie["nom_produit"];
   
     // Voilà comment il fallait transformer l'espèce de fichier JavaScript en tableau de tableau PHP c'est ce tableau qu'on pourra Qu'on pourra filtrer 
     // avec la clé catégories par exemple qu'on retrouve dans $_GET
@@ -72,27 +75,19 @@ require_once("6.2.fonctions.php");
 
 <div id="cata"></div><?php
   if(isset($_GET['cata'])){
-
     $affichage=$_GET['collection'];
-
     foreach($collection as $categorie => $article){
-
       if($categore == $affichage){
-
         foreach($article as $caracterisque => $info){
-
           ?><div class"articles"><?php
           echo ("<h2".$info["nom_produit"]."</h2>");
           echo ("Prix: ".$info["prix"]."<br><br>");
           echo ("<img src=".$info['photo'].">");
-          ?></div><?php
-          }
+          ?></div>
         }
-      };
+      }
+    };
   }
-?>
-
-        
 
 
 </html>
