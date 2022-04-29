@@ -1,5 +1,5 @@
 <?php 
-require_once("fonctions.php");
+require_once("6.2.fonctions.php");
 // recupérer la categorie dans $_GET
 ?>
 <!DOCTYPE html>
@@ -18,6 +18,8 @@ require_once("fonctions.php");
    
 </style>
 <body>
+
+
 <?php
   $cata = [
 
@@ -45,6 +47,10 @@ require_once("fonctions.php");
 
   ];
 
+ $categorie = $_GET["cata"];
+  if( $categorie == "femmes") {
+    echo $categorie["nom_produit"];
+  
     // Voilà comment il fallait transformer l'espèce de fichier JavaScript en tableau de tableau PHP c'est ce tableau qu'on pourra Qu'on pourra filtrer 
     // avec la clé catégories par exemple qu'on retrouve dans $_GET
     // modifier le tableau ci-dessous pour qu'il soit compatible PHP (les images sont celles que quentin à renseigné dans son exemple) on vient de le faire
@@ -62,6 +68,7 @@ require_once("fonctions.php");
 
  <a href=hommeFemmesEnfants.php?categ=hommes>Hommes</a>
  <a href=hommeFemmesEnfants.php?categ=femmes>Femmes</a>
+ <a href=hommeFemmesEnfants.php?categ=enfants>Enfants</a>
 
 </nav>
 <main>
