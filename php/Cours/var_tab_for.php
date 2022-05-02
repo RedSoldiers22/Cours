@@ -12,6 +12,7 @@
 
     //on peut aussi décarer des fonctions en PHP et ici on va déclarer une fontion pour nous donner les chiffres impairs
     function impairs($liste){
+        echo $liste[0];
     }
     //déclaration de variable
     $var = 5;

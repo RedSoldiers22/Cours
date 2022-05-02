@@ -64,30 +64,14 @@ require_once("6.2.fonctions.php");
 ?>
 
 </body>
-
 <nav>
- <a href=?accueil=accueil>Accueil</a>
- <a href=?cata=hommes>Hommes</a>
- <a href=?cata=femmes>Femmes</a>
- <a href=?cata=enfants>Enfants</a>
+
+ <a href=hommeFemmesEnfants.php?categ=hommes>Hommes</a>
+ <a href=hommeFemmesEnfants.php?categ=femmes>Femmes</a>
+ <a href=hommeFemmesEnfants.php?categ=enfants>Enfants</a>
+
 </nav>
+<main>
 
-
-<div id="cata"></div><?php
-  if(isset($_GET['cata'])){
-    $affichage=$_GET['collection'];
-    foreach($collection as $categorie => $article){
-      if($categore == $affichage){
-        foreach($article as $caracterisque => $info){
-          ?><div class"articles"><?php
-          echo ("<h2".$info["nom_produit"]."</h2>");
-          echo ("Prix: ".$info["prix"]."<br><br>");
-          echo ("<img src=".$info['photo'].">");
-          ?></div>
-        }
-      }
-    };
-  }
-
-
+</main>
 </html>
