@@ -1,0 +1,1 @@
+SELECT * FROM disque, artistes,genre WHERE disque.id_genre = genre.id AND disque.id_artiste = artistes.id;
