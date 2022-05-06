@@ -1,16 +1,17 @@
 <?php
-require_once('connect.php');
+require_once "connect.php";
 
-if(isset($_GET['id']) && !empty($_GET['id'])){
-    $id = strip_tags($_GET['id']);
-    $sql = "DELETE FROM `produit` WHERE `id`=:id;";
+    $connection = new PDO("mysql:host=localhost;dbname=premiere","root","");
+    $id= $_GET["id"];
+    $req = $connection->prepare("DELETE FROM produit WHERE id = :id");
+    echo $_GET["id"];
 
-    $query = $connection->prepare($sql);
+    $req->bindParam(':id', $id, PDO::PARAM_INT);
+    $req->execute();
 
-    $query->bindValue(':id', $id, PDO::PARAM_INT);
-    $query->execute();
+    
 
-    header('Location: crud_aff.php');
-}
+    //header('Location: accueil.php');
+
 
 require_once('close.php');

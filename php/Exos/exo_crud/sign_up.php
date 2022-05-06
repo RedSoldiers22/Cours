@@ -23,7 +23,7 @@
 ?>
     <form action="goBDD.php" method="POST">
         <p>Email : <input type="text" name="email"></p> 
-        <p>Mot de passe : <input type="password" name="mdp"></p> 
+        <p>Mot de passe : <input type="password" name="password"></p> 
         <p>Nom : <input type="text" name="nom"></p> 
         <p>Prénom : <input type="text" name="prenom"></p> 
         <p>Bureau : <select name="bureau">
