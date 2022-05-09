@@ -10,7 +10,7 @@ $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); //reporte 
 //on crée un objet de connection à la base de données
 $sql = "INSERT INTO artistes (id, nom, id_artiste) VALUES (NULL, '$n', '$i');";
 //on crée sous la forme de chaînes de caractères la requête sql (langage MySQL)
-echo($sql);
+
 
 $connection->exec($sql);
 

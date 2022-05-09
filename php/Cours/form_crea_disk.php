@@ -22,7 +22,7 @@
 <body>
 
     <form action="backin_BDD.php" method="POST">
-        <p>Titre : <input type="text" name="disque"></p> 
+        <p>Titre : <input type="text" name="titre"></p> 
         <p>Artistes : <select name="artistes">
             <?php foreach($artistes as $key=>$val){
                 $id=$val['id'];
