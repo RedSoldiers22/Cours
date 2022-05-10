@@ -11,3 +11,7 @@ SELECT client.numero_client, .client.nom_client, commande.numero_commande, produ
 AND commande.numero_commande = comporter.numero_commande
 AND produit.reference_produit = comporter.reference_produit
 AND client.numero_client = commande.numero_client
+
+
+
+CREATE VIEW vue1 AS -> créer une vue qui fait automatiquement une recherche définie et intégre automatiquement les nouvelles données
