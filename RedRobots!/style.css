@@ -75,7 +75,7 @@ header{
 
 header h1{
     float: left;
-    margin: 60px 300px;
+    margin: 60px 100px;
 }
 
 header nav{
@@ -147,6 +147,14 @@ article h3 {
     background-color: blue;
 }
 
+#newsr{
+    background-image: url(img/robots.jpg);
+}
+
+#newsp{
+    background-image: url(img/pieces.jpg);
+}
+
 /*ROBOTS*/
 
 #robots {
@@ -168,7 +176,6 @@ article h3 {
 #robots ul li{
     width: 300px;
     float: left;
-    padding-top: 140px;
     text-align: center;
     margin-right: 10px;
 }
@@ -213,6 +220,14 @@ article h3 {
 #contrats p {
     text-align: center;
     margin-bottom: 20px;
+}
+
+.terra {
+    background-image: url(img/terre.jpg);
+}
+
+.space{
+    background-image: url(img/galaxie.jpg);
 }
 
 /*CONTACTS*/

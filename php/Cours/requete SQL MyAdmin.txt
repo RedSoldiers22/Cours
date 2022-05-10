@@ -1,1 +1,13 @@
 SELECT * FROM disque, artistes,genre WHERE disque.id_genre = genre.id AND disque.id_artiste = artistes.id;
+
+exemple 1
+SELECT * FROM * WHERE client.numero_client = 1
+AND commande.numero_commande = comporter.numero_commande
+AND produit.reference_produit = comporter.reference_produit
+AND client.numero_client = commande.numero_client
+
+exemple 2  plus précis
+SELECT client.numero_client, .client.nom_client, commande.numero_commande, produit.designation, produit.prix_unitaire FROM client, commande, comporter, produit WHERE client.numero_client = 1
+AND commande.numero_commande = comporter.numero_commande
+AND produit.reference_produit = comporter.reference_produit
+AND client.numero_client = commande.numero_client
