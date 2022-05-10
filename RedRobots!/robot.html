@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .slide{
+            margin: 0;
+            padding: 0;
+            float: left;
+            margin-left: 211.5px;
+            width: 1000px;
+            height: 350px;
+            overflow-x: hidden;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .slide1 {
+
+            background-image: url("imgjs/img_mountains_wide.jpg");
+        }
+
+        .slide2 {
+            background-image: url("imgjs/img_nature_wide.jpg");
+        }
+
+        .slide3 {
+            background-image: url("imgjs/img_snow_wide.jpg");
+        }
+
+        .fleche {
+            cursor: pointer;
+            position: absolute;
+            margin-top: 154px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            background-color: black;
+        }
+        #droite {
+            border-width: 20px 0 20px 30px;
+            border-color: transparent transparent transparent #fff;
+            right: 0;
+            margin-right: 20px;
+        }
+        #gauche {
+            border-width: 20px 30px 20px 0;
+            border-color: transparent #fff transparent transparent;
+            left: 0;
+            margin-left: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Toi aussi trouve Dupont de Ligonés :</h1>
+    <div>
+        <button id="gauche" class="fleche"></button>
+        <div class="slide slide1"></div>
+        <div class="slide slide2"></div>
+        <div class="slide slide3"></div>
+        <button id="droite" class="fleche"></button>
+    </div>    
+    
+
+    
+    <script>
+        let sliderimg = document.querySelectorAll(".slide"), //cherche toute les images définies en classe slide
+        gauche = document.querySelector("#gauche"),
+        droite = document.querySelector("#droite"),
+        current = 0 //met le compteur à 0
+
+        //clear les images
+        function reset(){
+            for (let i = 0; i < sliderimg.length; i++){
+                sliderimg[i].style.display = "none";
+            }
+        }
+
+        //1ère slide
+        function startSlide() {
+            reset();
+            sliderimg[0].style.display = "block";
+
+        }
+
+        //montrer la précédente
+        function slideLeft(){
+            reset();
+            sliderimg[current - 1].style.display="block";
+            current--;
+        }
+
+        //montrer la suivante
+        function slideRight(){
+            reset();
+            sliderimg[current+1].style.display="block";
+            current++;
+            if (current === sliderimg.length - 1){ //remets le compteur à 0
+                current = -1;
+            }
+        }
+
+        //clic flèche gauche
+        gauche.addEventListener("click", function(){
+            if(current===0){
+                current=sliderimg.length;
+            }
+            slideLeft();
+        });
+
+        //clic flèche droite
+        droite.addEventListener("click", function(){
+            if(current===sliderimg.length - 1){
+                current= -1;
+            }
+            slideRight();
+        });
+
+        function resetCurrent(){
+            current = 0;
+        }
+
+        function slideTemp(){
+            timer = setInterval(slideRight, 5000)
+        }
+
+        startSlide();
+        slideTemp()
+    </script>
+</body>
+</html>
