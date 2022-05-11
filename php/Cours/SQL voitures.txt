@@ -1,0 +1,34 @@
+Nombre de voitures:
+	SELECT COUNT(*) FROM voiture;
+
+Nombre de voiture par marques:
+	SELECT COUNT(*) FROM voiture, marque WHERE voiture.id_marque = marque.id
+	GROUP BY marque.nom
+
+
+Nombres de voitures par marque et energie:
+	SELECT marque.nom, energie.carburant, COUNT(*) FROM voiture, energie, marque WHERE voiture.id_marque = marque.id
+	AND voiture.id_energie = energie.id
+	GROUP BY marque.id, energie.id
+
+
+Affichage avec les noms:
+SELECT marque.nom,COUNT(*) FROM voiture INNER JOIN marque ON voiture.id_marque=marque.id GROUP BY marque.id;
+
+
+Voitures pas essence et pas automatiques:
+
+	SELECT marque.nom, energie.carburant, boite_vitesse.type, voiture.id_modele FROM voiture, energie, marque, modele, boite_vitesse WHERE energie.id <> 2 AND boite_vitesse.id <> 2
+	AND boite_vitesse.id = voiture.id_boite_vitesse
+	AND energie.id = voiture.id_energie
+	AND marque.id = voiture.id_marque
+	GROUP BY voiture.id
+
+
+Créer rapport (100km*pollution) et faire par ordre descendant:
+
+	SELECT voiture.id, marque.nom, voiture.nom, energie.carburant, energie.prix_100_km * energie.indice_pollution AS rapport FROM boite_vitesse, energie, marque, voiture
+	WHERE voiture.id_marque = marque.id
+	AND voiture.id_energie = energie.id
+	AND voiture.id_boite_vitesse = boite_vitesse.id
+	ORDER BY rapport DESC
