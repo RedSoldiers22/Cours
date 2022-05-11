@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
     <style>
         .slide{
             margin: 0;
@@ -25,9 +26,13 @@
             margin-top: 300px;
             background-color: black;
             color: white;
-            width: 200px;
+            width: 250px;
             margin-left: 400px;
             opacity: 0.8;
+        }
+
+        .descri p{
+            color: white;
         }
 
         .slide1 {
@@ -58,7 +63,7 @@
             width: 0;
             height: 0;
             border-style: solid;
-            background-color: black;
+            background-color: #051937;
         }
         #droite {
             border-width: 20px 0 20px 30px;
@@ -74,19 +79,26 @@
         }
         h1 {
             text-align: center;
+            margin: 50px auto;
+        }
+        #slider{
+            margin: 50px auto;
+        }
+        .fleche{
+            opacity: 0.8;
         }
     </style>
 </head>
 <body>
-    <h1>Nouveaux Robots :</h1>
-    <div>
+    <h1>Nouveaux Robots</h1>
+    <div id="slider">
         <button id="gauche" class="fleche"></button>
         <div class="slide slide1"><div class="descri"><h4>HEKTOR IV</h4><p>Le nouveau bébé de chez Heriados Corp</p></div></div>
-        <div class="slide slide2"><div class="descri"></div></div>
-        <div class="slide slide3"><div class="descri"></div></div>
-        <div class="slide slide4"><div class="descri"></div></div>
-        <div class="slide slide5"><div class="descri"></div></div>
-        <div class="slide slide6"><div class="descri"></div></div>
+        <div class="slide slide2"><div class="descri"><h4>ORSILENT II</h4><p>L'arrivée en force du Conglomérat Askanien</p></div></div>
+        <div class="slide slide3"><div class="descri"><h4>THUNDORN AC-8</h4><p>L'éclaireur qui renverse la donne de chez ASKAR</p></div></div>
+        <div class="slide slide4"><div class="descri"><h4>STORMWEATHER</h4><p>Quand l'armée d'Hectelios privatise ses fers de lance</p></div></div>
+        <div class="slide slide5"><div class="descri"><h4>ESPALION 6</h4><p>ASKERI Inc vous donne le combat à distance</p></div></div>
+        <div class="slide slide6"><div class="descri"><h4>GORA W3</h4><p>La vitesse d'un éclaireur avec la puissance d'un M-Mode</p></div></div>
         <button id="droite" class="fleche"></button>
     </div>    
     

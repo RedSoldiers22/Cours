@@ -15,3 +15,7 @@ AND client.numero_client = commande.numero_client
 
 
 CREATE VIEW vue1 AS -> créer une vue qui fait automatiquement une recherche définie et intégre automatiquement les nouvelles données
+
+SELECT * FROM disques
+INNER JOIN artistes ON disques.id_artiste = artistes.id 
+INNER JOIN genre ON disques.id_genre = genre.id;
