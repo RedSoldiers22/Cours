@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<style>
+    header{
+        height: 150px;
+    }
+
+    body{
+        height: 789px;
+    }
+     
+    .piece{
+            margin: 0;
+            padding: 0;
+            float: left;
+            margin-left: 211.5px;
+            margin-right: 211.5px;
+            margin-bottom: 50px;
+            width: 1000px;
+            height: 400px;
+            overflow-x: hidden;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            
+        }
+
+        .descri{
+            text-align: center;
+            margin-top: 300px;
+            background-color: black;
+            color: white;
+            width: 250px;
+            margin-left: 400px;
+            opacity: 0.8;
+        }
+
+        .descri p{
+            color: white;
+        }
+
+
+    .piece1 {
+            background-image: url("img/piece1.jpg");
+        }
+
+    .piece2 {
+            background-image: url("img/piece2.jpeg");
+        }
+
+    .piece3 {
+            background-image: url("img/piece3.jpg");
+        }
+    .piece4 {
+            background-image: url("img/piece4.jpg");
+        }
+    .piece5 {
+            background-image: url("img/piece5.jpg");
+        }
+
+    .fleche {
+            cursor: pointer;
+            position: absolute;
+            margin-top: 154px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            background-color: #051937;
+        }
+    #droite {
+            border-width: 20px 0 20px 30px;
+            border-color: transparent transparent transparent #fff;
+            right: 0;
+            margin-right: 20px;
+        }
+    #gauche {
+            border-width: 20px 30px 20px 0;
+            border-color: transparent #fff transparent transparent;
+            left: 0;
+            margin-left: 20px;
+        }
+    h1 {
+            text-align: center;
+            margin: 40px auto;
+        }
+
+    .button-2{
+        margin-left: 630px;
+    }
+
+</style>
+
+<body>
+    <header>
+        <div>
+            <h1>RedRobots <span class="white">!</span></h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="robots.html">Robots</a></li>
+                    <li><a href="">Pièces</a></li>
+                    <li><a href="">Contrats</a></li>
+                    <li><a href="">Contacts</a></li>
+                </ul>       
+            </nav>
+        </div>
+    </header>
+    <h1>Nouvelles pièces</h1>
+    <div id="slider">
+        <button id="gauche" class="fleche"></button>
+        <div class="piece piece1"><div class="descri"><h4>MAUSKE 89</h4><p>La puissance laser à la vitesse de la lumière d'Hekterias Corp!</p></div></div>
+        <div class="piece piece2"><div class="descri"><h4>OKRE DETA-V</h4><p>Le tir de barrage en continue par BARRELIOR Inc!</p></div></div>
+        <div class="piece piece3"><div class="descri"><h4>THROWSK 8</h4><p>Plus aucune chance d'y échapper une fois à portée grâce aux Compagnies Blanches!</p></div></div>
+        <div class="piece piece4"><div class="descri"><h4>GATEN SKAR-6</h4><p>Arrête tout tout le temps, des petits calibres à l'artillerie par KOSKO!</p></div></div>
+        <div class="piece piece5"><div class="descri"><h4>EVALION II</h4><p>Le fameux sniper autonome pour combat rapproché de l'Armée Arkonin</p></div></div>
+        <button id="droite" class="fleche"></button>
+    </div>
+
+    <a href="" class="button-2">Plus de précision?</a>
+
+    <script>
+        let sliderimg = document.querySelectorAll(".piece"), //cherche toute les images définies en classe slide
+        gauche = document.querySelector("#gauche"),
+        droite = document.querySelector("#droite"),
+        current = 0 //met le compteur à 0
+
+        //clear les images
+        function reset(){
+            for (let i = 0; i < sliderimg.length; i++){
+                sliderimg[i].style.display = "none";
+            }
+        }
+
+        //1ère slide
+        function startSlide() {
+            reset();
+            sliderimg[0].style.display = "block";
+
+        }
+
+        //montrer la précédente
+        function slideLeft(){
+            reset();
+            sliderimg[current - 1].style.display="block";
+            current--;
+        }
+
+        //montrer la suivante
+        function slideRight(){
+            reset();
+            sliderimg[current+1].style.display="block";
+            current++;
+            if (current === sliderimg.length - 1){ //remets le compteur à 0
+                current = -1;
+            }
+        }
+
+        //clic flèche gauche
+        gauche.addEventListener("click", function(){
+            if(current===0){
+                current=sliderimg.length;
+            }
+            slideLeft();
+        });
+
+        //clic flèche droite
+        droite.addEventListener("click", function(){
+            if(current===sliderimg.length - 1){
+                current= -1;
+            }
+            slideRight();
+        });
+
+        function resetCurrent(){
+            current = 0;
+        }
+
+        function slideTemp(){
+            timer = setInterval(slideRight, 5000)
+        }
+
+        startSlide();
+        slideTemp()
+    </script>
+</body>
+</html>

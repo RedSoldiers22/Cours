@@ -9,6 +9,7 @@ fclose($file);*/
 $connection = new PDO("mysql:host=localhost;dbname=produits","root","");
 $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+$connection->beginTransaction();
 
 $row = 1;
 if (($handle = fopen("produit2.csv", "r")) !== FALSE) {
@@ -47,9 +48,11 @@ if (($handle = fopen("produit2.csv", "r")) !== FALSE) {
 
 
     }
+    $connection->commit();
     fclose($handle);
 }
 
+    //$connection->rollback(); -> à mettre dans le catch error
 
 
 ?>
