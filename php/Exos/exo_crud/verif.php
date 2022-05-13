@@ -4,6 +4,9 @@ require_once "connect.php";
 if(!empty ($_POST["email"]) && !empty ($_POST["password"])){
     $email=$_POST["email"];
     $password=$_POST["password"];
+    $hash=password_hash($password,PASSWORD_DEFAULT); //hash le password
+    $verify = password_verify($password, $hash);
+   
 
     $connection = new PDO("mysql:host=localhost;dbname=premiere","root","");
     $sql = "SELECT password, prenom, bureau FROM user WHERE email='$email';";
@@ -12,7 +15,7 @@ if(!empty ($_POST["email"]) && !empty ($_POST["password"])){
     $id_co = $stmt -> fetch(PDO::FETCH_ASSOC);
 
     if($id_co){
-        if($id_co["password"] === $password){
+        if($verify){
             session_start();
             $_SESSION ["bureau"] = $id_co["bureau"];
             $_SESSION ["prenom"] = $id_co["prenom"];
