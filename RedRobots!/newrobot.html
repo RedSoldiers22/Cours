@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        header{
+            height: 180px;
+        }
+
+        body{
+            height: 789px;
+        }
+
+        .slide{
+            margin: 0;
+            padding: 0;
+            float: left;
+            margin-left: 211.5px;
+            margin-right: 211.5px;
+            margin-bottom: 50px;
+            width: 1000px;
+            height: 400px;
+            overflow-x: hidden;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            
+        }
+
+        .descri{
+            text-align: center;
+            margin-top: 300px;
+            background-color: black;
+            color: white;
+            width: 250px;
+            margin-left: 400px;
+            opacity: 0.8;
+        }
+
+        .descri p{
+            color: white;
+        }
+
+        .slide1 {
+            background-image: url("img/slide1.jpg");
+        }
+
+        .slide2 {
+            background-image: url("img/slide2.jpg");
+        }
+
+        .slide3 {
+            background-image: url("img/slide3.jpg");
+        }
+        .slide4 {
+            background-image: url("img/slide4.jpg");
+        }
+        .slide5 {
+            background-image: url("img/slide5.jpg");
+        }
+        .slide6 {
+            background-image: url("img/slide6.jpg");
+        }
+
+        .fleche {
+            cursor: pointer;
+            position: absolute;
+            margin-top: 154px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            background-color: #051937;
+        }
+        #droite {
+            border-width: 20px 0 20px 30px;
+            border-color: transparent transparent transparent #fff;
+            right: 0;
+            margin-right: 20px;
+        }
+        #gauche {
+            border-width: 20px 30px 20px 0;
+            border-color: transparent #fff transparent transparent;
+            left: 0;
+            margin-left: 20px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .fleche{
+            opacity: 0.8;
+        }
+
+        .button-2{
+        margin-left: 611px;
+    }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <h1>RedRobots <span class="white">!</span></h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="robot.html">Robots</a></li>
+                    <li><a href="">Pièces</a></li>
+                    <li><a href="">Contrats</a></li>
+                    <li><a href="">Contacts</a></li>
+                </ul>       
+            </nav>
+        </div>
+    </header>
+    <h1>Nouveaux Robots</h1>
+    <div id="slider">
+        <button id="gauche" class="fleche"></button>
+        <div class="slide slide1"><div class="descri"><h4>HEKTOR IV</h4><p>Le nouveau bébé de chez Heriados Corp</p></div></div>
+        <div class="slide slide2"><div class="descri"><h4>ORSILENT II</h4><p>L'arrivée en force du Conglomérat Askanien</p></div></div>
+        <div class="slide slide3"><div class="descri"><h4>THUNDORN AC-8</h4><p>L'éclaireur qui renverse la donne de chez ASKAR</p></div></div>
+        <div class="slide slide4"><div class="descri"><h4>STORMWEATHER</h4><p>Quand l'armée d'Hectelios privatise ses fers de lance</p></div></div>
+        <div class="slide slide5"><div class="descri"><h4>ESPALION 6</h4><p>ASKERI Inc vous donne le combat à distance</p></div></div>
+        <div class="slide slide6"><div class="descri"><h4>GORA W3</h4><p>La vitesse d'un éclaireur avec la puissance d'un M-Mode</p></div></div>
+        <button id="droite" class="fleche"></button>
+    </div>
+    
+    <a href="" class="button-2">Un meilleur coup d'oeil?</a>
+
+    
+    
+
+    
+    <script>
+        let sliderimg = document.querySelectorAll(".slide"), //cherche toute les images définies en classe slide
+        gauche = document.querySelector("#gauche"),
+        droite = document.querySelector("#droite"),
+        current = 0 //met le compteur à 0
+
+        //clear les images
+        function reset(){
+            for (let i = 0; i < sliderimg.length; i++){
+                sliderimg[i].style.display = "none";
+            }
+        }
+
+        //1ère slide
+        function startSlide() {
+            reset();
+            sliderimg[0].style.display = "block";
+
+        }
+
+        //montrer la précédente
+        function slideLeft(){
+            reset();
+            sliderimg[current - 1].style.display="block";
+            current--;
+        }
+
+        //montrer la suivante
+        function slideRight(){
+            reset();
+            sliderimg[current+1].style.display="block";
+            current++;
+            if (current === sliderimg.length - 1){ //remets le compteur à 0
+                current = -1;
+            }
+        }
+
+        //clic flèche gauche
+        gauche.addEventListener("click", function(){
+            if(current===0){
+                current=sliderimg.length;
+            }
+            slideLeft();
+        });
+
+        //clic flèche droite
+        droite.addEventListener("click", function(){
+            if(current===sliderimg.length - 1){
+                current= -1;
+            }
+            slideRight();
+        });
+
+        function resetCurrent(){
+            current = 0;
+        }
+
+        function slideTemp(){
+            timer = setInterval(slideRight, 5000)
+        }
+
+        startSlide();
+        slideTemp()
+    </script>
+</body>
+</html>
