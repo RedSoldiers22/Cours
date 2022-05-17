@@ -2,65 +2,36 @@
 // 2ème exo
 // construire maison
 
-class Cuisine {
-    //attributs
-    private $frigo;
-    private $table;
-    private $chaise;
-    // methodes
-    public function __construct($f,$t,$c)
-    {
-        $this->frigo = $f ;
-        $this->table = $t ;
-        $this->chaises = $c ;
+require "bedroom.php";
+require "cuisine.php";
+require "SDB.php";
 
-    }
-}
-
-class SDB {
-    //attributs
-    private $baignoire;
-    private $douche;
-    private $toilette;
-    // methodes
-    public function __construct($b,$d,$t)
-    {
-        $this->baignoire = $b ;
-        $this->douche = $d;
-        $this->toilette = $t;
-
-    }
-}
-
-class Bedroom {
-    //attributs
-    private $lit;
-    private $bureau;
-    private $meubles;
-    // methodes
-    public function __construct($l,$b,$m)
-    {
-        $this->lit = $l;
-        $this->bureau = $b;
-        $this->meubles = $m;
-    }
-}
 
 class House {
     private $cuisine;
     private $sdb;
-    private $bedroom;
+    private $bedrooms = array();
+
+    public function __construct($c,$s)
+    {
+        $this->cuisine = $c;
+        $this->sdb = $s;
+    }
+    public function addRoom($bedroom){
+        array_push($this->bedrooms, $bedroom);
+    }
 }
 
-$cuisine = new Cuisine(2,1,5);
-$sdb = new SDB(1,2,1);
-$bedroom = new Bedroom(2,1,5);
+$cuisine = new Cuisine("55m²","Sud",2,1,5);
+$sdb = new SDB("20m²","Nord",1,2,1);
+$bedroom = new Bedroom("24m²", "Est",2,1,5);
 
+$bedroom1 = new Bedroom("27m²","Ouest",1,3,6);
 
-$maison1 = new House($cuisine,$sdb,$bedroom);
+$maison1 = new House($cuisine,$sdb);
+$maison1->addRoom($bedroom);
+$maison1->addRoom($bedroom1);
 var_dump($maison1);
-//$maison1->addRoom(Bedroom $bedroom);
-
 
 
 ?>
