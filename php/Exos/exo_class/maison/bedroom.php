@@ -15,6 +15,10 @@ class Bedroom extends Room {
         $this->meubles = $m;
     }
 
+    public function calculTVA(){
+        echo parent::TVA;
+    }
+
     public function getLit()
     {
         return $this->lit;

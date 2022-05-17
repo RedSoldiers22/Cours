@@ -1,33 +1,56 @@
 <?php
 
 class Mailbox{
-    protected $support;
-    protected $type;
-
-  
-    public function getSupport()
+    private $taille;
+    private $materiaux;
+    // methodes
+    public function __construct($t,$m)
     {
-        return $this->support;
+        $this->taille = $t;
+        $this->materiaux = $m;
     }
 
 
-    public function setSupport($support)
+    /**
+     * Get the value of taille
+     */ 
+    public function getTaille()
     {
-        $this->support = $support;
+        return $this->taille;
+    }
+
+    /**
+     * Set the value of taille
+     *
+     * @return  self
+     */ 
+    public function setTaille($taille)
+    {
+        $this->taille = $taille;
 
         return $this;
     }
 
-
-    public function getType()
+    /**
+     * Get the value of materiaux
+     */ 
+    public function getMateriaux()
     {
-        return $this->type;
+        return $this->materiaux;
     }
 
-    public function setType($type)
+    /**
+     * Set the value of materiaux
+     *
+     * @return  self
+     */ 
+    public function setMateriaux($materiaux)
     {
-        $this->type = $type;
+        $this->materiaux = $materiaux;
 
         return $this;
     }
 }
+
+
+  ?>

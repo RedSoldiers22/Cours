@@ -3,10 +3,19 @@
 class Room{
     protected $superficy;
     protected $orientation;
+    public const TVA = 0.20;
 
     public function __construct($s,$o){
         $this->superficy = $s;
         $this->orientation = $o;
+    }
+
+    final public function afficheSuperficie(){
+        echo $this->superficy;
+    }
+
+    public function afficheTVA(){
+        echo self::TVA;
     }
     
    
