@@ -7,7 +7,7 @@ $auto2 = new Car();
 $auto1->modele = "CITROEN";
 echo $auto1->hello();
 $auto1->rempli(50);
-$auto1->dmarre();
+$auto1->demarre();
 $auto1->accelere(20);
 
 echo $auto1->vitesse;
