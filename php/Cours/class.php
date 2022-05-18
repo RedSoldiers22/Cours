@@ -22,7 +22,7 @@ class Car {
         $this->vitesse = $v;
     }
 
-    public function setModel($model){
+    public function setModel($modele){
         $this->modele = $modele;
     }
 
@@ -52,12 +52,5 @@ class Car {
     }
 
 } 
-
-class Sportcar extends Car {
-    private $aileron;
-    public function hello()
-     return "beeeeeeeep beeeeeep";
-}
-
 
    
