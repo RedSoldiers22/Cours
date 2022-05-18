@@ -1,5 +1,4 @@
 <?php
-require "room.php";
 
 class SDB extends Room{
     //attributs
