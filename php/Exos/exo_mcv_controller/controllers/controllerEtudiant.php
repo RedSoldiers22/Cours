@@ -24,4 +24,14 @@ function ajouteEtudiant(){
     addEtudiant($_POST);
 }
 
+function afficheModifEtudiant($id){
+    $result=getUnEtudiant($id);
+    require ("views/viewModifEtudiant.php");
+
+function modifEtudiant($id){
+    //execite une fonction du modèle
+    updateEtudiant($id,$_POST);
+}
+}
+
 ?>

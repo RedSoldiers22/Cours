@@ -9,11 +9,10 @@
 <body>
     <ul>
     <?php
-        foreach($result as $value){
-            echo "<li>".$value['nom']." ".$value['prenom']."</li>";
+        foreach($result as $value){ ?>
+            <li><?=$value['nom']." ".$value['prenom']?><a href="controllersEtudiant/afficheModifEtudiant/<?=$value['id']?>">Modif</a></li>
             
-        }
-    ?>
+        <?php } ?>
     </ul>
 </body>
         

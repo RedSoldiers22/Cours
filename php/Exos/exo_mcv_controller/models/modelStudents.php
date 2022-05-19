@@ -19,9 +19,6 @@ function getUnEtudiant($id){
 }
 
 function addEtudiant(){
-    /*echo "<pre>";
-    print_r($etu);die;
-    echo "</pre>";*/
     $n = $_POST['nom'];
     $p = $_POST['prenom'];
     $m = $_POST['mail'];
@@ -32,4 +29,14 @@ function addEtudiant(){
     $stmt->execute(array($n,$p,$m,$mdp));
 }
 
+function updateEtudiant($id,$edu){
+    $n = $edu['nom'];
+    $p = $edu['prenom'];
+    $m = $edu['mail'];
+    $mdp = $edu['mdp'];
+    $bddPDO = connexionBDD();
+    $req = "UPDATE student SET nom=?, prenom=?, email=?, password=? WHERE id=?";
+    $stmt = $bddPDO->prepare($req);
+    $stmt->execute(array($n,$p,$m,$mdp,$id));
+}
 ?>
