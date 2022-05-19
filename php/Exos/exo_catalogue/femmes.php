@@ -1,5 +1,5 @@
 <?php
-require_once("6.2.fonctions.php");
+require_once("fonctions.php");
 
 $femmes = [
     [ "nom_produit"=>"robe femme" , "prix"=>25.00, "photo"=> "https://www.terrebleue.com/files/cache/square_two/files/221-3120-31-101-c-60098357ea22f.jpeg"] ,

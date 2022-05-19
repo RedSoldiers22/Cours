@@ -36,9 +36,9 @@
 <body>
   <h1>Boutique Ketique</h1>
 <nav>
-    <a href="8.3.1.femmes.php">Femmes</a>
-    <a href="8.3.2.hommes.php">Hommes</a>
-    <a href="8.3.3.enfants.php">Enfants</a>
+    <a href="femmes.php">Femmes</a>
+    <a href="hommes.php">Hommes</a>
+    <a href="enfants.php">Enfants</a>
 </nav>
 
 <div id="img"></div>

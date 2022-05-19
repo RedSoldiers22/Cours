@@ -1,5 +1,5 @@
 <?php 
-require_once("6.2.fonctions.php");
+require_once("fonctions.php");
 // recupérer la categorie dans $_GET
 ?>
 <!DOCTYPE html>
