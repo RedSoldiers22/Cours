@@ -9,4 +9,13 @@ function getEtudiants(){
     return $data;
 }
 
+function getUnEtudiant($id){
+    $bddPDO = connexionBDD();
+    $req = "SELECT * FROM student WHERE id=?";
+    $stmt = $bddPDO->prepare($req);
+    $stmt->execute(array($id));
+    $data = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $data;
+}
+
 ?>

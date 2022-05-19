@@ -1,23 +1,28 @@
 <?php
 
 if($_GET['action']){
+
     $params = explode("/", $_GET['action']);
     $controller = $params[0];
-    require_once('controllers/'.$controller.'.php');
     if(isset($params[1])){
         $action = $params[1];
     }
 
-
-
-
-}else{
+    require_once('controllers/'.$controller.'.php');
+}
+else{
     echo "pas de controller";
-};
-
-if(function_exists($action)){
-    $action();
 }
 
+    if(function_exists($action)){
+        if(isset($params[2]) && isset($params[3])){
+            $action($params[2],$params[3]);
+        }elseif (isset($params[2])){
+            $action($params[2]);
+        }
+    
+} else {
+    echo "La fonction n'existe pas";
+}
 
 ?>

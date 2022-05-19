@@ -7,7 +7,14 @@ function ditBonjour(){
 
 function listeEtudiant(){
     $result = getEtudiants();
-    print_r(($result));
+    //print_r(($result));
+    require("views/viewAllEtudiant.php");
 }
+
+function listeUnEtudiant($id){
+    $result=getUnEtudiant($id);
+    require("views/viewOneEtudiant.php");
+}
+
 
 ?>
