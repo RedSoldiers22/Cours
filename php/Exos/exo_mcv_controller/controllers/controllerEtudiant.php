@@ -16,5 +16,12 @@ function listeUnEtudiant($id){
     require("views/viewOneEtudiant.php");
 }
 
+function afficheAddEtudiant(){
+    require("views/viewAddEtudiant.php");
+}
+
+function ajouteEtudiant(){
+    addEtudiant($_POST);
+}
 
 ?>

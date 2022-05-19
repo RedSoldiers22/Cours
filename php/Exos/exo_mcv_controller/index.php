@@ -19,6 +19,8 @@ else{
             $action($params[2],$params[3]);
         }elseif (isset($params[2])){
             $action($params[2]);
+        }else{
+            $action();
         }
     
 } else {
