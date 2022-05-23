@@ -8,7 +8,7 @@
 </head>
 <body>
     <?php
-    require_once("6.2.fonctions.php");
+    require_once("fonctions.php");
         // lire annuaire.txt et l'afficher au bon format
         //comme pour l'écriture on va créer un gestionnaire de fichier appelé handle
         //qui permettra d'effectuer une lecture

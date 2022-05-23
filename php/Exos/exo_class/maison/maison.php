@@ -1,7 +1,7 @@
 <?php
 // 2ème exo
 // construire maison
-
+require "room.php";
 require "bedroom.php";
 require "cuisine.php";
 require "SDB.php";

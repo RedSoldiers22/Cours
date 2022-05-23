@@ -1,5 +1,5 @@
 <?php
-/*// 1ere manière de faire l'héritage
+// 1ere manière de faire l'héritage
 class Robot {
     public function greet(){
         return "Hello";
@@ -32,7 +32,7 @@ class Android extends Robot {
 }
 
 class Robot {
-    p// surcharge ou override de la méthode greet()
+    // surcharge ou override de la méthode greet()
     public function greet(){
         return "Hi";
     }
@@ -43,7 +43,7 @@ $robot = new Robot();
 echo $robot->greet(); // Hello
 $android = new Android();
 echo $android->greet(); // Hi
-// hérite avec surchage*/
+// hérite avec surchage
 
 // OU
 

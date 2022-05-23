@@ -1,5 +1,4 @@
 <?php
-require "room.php";
 
 class Cuisine extends Room{
     //attributs
@@ -12,6 +11,8 @@ class Cuisine extends Room{
         parent::__construct($superficy,$orientation);
         $this->frigo = $f ;
         $this->table = $t ;
+        $this->chaise = $c ;
+
      
     }
 

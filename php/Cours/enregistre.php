@@ -1,5 +1,5 @@
 <?php
-require("6.2.fonctions.php");
+require("fonctions.php");
 
 debug($_POST);
 
