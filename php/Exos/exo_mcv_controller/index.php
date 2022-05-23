@@ -1,5 +1,8 @@
 <?php
 
+$root = str_replace('index.php' , '' , $_SERVER['SCRIPT_FILENAME'] ) ;
+define('_ROOT',$root);
+
 if($_GET['action']){
 
     $params = explode("/", $_GET['action']);
