@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>Modification d'un étudiant</h1>
-    <form action="../controllerEtudiant/modifEtudiant/<?=$result['id']?>" method="POST">
+    <form action="<?= _URL ?>/controllerEtudiant/modifEtudiant/<?=$result['id']?>" method="POST">
         <input type="text" name="nom" placeholder="Votre nom" value=<?= $result['nom']?>><br>
         <input type="text" name="prenom" placeholder="Votre prénom" value=<?=$result['prenom']?>><br>
         <input type="mail" name="mail" placeholder="Votre email" value=<?=$result['email']?>><br>

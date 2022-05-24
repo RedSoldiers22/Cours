@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>Ajout d'un étudiant</h1>
-    <form action="../controllerEtudiant/ajouteEtudiant" method="POST">
+    <form action="<?= _URL ?>/controllerEtudiant/ajouteEtudiant" method="POST">
         <input type="text" name="nom" placeholder="Votre nom"><br>
         <input type="text" name="prenom" placeholder="Votre prénom"><br>
         <input type="mail" name="mail" placeholder="Votre email"><br>

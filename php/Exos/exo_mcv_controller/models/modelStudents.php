@@ -39,4 +39,12 @@ function updateEtudiant($id,$edu){
     $stmt = $bddPDO->prepare($req);
     $stmt->execute(array($n,$p,$m,$mdp,$id));
 }
+
+function deleteEtudiant($id){
+    $bddPDO = connexionBDD();
+    $req = "DELETE * FROM student WHERE id = $id";
+    $stmt = $bddPDO->prepare($req);
+    $stmt->execute();
+}
+
 ?>
