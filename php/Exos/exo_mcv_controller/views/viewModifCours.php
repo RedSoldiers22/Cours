@@ -8,7 +8,11 @@
 </head>
 <body>
     <h1>Modification d'un cours</h1>
+<<<<<<< HEAD
     <form action="<?= _URL ?>/controllerCours/ajouteCours" method="POST">
+=======
+    <form action="../controllerCours/ajouteCours" method="POST">
+>>>>>>> 649502bd4a17d3a4c8c6886a5f930aa2e03cf83d
         <input type="text" name="code" placeholder="Entrez le code"><br>
         <input type="text" name="titre" placeholder="Entrez le titre"><br>
         <input type="mail" name="langage" placeholder="Entrez le langage"><br>

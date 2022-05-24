@@ -2,8 +2,11 @@
 
 $root = str_replace('index.php' , '' , $_SERVER['SCRIPT_FILENAME'] ) ;
 define('_ROOT',$root);
+<<<<<<< HEAD
 define('_URL',"http://localhost/afpa/php/Exos/exo_mcv_controller/");
 require ('header.php');
+=======
+>>>>>>> 649502bd4a17d3a4c8c6886a5f930aa2e03cf83d
 
 if($_GET['action']){
 

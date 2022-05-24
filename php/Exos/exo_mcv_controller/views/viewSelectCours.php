@@ -7,6 +7,7 @@
     <title>Document</title>
 </head>
 <body>
+<<<<<<< HEAD
 <form action="<?= _URL ?>/controllerEtudiant/addCoursToEtudiant/<?= $student['id'] ?>" method="POST">
         <?= $student['prenom']." ".$student['nom']?>
         <select name="id_cours">
@@ -20,5 +21,10 @@
         </select>
         <input type="submit" value="OK">
         </form>
+=======
+    <form action="" method="post">
+        
+    </form>
+>>>>>>> 649502bd4a17d3a4c8c6886a5f930aa2e03cf83d
 </body>
 </html>
