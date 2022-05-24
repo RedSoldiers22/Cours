@@ -1,8 +1,5 @@
 <?php
-<<<<<<< HEAD
 session_start();
-=======
->>>>>>> 649502bd4a17d3a4c8c6886a5f930aa2e03cf83d
 require_once ('models/modelCours.php');
 
 function listeCours(){
