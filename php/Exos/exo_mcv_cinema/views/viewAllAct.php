@@ -16,11 +16,12 @@
 <ul>
     <?php
         foreach($result as $value){ ?>
-            <li><?=$value['titre']?>
-            <a href="<?= _URL ?>/ctrlFilms/formModifFilms/<?=$value['id']?>">Modifier</a>
-            <a href="<?= _URL ?>/ctrlFilms/supprFilm/<?=$value['id']?>">Supprimer</a>
-        </li> <br>
-            <img src="../<?=$value['cover']?>" alt=""><br><br><br><br>
+            <li><?=$value['prenom']." ".$value['nom']?>
+                <a href="<?= _URL ?>/ctrlAct/formModifAct/<?=$value['id']?>">Modifier</a>
+                <a href="<?= _URL ?>/ctrlAct/supprAct/<?=$value['id']?>">Supprimer</a>
+            </li> 
+            <br>
+            <img src="../<?=$value['cover']?>" alt=""><br><br><br><br>                               
         <?php } ?>
 
     </ul>
