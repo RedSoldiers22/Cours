@@ -2,8 +2,8 @@
 
 $root = str_replace('index.php' , '' , $_SERVER['SCRIPT_FILENAME'] ) ;
 define('_ROOT',$root);
-define('_URL',"http://localhost/afpa/php/Exos/exo_mcv_controller/");
-require ('header.php');
+define('_URL',"http://localhost/afpa/php/Exos/exo_mcv_cinema");
+require ('accueil.php');
 
 if($_GET['action']){
 
@@ -13,11 +13,7 @@ if($_GET['action']){
         $action = $params[1];
     }
 
-    require_once('controllers/'.$controller.'.php');
-}
-else{
-    echo "pas de controller";
-}
+    require_once('ctrls/'.$controller.'.php');
 
     if(function_exists($action)){
         if(isset($params[2]) && isset($params[3])){
@@ -27,10 +23,10 @@ else{
         }else{
             $action();
         }
-    
+    }
 } else {
  
-    require_once('controllers/controllerEtudiant.php');
-    listeEtudiant();
+   require_once('ctrls/ctrlFilms.php');
+    affAcc();
 }
 ?>
