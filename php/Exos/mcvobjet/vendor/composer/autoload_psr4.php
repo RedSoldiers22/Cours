@@ -6,5 +6,6 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Quentin\\Mcvobjet\\' => array($baseDir . '/src'),
+    'mcvobjet\\' => array($baseDir . '/src'),
+    'Klein\\' => array($vendorDir . '/klein/klein/src/Klein'),
 );

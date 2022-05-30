@@ -3,7 +3,7 @@
     "type": "project",
     "autoload": {
         "psr-4": {
-            "Quentin\\Mcvobjet\\": "src/"
+            "mcvobjet\\": "src/"
         }
     },
     "authors": [
@@ -12,5 +12,7 @@
             "email": "RedSoldiers22@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "klein/klein": "^2.1"
+    }
 }
