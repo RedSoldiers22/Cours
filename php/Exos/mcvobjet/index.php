@@ -2,8 +2,10 @@
 
 require_once "vendor/autoload.php";
 use mcvobjet\ctrl\FrontController;
+use mcvobjet\ctrl\BackController;
 
 $fc = new FrontController();
+$bc = new BackController();
 //$fc->index();
 
 $base  = dirname($_SERVER['PHP_SELF']);
@@ -23,6 +25,10 @@ $klein = new \Klein\Klein(); // toujours mettre le \ pour créer
 // ontapera dans l'URL le chemin jusqu'à la racine
 $klein->respond('GET','/', function() use($fc){
     $fc->index();
+});
+
+$klein->respond('GET','\listeActeurs', function() use($bc){
+    $bc->liste();
 });
 
 $klein->dispatch();
