@@ -31,5 +31,9 @@ $klein->respond('GET','/listeActeurs', function() use($bc){
     $bc->liste();
 });
 
+$klein->respond('GET','/getActeur/[:id]',function($request) use($bc){
+    $bc->getActor($request->id);
+});
+
 $klein->dispatch();
 ?>

@@ -29,6 +29,15 @@ class ActorDao extends BaseDao{
         }
     }
 
+    public function findById($id){
+        $sql = "SELECT * FROM actor WHERE id=?";
+        $stmt = $this->db->prepare($sql);
+        $result = $stmt->execute([$id]);
+        if($result){
+            return $stmt->fetchObject(Actor::class);
+        }
+    }
+
 }
 
 

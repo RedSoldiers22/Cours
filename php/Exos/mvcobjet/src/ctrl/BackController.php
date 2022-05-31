@@ -11,7 +11,13 @@ class BackController{
         $result = $actorDao->findAll();
         echo "<pre>";
         print_r($result);
-   
-}
+    }
+
+    function getActor($id){
+        $actorDao = new ActorDao();
+        $actor = $actorDao->findById($id);
+        echo "<pre>";
+        print_r($actor);
+    }
 }
 ?>
