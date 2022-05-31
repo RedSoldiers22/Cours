@@ -1,0 +1,15 @@
+Sauvegarde:
+    - clic droit sur dossier
+    - git bash
+        - git init
+        - git add .
+        - git commit -m "first commit"
+
+Créer branche:
+    - git branch nombranche
+
+Voir les branches:
+    - git branch
+
+Changer de branche:
+    - git checkout nomdelabranche

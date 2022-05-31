@@ -3,6 +3,7 @@
 namespace mvcobjet\ctrl;
 
 use mvcobjet\models\daos\ActorDao;
+use mvcobjet\models\services\ActorService;
 
 class BackController{
 
@@ -13,11 +14,19 @@ class BackController{
         print_r($result);
     }
 
-    function getActor($id){
-        $actorDao = new ActorDao();
-        $actor = $actorDao->findById($id);
-        echo "<pre>";
-        print_r($actor);
+    
+    private $actorService;
+
+    public function __construct() {
+        $this->actorService = new ActorService();
+    }
+
+    public function addActor($actor){
+        $this->actorService->create($actor);
+    }
+
+    public function updateActor($actor){
+        $this->actorService->update($actor);
     }
 }
 ?>

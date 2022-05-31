@@ -29,13 +29,25 @@ class ActorDao extends BaseDao{
         }
     }
 
-    public function findById($id){
+    public function getActor($id){
         $sql = "SELECT * FROM actor WHERE id=?";
         $stmt = $this->db->prepare($sql);
         $result = $stmt->execute([$id]);
         if($result){
             return $stmt->fetchObject(Actor::class);
         }
+    }
+
+    public function create($actor){
+        $sql = "INSERT INTO actor (first_name, last_name) VALUES (?,?)";
+        $stmt = $this->db->prepare($sql);
+        $result = $stmt->execute([$actor['nom'],$actor['prenom']]);
+    }
+    
+    public function update($actor){
+        $sql = "UPDATE actor SET first_name =?, last_name =? WHERE actor.id = $actor";
+        $stmt = $this->db->prepare($sql);
+        $result = $stmt->execute([$actor['nom'],$actor['prenom']]);
     }
 
 }

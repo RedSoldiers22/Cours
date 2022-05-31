@@ -1,5 +1,4 @@
 <?php
-
 require_once "vendor/autoload.php";
 use mvcobjet\ctrl\FrontController;
 use mvcobjet\ctrl\BackController;
@@ -24,16 +23,42 @@ $klein = new \Klein\Klein(); // toujours mettre le \ pour créer
 // quand la fonction de callback sera executée, elle le sera quand
 // ontapera dans l'URL le chemin jusqu'à la racine
 $klein->respond('GET','/', function() use($fc){
-    $fc->index();
+    // $fc->index();
 });
 
-$klein->respond('GET','/listeActeurs', function() use($bc){
-    $bc->liste();
+$klein->respond('GET','/listeActeurs', function() use($fc){
+    $res = $fc->listeActeurs();
+    /*echo "<pre>";
+    print_r($res);die;*/
+    require 'src/views/viewListeActeur.php';
 });
 
-$klein->respond('GET','/getActeur/[:id]',function($request) use($bc){
-    $bc->getActor($request->id);
+$klein->respond('GET','/getActeur/[:id]',function($request) use($fc){
+    $result = $fc->getActor($request->id);
+    print_r($result);
 });
+
+
+$klein->respond('GET','/addActor', function(){
+    require ('src/views/viewAddActor.php');
+});
+
+$klein->respond('GET','/updateActeur/[:id]',function($request) use($fc){
+    $result = $fc->getActor($request->id);
+    require ('src/views/viewUpdateActor.php');
+});
+
+//---------------------------------- BACK
+
+$klein->respond('POST', '/addActeur', function($post) use ($bc){
+    $bc->addActor($post->paramsPost());
+});
+
+$klein->respond('POST', '/updateActeur', function($request) use ($bc){
+    $bc->updateActor($request->paramsPost());
+});
+
+
 
 $klein->dispatch();
 ?>
