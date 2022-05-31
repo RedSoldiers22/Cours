@@ -8,7 +8,7 @@
 </head>
 <h1>Ajouter un acteur</h1>
 <body>
-    <form action="updateActeur" method="POST">
+    <form action="../updateActeur" method="POST">
         <input type="text" name="prenom" value="<?= $result->getFirstName()?>">
         <input type="text" name="nom" value="<?= $result->getLastName()?>">
         <input type="hidden" name="id" value="<?= $result->getId()?>">

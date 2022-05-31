@@ -45,12 +45,16 @@ class ActorDao extends BaseDao{
     }
     
     public function update($actor){
-        $sql = "UPDATE actor SET first_name =?, last_name =? WHERE actor.id = $actor";
-        $stmt = $this->db->prepare($sql);
-        $result = $stmt->execute([$actor['nom'],$actor['prenom']]);
+        $firstName = $actor['prenom'];
+        $lastName = $actor['nom'];
+        $id = $actor['id'];
+        $updReq = "UPDATE actor SET first_name=:firstName, last_name=:lastName WHERE id=:id";
+        $updSql = $this->db->prepare($updReq);
+        $updSql->bindParam(':id',$id);
+        $updSql->bindParam(':firstName',$firstName);
+        $updSql->bindParam(':lastName',$lastName);
+        $updSql->execute();
     }
-
 }
-
 
 ?>

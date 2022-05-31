@@ -7,11 +7,13 @@
     <title>Document</title>
 </head>
 <body>
+    <ul>
     <?php
         foreach($res as $acteur){ ?>
-            <?= $acteur->getFirstName() ?>
-            <?= $acteur->getLastName() ?><br><br>
+            <li><?= $acteur->getFirstName() ?> <?= $acteur->getLastName() ?>
+            <a class="nav-link" href="http://localhost/afpa/PHP/exos/mvcobjet/modifActeur/<?= $acteur->getId() ?>" >Modifier un acteur</a></li> 
     <?php }
     ?>
+    </ul>
 </body>
 </html>
