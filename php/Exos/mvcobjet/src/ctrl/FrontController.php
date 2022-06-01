@@ -42,7 +42,8 @@ class FrontController{
 
     public function listeReals(){
         $result = $this->realService->getAllReals();
-        return $result;
+        //return $result;
+        echo $this->twig->render('real.html.twig',["reals"=>$result]);
     }
 
     public function getReal($id){

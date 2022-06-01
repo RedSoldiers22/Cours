@@ -1,0 +1,10 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Réalisateurs{% endblock %}
+
+{% block content %}
+    {% for real in reals %}
+        {{real.firstname}}
+        {{real.lastname}} <br/>
+    {% endfor %}
+{% endblock %}
