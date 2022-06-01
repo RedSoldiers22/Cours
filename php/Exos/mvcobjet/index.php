@@ -8,8 +8,9 @@ use mvcobjet\ctrl\BackController;
 
 use Twig\Environment;
 $loader = new \Twig\Loader\FilesystemLoader(__DIR__.'/src/views');
-$twig = new Environment($loader, ['cache' => false, 'debug' => true]);
+$twig = new Environment($loader, ['cache'=> false, 'debug'=> true]);
 $twig->addExtension(new \Twig\Extension\DebugExtension());
+
 
 require ('accueil.php');
 
@@ -39,10 +40,11 @@ $klein->respond('GET','/', function() use($fc){
 // ---------------------------- ACTEUR -----------------------------
 
 $klein->respond('GET','/listeActeurs', function() use($fc){
-    $res = $fc->listeActeurs();
+    $fc->listeActeurs();
     /*echo "<pre>";
-    print_r($res);die;*/
-    require 'src/views/viewListeActeur.php';
+    print_r($res);die;
+    require 'src/views/viewListeActeur.php';*/
+    
 });
 
 $klein->respond('GET','/getActeur/[:id]',function($request) use($fc){
