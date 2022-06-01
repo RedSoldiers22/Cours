@@ -1,7 +1,12 @@
 <?php
+$url = "http://localhost/afpa/php/Exos/mvcobjet/";
+define ('_URL', $url);
+
 require_once "vendor/autoload.php";
 use mvcobjet\ctrl\FrontController;
 use mvcobjet\ctrl\BackController;
+
+require ('accueil.php');
 
 $fc = new FrontController();
 $bc = new BackController();
