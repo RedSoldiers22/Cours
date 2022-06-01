@@ -8,17 +8,21 @@ use mvcobjet\models\daos\RealDao;
 use mvcobjet\models\services\RealService;
 use mvcobjet\models\daos\MovieDao;
 use mvcobjet\models\services\MovieService;
+use mvcobjet\models\daos\GenreDao;
+use mvcobjet\models\services\GenreService;
 
 class BackController{
  
     private $actorService;
     private $realService;
     private $movieService;
+    private $genreService;
 
     public function __construct() {
         $this->actorService = new ActorService();
         $this->realService = new RealService();
         $this->movieService = new MovieService();
+        $this->genreService = new GenreService();
     }
 
     // -----------------------------Acteurs-----------------------------------
@@ -71,5 +75,23 @@ class BackController{
     public function updateMovie($movie){
         $this->movieService->update($movie);
     }
+
+    // -----------------------------Genre-----------------------------------
+
+    function listeG() {
+        $genreDao = new GenreDao();
+        $result = $genreDao->findTodo();
+        echo "<pre>";
+        print_r($result);
+    }
+
+    public function addGenre($genre){
+        $this->genreService->create($genre);
+    }
+
+    public function updateGenre($genre){
+        $this->genreService->update($genre);
+    }
+
 }
 ?>

@@ -5,17 +5,20 @@ namespace mvcobjet\ctrl;
 use mvcobjet\models\services\ActorService;
 use mvcobjet\models\services\RealService;
 use mvcobjet\models\services\MovieService;
+use mvcobjet\models\services\GenreService;
 
 class FrontController{
     private $actorService;
     private $realService;
     private $movieService;
+    private $genreService;
     private $twig;
 
     public function __construct($t){
         $this->actorService = new ActorService();
         $this->realService = new RealService();
         $this->movieService = new MovieService();
+        $this->genreService = new GenreService();
         $this->twig=$t;
     }
 
@@ -55,6 +58,17 @@ class FrontController{
 
     public function getMovie($id){
        return $this->movieService->getMovie($id); // appel au service
+    }
+
+     // -----------------------------Genre-----------------------------------
+
+     public function listeGenre(){
+        $result = $this->genreService->getAllGenre();
+        return $result;
+    }
+
+    public function getGenre($id){
+       return $this->genreService->getGenre($id); // appel au service
     }
   
 }

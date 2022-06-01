@@ -14,6 +14,7 @@
 
         <li><a class="nav-link" href="<?=_URL ?>addReal">Ajouter un réalisateur</a></li>
         <li><a class="nav-link" href="<?=_URL ?>addActor">Ajouter un acteur</a></li>
+        <li><a class="nav-link" href="<?=_URL ?>addGenre">Ajouter un genre</a></li>
     </ul>
 </body>
 </html>

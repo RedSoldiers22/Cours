@@ -84,7 +84,29 @@ $klein->respond('GET','/updateReal/[:id]',function($request) use($fc){
     require ('src/views/viewUpdateReal.php');
 });
 
+//---------------------------------MOVIE---------------------------------
 
+//---------------------------------GENRE---------------------------------
+
+$klein->respond('GET','/listeGenre', function() use($fc){
+    $res = $fc->listeGenre();
+    require 'src/views/viewListeGenre.php';
+});
+
+$klein->respond('GET','/getGenre/[:id]',function($request) use($fc){
+    $result = $fc->getGenre($request->id);
+    print_r($result);
+});
+
+
+$klein->respond('GET','/addGenre', function(){
+    require ('src/views/viewAddGenre.php');
+});
+
+$klein->respond('GET','/updateGenre/[:id]',function($request) use($fc){
+    $result = $fc->getGenre($request->id);
+    require ('src/views/viewUpdateGenre.php');
+});
 
 //-----------------------------------BACK-------------------------------
 //----------------------------------------------------------------------
@@ -108,6 +130,16 @@ $klein->respond('POST', '/addReal', function($post) use ($bc){
 
 $klein->respond('POST', '/updateReal', function($request) use ($bc){
     $bc->updateReal($request->paramsPost());
+});
+
+//----------------------------------GENRE-------------------------------
+
+$klein->respond('POST', '/addGenre', function($post) use ($bc){
+    $bc->addGenre($post->paramsPost());
+});
+
+$klein->respond('POST', '/updateGenre', function($request) use ($bc){
+    $bc->updateGenre($request->paramsPost());
 });
 
 
