@@ -1,0 +1,10 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Acteur{% endblock %}
+
+{% block content %}
+    {% for acteur in acteurs %}
+        {{acteur.firstname}} &nbsp;
+        {{acteur.lastname}} <br/>
+    {% endfor %}
+{% endblock %}

@@ -6,9 +6,14 @@ require_once "vendor/autoload.php";
 use mvcobjet\ctrl\FrontController;
 use mvcobjet\ctrl\BackController;
 
+use Twig\Environment;
+$loader = new \Twig\Loader\FilesystemLoader(__DIR__.'/src/views');
+$twig = new Environment($loader, ['cache' => false, 'debug' => true]);
+$twig->addExtension(new \Twig\Extension\DebugExtension());
+
 require ('accueil.php');
 
-$fc = new FrontController();
+$fc = new FrontController($twig);
 $bc = new BackController();
 //$fc->index();
 

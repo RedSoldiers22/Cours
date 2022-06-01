@@ -9,11 +9,14 @@ use mvcobjet\models\services\MovieService;
 class FrontController{
     private $actorService;
     private $realService;
+    private $movieService;
+    private $twig;
 
-    public function __construct(){
+    public function __construct($t){
         $this->actorService = new ActorService();
         $this->realService = new RealService();
         $this->movieService = new MovieService();
+        $this->twig=$t;
     }
 
     public function index(){
@@ -24,7 +27,8 @@ class FrontController{
 
     public function listeActeurs(){
         $result = $this->actorService->getAllActors();
-        return $result;
+        //return $result;
+        echo $this->twig->render('actor.html.twig',["acteurs"=>$result]); // remplace le return
     }
 
     public function getActor($id){
