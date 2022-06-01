@@ -3,12 +3,15 @@
 namespace mvcobjet\ctrl;
 
 use mvcobjet\models\services\ActorService;
+use mvcobjet\models\services\RealService;
 
 class FrontController{
     private $actorService;
+    private $realService;
 
     public function __construct(){
         $this->actorService = new ActorService();
+        $this->realService = new RealService();
     }
 
     public function listeActeurs(){
@@ -24,9 +27,17 @@ class FrontController{
        return $this->actorService->getActor($id); // appel au service
     }
 
-   
+    public function listeReals(){
+        $result = $this->realService->getAllReals();
+        return $result;
+    }
 
-
+    public function getReal($id){
+       return $this->realService->getReal($id); // appel au service
+    }
+  
 }
+
+
 
 ?>

@@ -26,6 +26,8 @@ $klein->respond('GET','/', function() use($fc){
     // $fc->index();
 });
 
+// ---------------------------- ACTEUR -----------------------------
+
 $klein->respond('GET','/listeActeurs', function() use($fc){
     $res = $fc->listeActeurs();
     /*echo "<pre>";
@@ -48,7 +50,35 @@ $klein->respond('GET','/updateActeur/[:id]',function($request) use($fc){
     require ('src/views/viewUpdateActor.php');
 });
 
-//---------------------------------- BACK
+// ------------------------------ REAL -------------------------------
+
+$klein->respond('GET','/listeReal', function() use($fc){
+    $res = $fc->listeReals();
+    require 'src/views/viewListeReal.php';
+});
+
+$klein->respond('GET','/getReal/[:id]',function($request) use($fc){
+    $result = $fc->getReal($request->id);
+    print_r($result);
+});
+
+
+$klein->respond('GET','/addReal', function(){
+    require ('src/views/viewAddReal.php');
+});
+
+$klein->respond('GET','/updateReal/[:id]',function($request) use($fc){
+    $result = $fc->getReal($request->id);
+    require ('src/views/viewUpdateReal.php');
+});
+
+
+
+//-----------------------------------BACK-------------------------------
+//----------------------------------------------------------------------
+
+
+//---------------------------------ACTEUR---------------------------------
 
 $klein->respond('POST', '/addActeur', function($post) use ($bc){
     $bc->addActor($post->paramsPost());
@@ -56,6 +86,16 @@ $klein->respond('POST', '/addActeur', function($post) use ($bc){
 
 $klein->respond('POST', '/updateActeur', function($request) use ($bc){
     $bc->updateActor($request->paramsPost());
+});
+
+//----------------------------------REAL-------------------------------
+
+$klein->respond('POST', '/addReal', function($post) use ($bc){
+    $bc->addReal($post->paramsPost());
+});
+
+$klein->respond('POST', '/updateReal', function($request) use ($bc){
+    $bc->updateReal($request->paramsPost());
 });
 
 

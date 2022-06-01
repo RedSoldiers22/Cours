@@ -9,9 +9,9 @@
 <body>
     <ul>
     <?php
-        foreach($res as $acteur){ ?>
-            <li><?= $acteur->getFirstName() ?> <?= $acteur->getLastName() ?>
-            <a class="nav-link" href="updateActeur/<?= $acteur->getId() ?>" >Modifier un acteur</a></li> 
+        foreach($res as $reals){ ?>
+            <li><?= $reals->getFirstName() ?> <?= $reals->getLastName() ?>
+            <a class="nav-link" href="updateReal/<?= $reals->getId() ?>" >Modifier un réalisateur</a></li> 
     <?php }
     ?>
     </ul>

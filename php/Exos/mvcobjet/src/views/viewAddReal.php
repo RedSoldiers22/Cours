@@ -6,12 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<h1>Modifier un acteur</h1>
+<h1>Ajouter un réalisateur</h1>
 <body>
-    <form action="../updateActeur" method="POST">
-        <input type="text" name="prenom" value="<?= $result->getFirstName()?>">
-        <input type="text" name="nom" value="<?= $result->getLastName()?>">
-        <input type="hidden" name="id" value="<?= $result->getId()?>">
+    <form action=addActeur method="POST">
+        <input type="text" name="prenom">
+        <input type="text" name="nom">
         <input type="submit" value="OK">
     </form>
 </body>
