@@ -86,6 +86,26 @@ $klein->respond('GET','/updateReal/[:id]',function($request) use($fc){
 
 //---------------------------------MOVIE---------------------------------
 
+$klein->respond('GET','/listeMovie', function() use($fc){
+    $res = $fc->listeMovie();
+    require 'src/views/viewListeMovie.php';
+});
+
+$klein->respond('GET','/getMovie/[:id]',function($request) use($fc){
+    $result = $fc->getMovie($request->id);
+    print_r($result);
+});
+
+
+$klein->respond('GET','/addMovie', function(){
+    require ('src/views/viewAddMovie.php');
+});
+
+$klein->respond('GET','/updateMovie/[:id]',function($request) use($fc){
+    $result = $fc->getMovie($request->id);
+    require ('src/views/viewUpdateMovie.php');
+});
+
 //---------------------------------GENRE---------------------------------
 
 $klein->respond('GET','/listeGenre', function() use($fc){
@@ -130,6 +150,16 @@ $klein->respond('POST', '/addReal', function($post) use ($bc){
 
 $klein->respond('POST', '/updateReal', function($request) use ($bc){
     $bc->updateReal($request->paramsPost());
+});
+
+//----------------------------------MOVIE-------------------------------
+
+$klein->respond('POST', '/addMovie', function($post) use ($bc){
+    $bc->addMovie($post->paramsPost());
+});
+
+$klein->respond('POST', '/updateMovie', function($request) use ($bc){
+    $bc->updateMovie($request->paramsPost());
 });
 
 //----------------------------------GENRE-------------------------------

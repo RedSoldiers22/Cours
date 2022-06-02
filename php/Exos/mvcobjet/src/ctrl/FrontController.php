@@ -54,7 +54,8 @@ class FrontController{
 
     public function listeMovie(){
         $result = $this->movieService->getAllMovie();
-        return $result;
+        //return $result;
+        echo $this->twig->render('movie.html.twig',["movies"=>$result]);
     }
 
     public function getMovie($id){
@@ -65,7 +66,8 @@ class FrontController{
 
      public function listeGenre(){
         $result = $this->genreService->getAllGenre();
-        return $result;
+        //return $result;
+        echo $this->twig->render('real.html.twig',["genres"=>$result]);
     }
 
     public function getGenre($id){

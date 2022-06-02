@@ -5,6 +5,7 @@
 {% block content %}
     {% for real in reals %}
         {{real.firstname}}
-        {{real.lastname}} <br/>
+        {{real.lastname}}
+        <a class="nav-link" href="updateReal/{{real.id}}" >Modifier un réalisateur</a></li> <br/>
     {% endfor %}
 {% endblock %}

@@ -5,6 +5,8 @@
 {% block content %}
     {% for acteur in acteurs %}
         {{acteur.firstname}}
-        {{acteur.lastname}} <br/>
+        {{acteur.lastname}}
+        <a class="nav-link" href="updateActeur/{{acteur.id}}" >Modifier un acteur</a></li>
+        <br>
     {% endfor %}
 {% endblock %}

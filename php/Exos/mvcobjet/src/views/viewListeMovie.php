@@ -10,7 +10,7 @@
     <ul>
     <?php
         foreach($res as $movie){ ?>
-            <li><?= $movie->getTitle() ?>?>
+            <li><?= $movie->getTitle() ?>
             <a class="nav-link" href="updateMovie/<?= $movie->getId() ?>" >Modifier un film</a></li> 
     <?php }
     ?>
