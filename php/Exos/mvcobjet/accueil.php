@@ -12,9 +12,11 @@
         <li><a class="nav-link" href="<?=_URL ?>listeActeurs">Acteurs</a></li>
         <li><a class="nav-link" href="<?=_URL ?>listeReal">Réalisateurs</a></li>
         <li><a class="nav-link" href="<?=_URL ?>listeMovie">Films</a></li>
+        <li><a class="nav-link" href="<?=_URL ?>listeGenre">Genres</a></li>
 
         <li><a class="nav-link" href="<?=_URL ?>addReal">Ajouter un réalisateur</a></li>
         <li><a class="nav-link" href="<?=_URL ?>addActor">Ajouter un acteur</a></li>
+        <li><a class="nav-link" href="<?=_URL ?>addMovie">Ajouter un film</a></li>
         <li><a class="nav-link" href="<?=_URL ?>addGenre">Ajouter un genre</a></li>
     </ul>
 </body>

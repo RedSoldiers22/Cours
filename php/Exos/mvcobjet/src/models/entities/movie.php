@@ -1,110 +1,125 @@
 <?php
 
-namespace mvcobjet\models\entities;
+namespace mvcobjet\Models\Entities;
 
-class Movie {
-    private $id ;
-    private $title ;
-    private $description ;
-    private $duration ;
-    private $date ;
-    private $cover_image ;
-    private $genre_id ;
-    private $director_id ;
+use DateTime;
+use mvcobjet\models\entities\Real;
 
-    public function getId()
+class Movie
+{
+    private $id;
+    private $title;
+    private $description;
+    private $duration;
+    private $date;
+    private $coverImage;
+    private $genre;
+    private $director;
+    private $actors;
+    
+    public function getId(): int
     {
         return $this->id;
     }
-
-    public function setId($id)
+    
+    public function setId($id): Movie
     {
         $this->id = $id;
-
         return $this;
     }
 
-    public function getTitle()
+    public function getTitle(): string
     {
         return $this->title;
     }
-
-    public function setTitle($title)
+   
+    public function setTitle(string $title): Movie
     {
         $this->title = $title;
-
         return $this;
     }
-
-    public function getDescription()
+    
+    public function getDescription(): string
     {
         return $this->description;
     }
 
-    public function setDescription($description)
+    public function setDescription(string $description): Movie
     {
         $this->description = $description;
-
         return $this;
     }
 
-    public function getDuration()
+    public function getDuration(): string
     {
         return $this->duration;
     }
 
-    public function setDuration($duration)
+    public function setDuration(string $duration): Movie
     {
         $this->duration = $duration;
-
         return $this;
     }
 
-    public function getDate()
+    public function getDate(): \DateTime
     {
         return $this->date;
     }
 
-    public function setDate($date)
+    public function setDate(DateTime $date): Movie
     {
         $this->date = $date;
-
         return $this;
     }
 
-    public function getCover_image()
+    public function getCoverImage(): string
     {
-        return $this->cover_image;
+        return $this->coverImage;
     }
 
-    public function setCover_image($cover_image)
+    public function setCoverImage(string $coverImage): Movie
     {
-        $this->cover_image = $cover_image;
-
+        $this->coverImage = $coverImage;
         return $this;
     }
 
-    public function getGenre_id()
+    public function getGenre(): Genre
     {
-        return $this->genre_id;
+        return $this->genre;
     }
-
-    public function setGenre_id($genre_id)
+ 
+    public function setGenre(Genre $genre): Movie
     {
-        $this->genre_id = $genre_id;
-
+        $this->genre = $genre;
         return $this;
     }
 
-    public function getDirector_id()
+
+    public function getDirector(): Real
     {
-        return $this->director_id;
+        return $this->real;
     }
 
-    public function setDirector_id($director_id)
+    
+    public function setDirector(Real $real): Movie
     {
-        $this->director_id = $director_id;
-
+        $this->real = $real;
         return $this;
+    }
+
+    public function getActors()
+    {
+        return $this->actors;
+    }
+
+    public function setActors($actors): Movie
+    {
+        $this->actors = $actors;
+        return $this;
+    }
+
+    public function addActor(Actor $actor): void
+    { 
+        $this->actors[] = $actor;
     }
 }

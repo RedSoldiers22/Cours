@@ -9,11 +9,11 @@
 <h1>Ajouter un film</h1>
 <body>
     <form action=addMovie method="POST">
-        <input type="text" name="title">
-        <input type="text" name="description">
-        <input type="text" name="duration">
+        <input type="text" name="title" placeholder="Titre">
+        <input type="text" name="description" placeholder="Description">
+        <input type="text" name="duration" placeholder="Durée">
         <input type="date" name="date">
-        <input type="text" name="coverImage">
+        <input type="text" name="coverImage" placeholder="Affiche">
         <input type="text" name="genreId">
         <input type="text" name="directorId">
         <input type="submit" value="OK">
