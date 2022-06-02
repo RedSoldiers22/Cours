@@ -14,7 +14,7 @@ class Movie
     private $date;
     private $coverImage;
     private $genre;
-    private $director;
+    private $real;
     private $actors;
     
     public function getId(): int
@@ -95,13 +95,13 @@ class Movie
     }
 
 
-    public function getDirector(): Real
+    public function getReal(): Real
     {
         return $this->real;
     }
 
     
-    public function setDirector(Real $real): Movie
+    public function setReal(Real $real): Movie
     {
         $this->real = $real;
         return $this;
@@ -119,7 +119,21 @@ class Movie
     }
 
     public function addActor(Actor $actor): void
-    { 
+    {
+         if(is_array($this->actor)){
+             foreach($this->actors as $a){
+                 if ($a->getId() == $actor->getId()){
+                     return;
+                 }
+             }
+         }
         $this->actors[] = $actor;
     }
+
+    public function deleteActor(Actor $actor):void{
+        $this->actors = array_filter($this->actors, function(Actor $a) use ($actor){
+            return $a->getId() !=$actor->getId();
+        });
+    }
+
 }

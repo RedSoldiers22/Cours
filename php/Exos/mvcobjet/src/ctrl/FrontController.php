@@ -38,6 +38,10 @@ class FrontController{
        return $this->actorService->getActor($id); // appel au service
     }
 
+    public function viewAddAct(){
+        echo $this->twig->render('addAct.html.twig');
+    }
+
     // -----------------------------Réalisateurs-----------------------------------
 
     public function listeReals(){
@@ -48,6 +52,10 @@ class FrontController{
 
     public function getReal($id){
        return $this->realService->getReal($id); // appel au service
+    }
+
+    public function viewAddReal(){
+        echo $this->twig->render('addReal.html.twig');
     }
 
     // -----------------------------Movies-----------------------------------

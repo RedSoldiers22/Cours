@@ -1,0 +1,11 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Modifier un acteur{% endblock %}
+
+{% block content %}
+    <form action=addActeur method="POST">
+        <input type="text" name="prenom" placeholder="Prénom">
+        <input type="text" name="nom" placeholder="Nom">
+        <input type="submit" value="OK">
+    </form>
+{% endblock %}

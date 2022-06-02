@@ -29,11 +29,13 @@ class GenreDao extends BaseDao{
     }
 
     public function getGenre($id){
-        $sql = "SELECT * FROM genre WHERE id=?";
-        $stmt = $this->db->prepare($sql);
-        $result = $stmt->execute([$id]);
-        if($result){
+        $stmt = $this->db->prepare("SELECT * FROM genre WHERE id=?");
+        $res = $stmt->execute([':id'=>$id]);
+
+        if($res){
             return $stmt->fetchObject(Genre::class);
+        }else{
+            throw new \PDOException($stmt->errorInfo()[2]);
         }
     }
 
@@ -51,6 +53,22 @@ class GenreDao extends BaseDao{
         $updSql->bindParam(':id',$id);
         $updSql->bindParam(':Name',$name);
         $updSql->execute();
+    }
+
+    public function findByMovie($movieId){
+        $stmt = $this->db->prepare("
+            SELECT genre.id, genre.name
+            FROM genre
+            INNER JOIN movie ON movie.genre_id = genre_id
+            WHERE movie.id = :movieId");
+
+        $res = $stmt->execute([':movieId' => $movieId]);
+
+        if($res){
+            return $stmt->fetchObject(Genre::class);
+        }else{
+            throw new \PDOException($stmt->errorInfo()[2]);
+        }
     }
 }
 

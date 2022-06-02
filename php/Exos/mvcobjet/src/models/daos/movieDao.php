@@ -2,19 +2,29 @@
 
 namespace mvcobjet\models\daos;
 use mvcobjet\models\Entities\Movie;
+use mvcobjet\models\Entities\Actor;
+
+use DateTime;
 
 class MovieDao extends BaseDao{
 
-    public function creeObj($fields){
+    public function creeObj($fields): Movie {
         $movie = new Movie();
+        $movie->setId($fields['id'])
+            ->setTitle($fields['title']) 
+            ->setDescription($fields['Description']) 
+            ->setDate(\DateTime::createFromFormat('Y-m-d', $fields['date'])) 
+            ->setCoverImage($fields['cover_image']) 
+            ->setDuration($fields['duration']); 
+        /*$movie = new Movie();
         $movie->setId($fields['id']);
         $movie->setTitle($fields['title']);
         $movie->setDescription($fields['description']);
         $movie->setDuration($fields['duration']);
         $movie->setDate($fields['date']);
-        $movie->setCover_image($fields['cover_image']);
-        $movie->setGenre_id($fields['genre_id']);
-        $movie->setDirector_id($fields['director_id']);
+        $movie->setCoverimage($fields['cover_image']);
+        $movie->setGenre($fields['genre_id']);
+        $movie->setReal($fields['real_id']);*/
         return $movie;
     }
 
@@ -34,18 +44,28 @@ class MovieDao extends BaseDao{
     }
 
     public function getMovie($id){
-        $sql = "SELECT * FROM movie WHERE id=?";
+        $stmt = $this->db->prepare("SELECT * FROM movie WHERE id = :id");
+        $res = $stmt->execute([':id'=>$id]);
+
+        if($res){
+            return $this->creeObj($stmt->fetch(\PDO::FETCH_ASSOC));
+        }else{
+            throw new \PDOException($stmt->errorInfo()[2]);
+        }
+        /*$sql = "SELECT * FROM movie WHERE id=?";
         $stmt = $this->db->prepare($sql);
         $result = $stmt->execute([$id]);
         if($result){
-            return $stmt->fetchObject(Movie::class);
-        }
+            return $stmt->fetchObject(Movie::class);*/
+        
     }
 
     public function create($movie){
-        $sql = "INSERT INTO movie (title, description, duration, date, cover_image, genre_id, director_id) VALUES (?,?,?,?,?,?,?)";
+        $movie = $this->movieDao->creeObj($movie);
+
+        /*$sql = "INSERT INTO movie (title, description, duration, date, cover_image, genre_id, director_id) VALUES (?,?,?,?,?,?,?)";
         $stmt = $this->db->prepare($sql);
-        $result = $stmt->execute([$movie['title'],$movie['description'],$movie['duration'],$movie['date'],$movie['cover_image'],$movie['genre_id'],$movie['director_id']]);
+        $result = $stmt->execute([$movie['title'],$movie['description'],$movie['duration'],$movie['date'],$movie['cover_image'],$movie['genre_id'],$movie['director_id']]);*/
     }
     
     public function update($movie){
