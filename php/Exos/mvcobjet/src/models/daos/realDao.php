@@ -25,11 +25,13 @@ class RealDao extends BaseDao{
                 array_push($reals,$this->creeObj($row));
             }
             return $reals;
+        }else{
+            throw new \PDOException($stmt->errorInfo()[2]);
         }
     }
 
-    public function getReal($id){
-        $stmt = $this->db->prepare("SELECT * FROM director WHERE id=?");
+    public function getReal($id): Real {
+        $stmt = $this->db->prepare("SELECT * FROM director WHERE id=:id");
         $res = $stmt->execute([':id'=>$id]);
 
         if($res){
@@ -59,15 +61,15 @@ class RealDao extends BaseDao{
 
     public function findByMovie($movieId){
         $stmt = $this->db->prepare("
-            SELECT genre.id, genre.name
-            FROM genre
-            INNER JOIN movie ON movie.genre_id = genre_id
+            SELECT director.* 
+            FROM director
+            INNER JOIN movie ON movie.director_id = director.id
             WHERE movie.id = :movieId");
 
         $res = $stmt->execute([':movieId' => $movieId]);
 
         if($res){
-            return $stmt->fetchObject(Actor::class);
+            return $stmt->fetchObject(Real::class);
         }else{
             throw new \PDOException($stmt->errorInfo()[2]);
         }

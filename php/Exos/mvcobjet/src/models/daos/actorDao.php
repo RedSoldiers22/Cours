@@ -22,22 +22,24 @@ class ActorDao extends BaseDao{
         if($result){
             $actors = [];
             while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)){
-                // $actors = $this->creeObj($row);
                 array_push($actors,$this->creeObj($row));
             }
             return $actors;
+        }else{
+            throw new \PDOException($stmt->errorInfo()[2]);
         }
     }
 
     public function getActor($id): Actor {
-        $stmt = $this->db->prepare("SELECT * FROM actor WHERE id=?");
+        $stmt = $this->db->prepare("SELECT * FROM actor WHERE id=:id");
         $res = $stmt->execute([':id'=>$id]);
 
         if($res){
-            return $stmt->fetchObject(Movie::class);
+           return $stmt->fetchObject(Actor::class);
         }else{
             throw new \PDOException($stmt->errorInfo()[2]);
         }
+       
     }
 
     public function create($actor){
@@ -60,17 +62,19 @@ class ActorDao extends BaseDao{
 
     public function findByMovie($movieId){
         $stmt = $this->db->prepare("
-            SELECT genre.id, genre.name
-            FROM genre
-            INNER JOIN movie ON movie.genre_id = genre_id
-            WHERE movie.id = :movieId");
+            SELECT actor.* 
+            FROM actor 
+            INNER JOIN movies_actors ON movies_actors.actor_id = actor.id
+            WHERE movies_actors.movie_id = :movieId");
 
         $res = $stmt->execute([':movieId' => $movieId]);
-
-        if($res){
-            return $stmt->fetchObject(Actor::class);
-        }else{
-            throw new \PDOException($stmt->errorInfo()[2]);
+        if ($res) {
+            $actors = [] ;
+            while ($row =  $stmt->fetch(\PDO::FETCH_ASSOC)) {
+            //    $actors[] =  $this->creeObj($row) ;  
+                array_push($actors,$this->creeObj($row));
+            }
+            return $actors;
         }
     }
 }

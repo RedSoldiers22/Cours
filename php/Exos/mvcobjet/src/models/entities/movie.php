@@ -120,7 +120,7 @@ class Movie
 
     public function addActor(Actor $actor): void
     {
-         if(is_array($this->actor)){
+         if(is_array($this->actors)){
              foreach($this->actors as $a){
                  if ($a->getId() == $actor->getId()){
                      return;

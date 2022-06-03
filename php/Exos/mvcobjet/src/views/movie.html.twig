@@ -1,9 +1,40 @@
 {% extends "base.html.twig" %}
 
-{% block title %}Films{% endblock %}
+{% block title %}{{movie.title}}{% endblock %}
 
 {% block content %}
-    {% for movie in movies %}
-        {{movie.title}}<br>
-    {% endfor %}
+
+
+    <img src="{{movie.coverImage}}">
+
+    <table>
+        <tr>
+            <td>Réalisateur</td>
+            <td>{{ movie.real.firstname }} {{ movie.real.lastname }}</td>
+        </tr>
+        <tr>
+            <td>Genre</td>
+            <td>{{ movie.genre.name }}</td>
+        </tr>
+        <tr>
+            <td>Durée</td>
+            <td>{{ movie.duration }}</td>
+        <tr>
+        {# </tr>
+            <td>Date de sortie</td>
+            <td>{{ movie.date }}</td>
+        </tr> #}
+        <tr>
+            <td>Description</td>
+            <td>{{ movie.description }}</td>
+        </tr>
+        <tr>
+            <td>Acteurs</td>
+            <td>
+            {% for actor in movie.actors %}
+                {{actor.firstname}}  {{actor.lastname}}<br>
+            {% endfor %}
+            </td>
+    </table>
+
 {% endblock %}

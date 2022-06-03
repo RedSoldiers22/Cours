@@ -12,7 +12,7 @@ class MovieDao extends BaseDao{
         $movie = new Movie();
         $movie->setId($fields['id'])
             ->setTitle($fields['title']) 
-            ->setDescription($fields['Description']) 
+            ->setDescription($fields['description']) 
             ->setDate(\DateTime::createFromFormat('Y-m-d', $fields['date'])) 
             ->setCoverImage($fields['cover_image']) 
             ->setDuration($fields['duration']); 
@@ -25,10 +25,11 @@ class MovieDao extends BaseDao{
         $movie->setCoverimage($fields['cover_image']);
         $movie->setGenre($fields['genre_id']);
         $movie->setReal($fields['real_id']);*/
+      
         return $movie;
     }
 
-    public function findThem(){
+    public function getAllMovie(){
         $sql = "SELECT * FROM movie";
         $stmt = $this->db->prepare($sql);
         $stmt->execute();
@@ -43,7 +44,7 @@ class MovieDao extends BaseDao{
         }
     }
 
-    public function getMovie($id){
+    public function findById($id){
         $stmt = $this->db->prepare("SELECT * FROM movie WHERE id = :id");
         $res = $stmt->execute([':id'=>$id]);
 
@@ -51,13 +52,7 @@ class MovieDao extends BaseDao{
             return $this->creeObj($stmt->fetch(\PDO::FETCH_ASSOC));
         }else{
             throw new \PDOException($stmt->errorInfo()[2]);
-        }
-        /*$sql = "SELECT * FROM movie WHERE id=?";
-        $stmt = $this->db->prepare($sql);
-        $result = $stmt->execute([$id]);
-        if($result){
-            return $stmt->fetchObject(Movie::class);*/
-        
+        }     
     }
 
     public function create($movie){

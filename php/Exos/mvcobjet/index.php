@@ -59,14 +59,14 @@ $klein->respond('GET','/addActor', function() use ($fc){
 });
 
 $klein->respond('GET','/updateActeur/[:id]',function($request) use($fc){
-    $result = $fc->getActor($request->id);
-    //require ('src/views/viewUpdateActor.php');
+     $fc->updateActor($request->id);
+   
 });
 
 // ------------------------------ REAL -------------------------------
 
 $klein->respond('GET','/listeReal', function() use($fc){
-    $res = $fc->listeReals();
+    $fc->listeReals();
     //require 'src/views/viewListeReal.php';
 });
 
@@ -82,20 +82,18 @@ $klein->respond('GET','/addReal', function() use ($fc){
 });
 
 $klein->respond('GET','/updateReal/[:id]',function($request) use($fc){
-    $result = $fc->getReal($request->id);
+    $fc->getReal($request->id);
     //require ('src/views/viewUpdateReal.php');
 });
 
 //---------------------------------MOVIE---------------------------------
-
-$klein->respond('GET','/listeMovie', function() use($fc){
-    $res = $fc->listeMovie();
-    //require 'src/views/viewListeMovie.php';
+$klein->respond('GET','/listeMovie', function($request) use($fc){
+    $fc->getAllMovie();
 });
 
 $klein->respond('GET','/getMovie/[:id]',function($request) use($fc){
-    $result = $fc->getMovie($request->id);
-    print_r($result);
+    $fc->getMovieById($request->id);
+   
 });
 
 
@@ -104,14 +102,14 @@ $klein->respond('GET','/addMovie', function(){
 });
 
 $klein->respond('GET','/updateMovie/[:id]',function($request) use($fc){
-    $result = $fc->getMovie($request->id);
+    $result = $fc->getMovieById($request->id);
     //require ('src/views/viewUpdateMovie.php');
 });
 
 //---------------------------------GENRE---------------------------------
 
 $klein->respond('GET','/listeGenre', function() use($fc){
-    $res = $fc->listeGenre();
+    $fc->listeGenre();
     //require 'src/views/viewListeGenre.php';
 });
 

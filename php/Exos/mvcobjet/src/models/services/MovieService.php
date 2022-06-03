@@ -18,24 +18,8 @@ class MovieService {
         $this->RealDao = new RealDao();
     }
 
-    public function getMovie($id){
-        $movie = $this->MovieDao->getMovie($id);
-        $actors = $this->ActorDao->findByMovie($id);
-        foreach($actors as $actor){
-            $movie->addActor($actor);
-        }
-
-        $genre = $this->GenreDao->findByMovie($id);
-        $movie->setGenre($genre);
-        $real = $this->RealDao->findByMovie($id);
-        $movie->setReal($genre);
-
-        //return $this->MovieDao->getMovie($id);
-    }
-
-
     public function getAllMovie(){
-        $movie = $this->MovieDao->findThem();
+        $movie = $this->MovieDao->getAllMovie();
         return $movie;
     }
 
@@ -50,19 +34,25 @@ class MovieService {
 
      public function getbyId($id)
      {     
-         $movie = $this->movieDao->findById($id);  // recherche dans movieDao ( $id = id du movie )
-         $actors = $this->actorDao->findByMovie($id); // recherche des acteurs pour 1 film 
+         $movie = $this->MovieDao->findById($id);  // recherche dans movieDao ( $id = id du movie )
+         $actors = $this->ActorDao->findByMovie($id); // recherche des acteurs pour 1 film 
+
          foreach ($actors as $actor) {
              // fonction dans la classe Movie dans Entities
+            
              $movie->addActor($actor);  // fonction ajoute 1 acteur à l'objet movie (voire classe/entité Movie)
          }
- 
-         $genre = $this->genreDao->findByMovie($id); // recherche du genre 
+
+        
+    
+       
+         $genre = $this->GenreDao->findByMovie($id); // recherche du genre 
          $movie->setGenre($genre);
-         $director = $this->directorDao->findByMovie($id);
-         $movie->setDirector($director);
- 
+         $director = $this->RealDao->findByMovie($id);
+         $movie->setReal($director);
+        
         /* $comments = $this->commentDao->findByMovie($id);*/
+      
          return $movie;
      }
 

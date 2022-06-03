@@ -10,7 +10,7 @@ class GenreService {
     }
 
     public function getAllGenre(){
-        $genre = $this->genreDao->findTodo();
+        $genre = $this->GenreDao->findTodo();
         return $genre;
     }
 

@@ -42,6 +42,12 @@ class FrontController{
         echo $this->twig->render('addAct.html.twig');
     }
 
+    public function updateActor($actid) {
+        $act = $this->actorService->getActor($actid);
+        echo $this->twig->render('updAct.html.twig',["acteur"=>$act]);
+    }
+
+
     // -----------------------------Réalisateurs-----------------------------------
 
     public function listeReals(){
@@ -58,16 +64,22 @@ class FrontController{
         echo $this->twig->render('addReal.html.twig');
     }
 
-    // -----------------------------Movies-----------------------------------
-
-    public function listeMovie(){
-        $result = $this->movieService->getAllMovie();
-        //return $result;
-        echo $this->twig->render('movie.html.twig',["movies"=>$result]);
+    public function updateReal($realid) {
+        $real = $this->realService->getReal($realid);
+        echo $this->twig->render('updReal.html.twig',["real"=>$real]);
     }
 
-    public function getMovie($id){
-       return $this->movieService->getMovie($id); // appel au service
+    // -----------------------------Movies-----------------------------------
+
+    public function getMovieById($id){
+        $result = $this->movieService->getbyId($id);
+   
+        echo $this->twig->render('movie.html.twig',["movie"=>$result]);
+    }
+
+    public function getAllMovie(){
+       $movies = $this->movieService->getAllMovie();
+       echo $this->twig->render('allFilm.html.twig',["movies"=>$movies]); // appel au service
     }
 
      // -----------------------------Genre-----------------------------------
@@ -75,7 +87,7 @@ class FrontController{
      public function listeGenre(){
         $result = $this->genreService->getAllGenre();
         //return $result;
-        echo $this->twig->render('real.html.twig',["genres"=>$result]);
+        echo $this->twig->render('genre.html.twig',["genres"=>$result]);
     }
 
     public function getGenre($id){

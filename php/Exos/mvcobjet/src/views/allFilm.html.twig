@@ -1,0 +1,10 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Films{% endblock %}
+
+{% block content %}
+    {% for movie in movies %}
+        {{movie.title}}
+        <a class="nav-link" href="getMovie/{{movie.id}}" >Afficher le film</a></li> <br/>
+    {% endfor %}
+{% endblock %}
