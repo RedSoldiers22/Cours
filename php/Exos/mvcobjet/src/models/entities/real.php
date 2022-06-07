@@ -7,40 +7,35 @@ class Real {
     private $first_name ;
     private $last_name ;
 
-
-    public function getId()
-    {
+    public function getId(): int{
         return $this->id;
     }
 
- 
-    public function setId($id)
-    {
+    public function setId(int $id){
         $this->id = $id;
-
         return $this;
     }
 
-    public function getFirstName()
+    public function getFirstName(): string
     {
         return $this->first_name;
     }
 
-    public function setFirstName($first_name)
+    public function setFirstName(string $f)
     {
-        $this->first_name = $first_name;
+        $this->first_name = $f;
 
         return $this;
     }
 
-    public function getLastName()
+    public function getLastName(): string
     {
         return $this->last_name;
     }
 
-    public function setLastName($last_name)
+    public function setLastName(string $l)
     {
-        $this->last_name = $last_name;
+        $this->last_name = $l;
 
         return $this;
     }

@@ -1,7 +1,6 @@
 <?php
 namespace mvcobjet\models\services;
 
-use Exception;
 use mvcobjet\models\daos\ActorDao;
 
 class ActorService {
@@ -11,9 +10,7 @@ class ActorService {
     }
 
     public function getAllActors(){
-        try{
-            $acteurs = $this->ActorDao->findAll();
-        } catch (Exception $e) {print_r($e->getMessage());}    
+            $acteurs = $this->ActorDao->findAll();   
         return $acteurs;
     }
 

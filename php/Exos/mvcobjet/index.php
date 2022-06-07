@@ -40,11 +40,7 @@ $klein->respond('GET','/', function() use($fc){
 // ---------------------------- ACTEUR -----------------------------
 
 $klein->respond('GET','/listeActeurs', function() use($fc){
-    $fc->listeActeurs();
-    /*echo "<pre>";
-    print_r($res);die;
-    require 'src/views/viewListeActeur.php';*/
-    
+    $fc->listeActeurs();   
 });
 
 $klein->respond('GET','/getActeur/[:id]',function($request) use($fc){
@@ -52,9 +48,7 @@ $klein->respond('GET','/getActeur/[:id]',function($request) use($fc){
     print_r($result);
 });
 
-
 $klein->respond('GET','/addActor', function() use ($fc){
-    //require ('src/views/viewAddActor.php');
     $fc->viewAddAct();
 });
 
@@ -67,7 +61,6 @@ $klein->respond('GET','/updateActeur/[:id]',function($request) use($fc){
 
 $klein->respond('GET','/listeReal', function() use($fc){
     $fc->listeReals();
-    //require 'src/views/viewListeReal.php';
 });
 
 $klein->respond('GET','/getReal/[:id]',function($request) use($fc){
@@ -77,13 +70,11 @@ $klein->respond('GET','/getReal/[:id]',function($request) use($fc){
 
 
 $klein->respond('GET','/addReal', function() use ($fc){
-    //require ('src/views/viewAddReal.php');
     $fc->viewAddReal();
 });
 
 $klein->respond('GET','/updateReal/[:id]',function($request) use($fc){
-    $fc->getReal($request->id);
-    //require ('src/views/viewUpdateReal.php');
+    $fc->updateReal($request->id);
 });
 
 //---------------------------------MOVIE---------------------------------

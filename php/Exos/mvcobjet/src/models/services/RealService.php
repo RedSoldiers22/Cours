@@ -2,7 +2,6 @@
 namespace mvcobjet\models\services;
 
 use mvcobjet\models\daos\RealDao;
-use mvcobjet\models\entities\Real;
 
 class RealService {
     private $RealDao;
@@ -16,7 +15,6 @@ class RealService {
     }
 
     public function create($real){
-        //$objreal = $this->RealDao->creeObj($real);
         $this->RealDao->create($real);
     }
 

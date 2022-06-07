@@ -38,8 +38,7 @@ class ActorDao extends BaseDao{
            return $stmt->fetchObject(Actor::class);
         }else{
             throw new \PDOException($stmt->errorInfo()[2]);
-        }
-       
+        }   
     }
 
     public function create($actor){
