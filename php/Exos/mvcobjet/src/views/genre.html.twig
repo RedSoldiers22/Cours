@@ -4,6 +4,8 @@
 
 {% block content %}
     {% for genre in genres %}
-        {{genre.name}}<br>
+        {{genre.name}}
+        <a class="nav-link" href="updateGenre/{{genre.id}}" >Modifier un genre</a></li>
+        <br>
     {% endfor %}
 {% endblock %}

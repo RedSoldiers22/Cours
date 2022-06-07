@@ -10,7 +10,7 @@ class ActorService {
     }
 
     public function getAllActors(){
-            $acteurs = $this->ActorDao->findAll();   
+        $acteurs = $this->ActorDao->findAll();   
         return $acteurs;
     }
 

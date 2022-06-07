@@ -24,11 +24,13 @@ class GenreDao extends BaseDao{
                 array_push($genre,$this->creeObj($row));
             }
             return $genre;
+        }else{
+            throw new \PDOException($stmt->errorInfo()[2]);
         }
     }
 
     public function getGenre($id): Genre{
-        $stmt = $this->db->prepare("SELECT * FROM genre WHERE id=?");
+        $stmt = $this->db->prepare("SELECT * FROM genre WHERE id=:id");
         $res = $stmt->execute([':id'=>$id]);
 
         if($res){

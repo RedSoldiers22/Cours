@@ -93,7 +93,15 @@ class FrontController{
     public function getGenre($id){
        return $this->genreService->getGenre($id); // appel au service
     }
-  
+    
+    public function viewAddGenre(){
+        echo $this->twig->render('addGenre.html.twig');
+    }
+
+    public function updateGenre($realid) {
+        $real = $this->realService->getReal($realid);
+        echo $this->twig->render('updReal.html.twig',["real"=>$real]);
+    }
 }
 
 

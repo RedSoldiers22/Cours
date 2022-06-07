@@ -53,8 +53,7 @@ $klein->respond('GET','/addActor', function() use ($fc){
 });
 
 $klein->respond('GET','/updateActeur/[:id]',function($request) use($fc){
-     $fc->updateActor($request->id);
-   
+     $fc->updateActor($request->id); 
 });
 
 // ------------------------------ REAL -------------------------------
@@ -78,6 +77,7 @@ $klein->respond('GET','/updateReal/[:id]',function($request) use($fc){
 });
 
 //---------------------------------MOVIE---------------------------------
+
 $klein->respond('GET','/listeMovie', function($request) use($fc){
     $fc->getAllMovie();
 });
@@ -101,22 +101,21 @@ $klein->respond('GET','/updateMovie/[:id]',function($request) use($fc){
 
 $klein->respond('GET','/listeGenre', function() use($fc){
     $fc->listeGenre();
-    //require 'src/views/viewListeGenre.php';
 });
 
 $klein->respond('GET','/getGenre/[:id]',function($request) use($fc){
-    //$result = $fc->getGenre($request->id);
+    $result = $fc->getGenre($request->id);
+    print_r($result);
 });
 
-
-$klein->respond('GET','/addGenre', function(){
-    //require ('src/views/viewAddGenre.php');
+$klein->respond('GET','/addGenre', function() use($fc){
+    $fc->viewAddGenre();
 });
 
 $klein->respond('GET','/updateGenre/[:id]',function($request) use($fc){
-    $result = $fc->getGenre($request->id);
-    //require ('src/views/viewUpdateGenre.php');
+    $fc->updateGenre($request->id);
 });
+
 
 //-----------------------------------BACK-------------------------------
 //----------------------------------------------------------------------
