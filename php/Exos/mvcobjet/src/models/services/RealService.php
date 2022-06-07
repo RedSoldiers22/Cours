@@ -16,7 +16,7 @@ class RealService {
     }
 
     public function create($real){
-        $objreal = $this->RealDao->creeObj($real);
+        //$objreal = $this->RealDao->creeObj($real);
         $this->RealDao->create($real);
     }
 
