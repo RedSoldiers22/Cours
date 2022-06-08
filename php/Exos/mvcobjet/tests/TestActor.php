@@ -28,7 +28,6 @@ class TestActor extends TestCase{
         $actor = $this->actor;
         $actor->setFirstName("test");
         $actor->setLastName("test");
-
         $result = $this->actorDao->create($actor);
         $this->assertNull($result);
     }

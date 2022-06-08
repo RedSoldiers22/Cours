@@ -41,15 +41,18 @@ class ActorDao extends BaseDao{
         }   
     }
 
-    public function create($actor){
+    public function create(Actor $actor) {
+        
         $sql = "INSERT INTO actor (first_name, last_name) VALUES (?,?)";
         $stmt = $this->db->prepare($sql);
-        $result = $stmt->execute([$actor->getFirstName(),$actor->getLastName()]);
+        $p = $actor->getFirstName();
+        $n = $actor->getLastName(); 
+        $result = $stmt->execute([$p,$n]);
     }
     
     public function update($actor){
-        $firstName = $actor['prenom'];
-        $lastName = $actor['nom'];
+        $firstName = $actor['first_name'];
+        $lastName = $actor['last_name'];
         $id = $actor['id'];
         $updReq = "UPDATE actor SET first_name=:firstName, last_name=:lastName WHERE id=:id";
         $updSql = $this->db->prepare($updReq);

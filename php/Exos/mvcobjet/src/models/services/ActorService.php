@@ -14,8 +14,9 @@ class ActorService {
         return $acteurs;
     }
 
-    public function create($actor){
-        $this->ActorDao->create($actor);
+    public function create($actor) {
+        $objActeur = $this->ActorDao->creeObj($actor);
+        $this->ActorDao->create($objActeur);
     }
 
     public function getActor($id){

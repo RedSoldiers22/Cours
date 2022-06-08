@@ -4,8 +4,8 @@
 
 {% block content %}
     <form action="../updateReal" method="POST">
-        <input type="text" name="prenom" value={{real.firstname}}>
-        <input type="text" name="nom" value={{real.lastname}}>
+        <input type="text" name="first_name" value={{real.firstname}}>
+        <input type="text" name="last_name" value={{real.lastname}}>
         <input type="hidden" name="id" value={{real.id}}>
         <input type="submit" value="OK">
     </form>   

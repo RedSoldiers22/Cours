@@ -98,9 +98,9 @@ class FrontController{
         echo $this->twig->render('addGenre.html.twig');
     }
 
-    public function updateGenre($realid) {
-        $real = $this->realService->getReal($realid);
-        echo $this->twig->render('updReal.html.twig',["real"=>$real]);
+    public function updateGenre($genreid) {
+        $genre = $this->genreService->getGenre($genreid);
+        echo $this->twig->render('updGenre.html.twig',["genre"=>$genre]);
     }
 }
 

@@ -11,19 +11,19 @@ class Genre {
         return $this->id;
     }
 
-    public function setId($id)
+    public function setId(int $id=null)
     {
         $this->id = $id;
 
         return $this;
     }
 
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
 
-    public function setName($name)
+    public function setName(string $name)
     {
         $this->name = $name;
 

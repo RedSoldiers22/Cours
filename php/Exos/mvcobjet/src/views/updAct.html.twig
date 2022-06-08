@@ -4,8 +4,8 @@
 
 {% block content %}
     <form action="../updateActeur" method="POST">
-        <input type="text" name="prenom" value={{acteur.firstname}}>
-        <input type="text" name="nom" value={{acteur.lastname}}>
+        <input type="text" name="first_name" value={{acteur.firstname}}>
+        <input type="text" name="last_name" value={{acteur.lastname}}>
         <input type="hidden" name="id" value={{acteur.id}}>
         <input type="submit" value="OK">
     </form>   

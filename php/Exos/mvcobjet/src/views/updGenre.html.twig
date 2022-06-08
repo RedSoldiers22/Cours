@@ -1,0 +1,11 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Modifier un acteur{% endblock %}
+
+{% block content %}
+    <form action="../updateGenre" method="POST">
+        <input type="text" name="name" value={{genre.name}}>
+        <input type="hidden" name="id" value={{genre.id}}>
+        <input type="submit" value="OK">
+    </form>   
+{% endblock %}

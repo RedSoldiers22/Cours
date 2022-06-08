@@ -15,7 +15,8 @@ class GenreService {
     }
 
     public function create($genre){
-        $this->GenreDao->create($genre);
+        $$objGenre = $this->GenreDao->creeObj($genre);
+        $this->GenreDao->create($objGenre);
     }
 
     public function getGenre($id){

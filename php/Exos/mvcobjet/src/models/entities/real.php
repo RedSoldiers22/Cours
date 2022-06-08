@@ -11,7 +11,7 @@ class Real {
         return $this->id;
     }
 
-    public function setId(int $id){
+    public function setId(int $id=null){
         $this->id = $id;
         return $this;
     }
