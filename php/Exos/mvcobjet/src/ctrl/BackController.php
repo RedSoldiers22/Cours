@@ -63,7 +63,7 @@ class BackController{
 
     function listeM() {
         $realDao = new MovieDao();
-        $result = $realDao->findThem();
+        $result = $realDao->getAllMovie();
         echo "<pre>";
         print_r($result);
     }

@@ -36,23 +36,15 @@ class MovieService {
      {     
          $movie = $this->MovieDao->findById($id);  // recherche dans movieDao ( $id = id du movie )
          $actors = $this->ActorDao->findByMovie($id); // recherche des acteurs pour 1 film 
-
          foreach ($actors as $actor) {
              // fonction dans la classe Movie dans Entities
-            
              $movie->addActor($actor);  // fonction ajoute 1 acteur à l'objet movie (voire classe/entité Movie)
          }
-
-        
-    
-       
          $genre = $this->GenreDao->findByMovie($id); // recherche du genre 
          $movie->setGenre($genre);
          $director = $this->RealDao->findByMovie($id);
-         $movie->setReal($director);
-        
-        /* $comments = $this->commentDao->findByMovie($id);*/
-      
+         $movie->setReal($director);  
+        /* $comments = $this->commentDao->findByMovie($id);*/ 
          return $movie;
      }
 

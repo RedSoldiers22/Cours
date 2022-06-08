@@ -82,6 +82,15 @@ class FrontController{
        echo $this->twig->render('allFilm.html.twig',["movies"=>$movies]); // appel au service
     }
 
+    public function viewAddMovie(){
+        echo $this->twig->render('addMovie.html.twig');
+    }
+
+    public function updateMovie($movieid) {
+        $movie = $this->movieService->getById($movieid);
+        echo $this->twig->render('updMovie.html.twig',["movie"=>$movie]);
+    }
+
      // -----------------------------Genre-----------------------------------
 
      public function listeGenre(){
