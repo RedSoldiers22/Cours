@@ -41,10 +41,10 @@ class RealDao extends BaseDao{
         }
     }
 
-    public function create($reals){
+    public function create($real){
         $sql = "INSERT INTO director (first_name, last_name) VALUES (?,?)";
         $stmt = $this->db->prepare($sql);
-        $result = $stmt->execute([$reals['nom'],$reals['prenom']]);
+        $result = $stmt->execute([$real->getFirstName(),$real->getLastName()]);
     }
     
     public function update($reals){
