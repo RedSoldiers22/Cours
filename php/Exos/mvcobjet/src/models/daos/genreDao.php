@@ -43,7 +43,7 @@ class GenreDao extends BaseDao{
     public function create($genre){
         $sql = "INSERT INTO genre (name) VALUES (?)";
         $stmt = $this->db->prepare($sql);
-        $result = $stmt->execute([$genre['nom']]);
+        $result = $stmt->execute([$genre->getName()]);
     }
     
     public function update($genre){
