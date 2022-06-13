@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page d'accueil{% endblock %}
+{% block monTitre %}Voici la liste{% endblock %}
+
+{% block body %}
+        
+        <div class="col-auto">
+            <h2>{{animal.nom}}</h2>
+            <div>{{animal.description}}</div>
+            <div>{{animal.poids}}</div>
+        </div>
+        <div class="col-2 text-center">
+            <img src="../images/{{animal.image}}">
+        </div>
+    </div>
+
+{% endblock %}
