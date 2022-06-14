@@ -13,8 +13,6 @@
         }
     ],
     "require": {
-        "klein/klein": "^2.1",
-        "twig/twig": "^3.4",
-        "phpunit/phpunit": "^9.5"
+        "klein/klein": "^2.1"
     }
 }

@@ -4,38 +4,38 @@ namespace mvcobjet\models\entities;
 
 class Actor {
     private $id ;
-    private $first_name ;
-    private $last_name ;
+    private $firstName ;
+    private $lastName ;
 
     public function getId(): int {
         return $this->id;
     }
 
-    public function setId(int $id=null){
+    public function setId(int $id){
         $this->id = $id;
         return $this->id;
     }
 
     public function getFirstName(): string
     {
-        return $this->first_name;
+        return $this->firstName;
     }
     
     public function setFirstName(string $f)
     {
-        $this->first_name = $f;
+        $this->firstName = $f;
 
         return $this;
     }
 
     public function getLastName(): string
     {
-        return $this->last_name;
+        return $this->lastName;
     }
 
     public function setLastName(string $l)
     {
-        $this->last_name = $l;
+        $this->lastName = $l;
 
         return $this;
     }
