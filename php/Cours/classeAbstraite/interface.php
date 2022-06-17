@@ -9,7 +9,7 @@ interface Drivable{
     public function drive();
 }
 
-class Car implements Movable, Drivable {
+class Car2 implements Movable, Drivable {
     public function accelere()
     {
         echo 'vroum';
@@ -24,7 +24,7 @@ class Car implements Movable, Drivable {
     }
 }
 
-$v = new Car();
+$v = new Car2();
 $v->accelere();
 
 ?>

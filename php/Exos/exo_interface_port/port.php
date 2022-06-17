@@ -12,7 +12,7 @@ class Port {
     }
 
     function accueilEngin(Amarable $amarable){
-        echo ">> Le nombre de cordes nécessaire pour m'amarrer est de : ".$amarable->nbcordes()."";
+        echo " >> Le nombre de cordes nécessaire pour m'amarrer est de : ".$amarable->nbcordes()." ";
     }
 }
 
