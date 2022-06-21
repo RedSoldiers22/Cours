@@ -5,3 +5,4 @@ chatServer.on('connection', function(client) {
     client.write('Bye!\n');
     client.end() 
 }) 
+chatServer.listen(9000)
