@@ -1,5 +1,7 @@
 const express = require('express')// npm i express --save
+const jsonfile = require('jsonfile')
 const port = 8080;
+const fs = require("fs-extra")
 
 const app = express();
 
@@ -19,7 +21,18 @@ app.get('/', function(req, res){
 })
 
 app.get('/data1', function(req, res){
-    res.render("data1", { message : "SKULLS FOR THE SKULL THRONE"})
+    res.render("data1", { message : "SKULLS FOR THE SKULL THRONE", cpt:12})
+})
+
+app.get('/data2/:etudiant/:lid', function(req, res){
+    res.render("data2", { etudiant : req.params.etudiant, sonid: req.params.lid})
+})
+
+app.get('/data3', function(req, res){
+    let data = jsonfile.readFile('donnees.json','utf-8',function (err,data) {
+       res.render("data3", {datas:data});
+    })
+    
 })
 
 
