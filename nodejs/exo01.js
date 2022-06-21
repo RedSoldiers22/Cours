@@ -1,7 +1,9 @@
-// lecture d'un fichier de manière synchrone
-// chargement d'un module d'IO
-const { readFileSync } = require("fs")
+// lecture d'un fichier de manière ASYNCHRONE
+// chargement d'un module d'IO fs-extra
+const { readFile } = require("fs")
 const fs = require("fs-extra")
-let data = readFileSync('input.txt')
-console.log(data.toString())
+let data = fs.readFile('input.txt', 'utf-8', function(err, data){
+    console.log(data.toString())
+})
+
 console.log("fin du programme")
