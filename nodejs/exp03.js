@@ -37,9 +37,19 @@ app.get('/data3', function(req, res){
 })
 
 app.get('/data4', function(req,res){
-    bdd.findAll("animal", function(animal){
-        console.log(animal);
+    bdd.findAll("continent", function(continent){
+        // console.log(animal);
+        res.render("data4",{continent: continent})
     })
+})
+
+// affichage du formulaire
+app.get('/form1', function(req, res){
+       res.render("form1.ejs");
+    })
+    
+app.post("/add_continent", function(req,res){
+    console.log(req.body)
 })
 
 

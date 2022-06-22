@@ -1,0 +1,11 @@
+<%- include ('head') %>
+<h1>Continents</h1>
+       <hr/>
+        <% if ( locals.continent ) { %>
+            <% continent.forEach(function(continent) { %>
+                <p><%= continent.nom %></p>
+
+            <% }) %>
+        <% } %>
+</body>
+</html>

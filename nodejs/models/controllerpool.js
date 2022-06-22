@@ -6,3 +6,10 @@ exports.findAll = function(nomtable,callback){
         callback(rows)
     })
 }
+
+exports.inBdd = function(nomtable){
+    let sql = "INSERT INTO " + nomtable + "column1" + "VALUES (?)"
+    conn.query(sql, data, function(rows){
+        callback(rows)
+    })
+}
