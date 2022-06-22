@@ -11,7 +11,7 @@ pool.add({
   host     : 'localhost',
   user     : 'root',
   password : '',
-  database : 'mvc'
+  database : 'amimo'
 });
 
 // Test de la connection

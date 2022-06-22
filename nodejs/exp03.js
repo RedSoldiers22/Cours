@@ -2,8 +2,9 @@ const express = require('express')// npm i express --save
 const jsonfile = require('jsonfile')
 const port = 8080;
 const fs = require("fs-extra")
-
 const app = express();
+
+const bdd = require('./models/controllerpool.js')
 
 app.use(express.urlencoded({extended: false}))
 app.use(express.json())
@@ -33,6 +34,12 @@ app.get('/data3', function(req, res){
        res.render("data3", {datas:data});
     })
     
+})
+
+app.get('/data4', function(req,res){
+    bdd.findAll("animal", function(animal){
+        console.log(animal);
+    })
 })
 
 
