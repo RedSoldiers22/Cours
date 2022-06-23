@@ -7,9 +7,10 @@ exports.findAll = function(nomtable,callback){
     })
 }
 
-exports.inBdd = function(nomtable){
-    let sql = "INSERT INTO " + nomtable + "column1" + "VALUES (?)"
-    conn.query(sql, data, function(rows){
-        callback(rows)
-    })
-}
+exports.addInBdd = function(datas,callback){
+    let sql="INSERT INTO continent (nom) VALUES (?)"
+        conn.query(sql,[datas.nom],function(err){
+            callback(err);
+        })    
+    }
+

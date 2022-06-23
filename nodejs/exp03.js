@@ -31,6 +31,9 @@ app.get('/data2/:etudiant/:lid', function(req, res){
 
 app.get('/data3', function(req, res){
     let data = jsonfile.readFile('donnees.json','utf-8',function (err,data) {
+        if (err){
+            // gérer l'erreur
+        }
        res.render("data3", {datas:data});
     })
     
@@ -45,11 +48,18 @@ app.get('/data4', function(req,res){
 
 // affichage du formulaire
 app.get('/form1', function(req, res){
-       res.render("form1.ejs");
+       res.render("form1");
     })
     
 app.post("/add_continent", function(req,res){
     console.log(req.body)
+    bdd.addInBdd(req.body, function(err){
+        if (err){
+            console.log(err)
+        }else{
+        console.log("continent ajouté")
+        res.json({reponse: "ok"})
+    }})
 })
 
 
