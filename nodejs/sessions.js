@@ -33,9 +33,16 @@ app.get('/', (req,res) =>{
         res.send("Vous avez visité cette page " + req.session.page_vues + " fois") // ce qui s'affiche sur la table
     }else{
         req.session.page_vues = 1
+        res.cookie('nom','Reds',{expire: 360000})
         res.send("Bienvenue sur cette page pour la première fois")
     }
 })
+
+app.get('/efface', (req,res)=>{
+    res.clearCookie('nom');
+    res.send("cookie nom effacé");
+})
+
 app.listen(3000) // port http
 
 // en inspectant notre page cookie connect.sid est créé. C'est l'équivalent du PHP_SESSID de PHP

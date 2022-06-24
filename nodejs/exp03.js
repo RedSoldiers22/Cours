@@ -3,6 +3,16 @@ const jsonfile = require('jsonfile')
 const port = 8080;
 const fs = require("fs-extra")
 const app = express();
+const path = require('path');
+const session = require('express-session')
+const cookieParser = require('cookie-parser')
+
+app.use(session({
+    secret: "khorne",
+    resave: true,
+    saveUninitialized: true,
+    cookie: {maxAge: 60000}
+}))
 
 const bdd = require('./models/controllerpool.js')
 
@@ -25,10 +35,12 @@ app.get('/data1', function(req, res){
     res.render("data1", { message : "SKULLS FOR THE SKULL THRONE", cpt:12})
 })
 
+// trouver un par id
 app.get('/data2/:etudiant/:lid', function(req, res){
     res.render("data2", { etudiant : req.params.etudiant, sonid: req.params.lid})
 })
 
+// lire un json
 app.get('/data3', function(req, res){
     let data = jsonfile.readFile('donnees.json','utf-8',function (err,data) {
         if (err){
@@ -62,5 +74,55 @@ app.post("/add_continent", function(req,res){
     }})
 })
 
+// login
+app.get('/login', function(req, res){
+    res.render("login");
+ })
+
+ 
+
+ app.post('/auth', function(req, res){
+   
+   bdd.login(req.body,function(resultat){ 
+        if(resultat.message != "no") {
+            console.log(resultat)
+            req.session.username = resultat.username
+            res.send("ok "+resultat.username)
+        } else {
+            res.send("pb login/password")
+        }
+   })
+ 
+ })
+
+// http://localhost:3000/home
+app.get('/home', function(req, response) {
+	// If the user is loggedin
+	if (req.session.loggedin) {
+		// Output username
+		response.send('Welcome back, ' + req.session.username + '!');
+	} else {
+		// Not logged in
+		response.send('Please login to view this page!');
+	}
+	response.end();
+});
+
+
+// register
+ app.get('/register', function(req, res){
+    res.render("register");
+ })
+ 
+app.post("/add_user", function(req,res){
+ console.log(req.body)
+ bdd.addUser(req.body, function(err){
+     if (err){
+         console.log(err)
+     }else{
+     console.log("user ajouté")
+     res.json({reponse: "ok"})
+ }})
+})
 
 app.listen(port, function(){console.log("j'écoute sur le port"+ port)})
