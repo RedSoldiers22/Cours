@@ -1,15 +1,6 @@
 var http = require('http');
-http.createServer(function(request, reponse){
-    reponse.writeHead(200, {'Content-Type': "text/plain"})
-    Response.end("Hello World\n")
+http.createServer(function(request,response){
+    response.writeHead(200, {'Content-Type': 'text/plain' })
+    response.end("Hello World\n")
 }).listen(8080,"127.0.0.1")
 console.log("serveur ecoute sur le port 8080")
-
-/*var http = require("http")
-http
-  .createServer(function (req, res) {
-    res.writeHead(200, { "Content-Type": "text/plain" })
-    res.end("Hello World\n")
-  })
-  .listen(1337, "localhost")
-console.log("Server running at http://localhost:1337/")*/
