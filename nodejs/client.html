@@ -11,17 +11,26 @@
 <body>
     <button>Chercher</button>
     <div>
-        <p id="nom"></p>
-        <p id="age"></p>
+        <p id="date1"></p>
+        <p id="date2"></p>
     </div>
 
     <script>
         $("button").click(function(){
-            axios.get("http://localhost:3000/nom")
+            axios.all([
+                axios.get('https://api.github.com/users/mapbox'),
+                axios.get('https://api.github.com/users/phantomjs')
+            ]).then(function(tabresp){
+                console.log("date de création 1", tabdresp[0].data.created_at)
+                console.log("date de création 2", tabdresp[1].data.created_at)
+                $("#date1").html(tabdresp[0].data.created_at)
+                $("#date2").html(tabdresp[1].data.created_at)
+            })
+            /*axios.get("http://localhost:3000/nom")
                     .then(function(response) { 
                         $("#nom").html(response.data.nom)
                         $("#age").html(response.data.age)
-                    })
+                    })*/
         })
     </script>
    
