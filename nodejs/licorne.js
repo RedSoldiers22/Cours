@@ -1,4 +1,4 @@
-db.unicorns.insert({name: 'Horny',
+db.kassos.insert({name: 'Horny',
     dob: new Date(1992,2,13,7,47),
     loves: ['carrot','papaya'],
     weight: 600,
