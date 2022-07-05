@@ -8,7 +8,10 @@
     "express-session": "^1.17.3",
     "fs-extra": "^10.1.0",
     "jsonfile": "^6.1.0",
+<<<<<<< HEAD
     "mongodb": "^4.7.0",
+=======
+>>>>>>> 2758bfd5a4d64537b73bcb29e6a441d19b7400dd
     "mysql2": "^2.3.3",
     "nodemailer": "^6.7.6",
     "nodemon": "^2.0.18"
