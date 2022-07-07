@@ -152,5 +152,20 @@ Personne.prototype.saluer = function() {
 
 
   //---------------------for/forEach-----------------------
-  
-  
+  var Eleve = function (nom){ // nom -> paramètre
+    this.nom = nom
+}
+
+Eleve.prototype.moyenne= function(){
+    var somme = 0
+    this.notes.forEach(function(note, index){
+        somme += this.notes[index]
+    }, this)
+    
+    return Math.round(somme/this.notes.length)
+}
+
+var jean = new Eleve("Jean")
+jean.notes=[10,12]
+
+
