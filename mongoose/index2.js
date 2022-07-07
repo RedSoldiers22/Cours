@@ -1,6 +1,7 @@
 var express = require("express");
 var mongoose = require("mongoose");
 
+
 var Product = require ("./models/products.js");
 var Review = require ("./models/reviews.js");
 
@@ -11,6 +12,7 @@ var app = express();
 
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
+app.use(express.static("public"));
 
 app.post("/crea_product", function(req,res){
     Product.create(req.body)
