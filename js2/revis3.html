@@ -13,6 +13,11 @@
     <title>Document</title>
 </head>
 <body>
+    <button id="hide">Bye</button>
+    <button id="show">Back</button>
+    <p>see yaaa!!!</p>
+    <img src="img/onmevoit.gif" alt="">
+    <button id="voit">Avoi,avoiplu</button>
     <ul>
         <li>texte un</li>
         <li>texte deux</li>
@@ -20,9 +25,24 @@
     </ul>
     <script>
         //$("li").click(function(){alert($(this).text())})
-        $(document).on("click","li",function(){alert($(this).text())})
+        //$(document).on("click","li",function(){alert($(this).text())})
+        $("ul").on("click","li",function(){alert($(this).text())})
 
         $("ul").append("<li>texte quatre</li>")
+
+        $("#hide").click(function(){
+            $("p").hide()
+        });
+
+        $("#show").click(function(){
+            $("p").show()
+        });
+
+        $("#voit").click(function(){
+            $("img").slideUp(2000).slideDown(2000).slideUp(2000).slideDown(2000).slideUp(2000).slideDown(2000)
+        });
+
+        
     </script>
 </body>
 </html>
