@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+
+  <script>
+    let users = [
+    {firstName : "Susan", lastName: "Steward"},
+    {firstName : "Daniel", lastName: "Longbottom"},
+    {firstName : "Jacob", lastName: "Black"}
+  ];
+
+  users.forEach(function(obj){
+    console.log(obj.firstName)
+    let result = []
+    result.push(obj.firstName)  
+  })
+
+  let compose = users.map(function(element){
+    return `${element.firstName} ${element.lastName}`;
+  })
+
+  console.log(compose)
+
+  let ages = [32,33,16,40]
+
+  const result = ages.filter(function(age){
+    return age > 18
+  })
+
+  console.log(result)
+
+  </script>
+
+
+  
+</body>
+</html>
+
+
+
+
+  

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .st1{
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <div id="essai"></div>
+    <input id="moninput" type="text" placeholder="saisir un texte">
+
+    <script>
+        let p1 = document.createElement("p")
+        let text1 = document.createTextNode("Texte pour mon élément p1")
+        p1.appendChild(text1) // ajoute un noeud à un élément
+
+        let mondiv = document.getElementById("essai")
+        mondiv.appendChild(p1)
+
+        let a = document.createElement("a")
+        a.setAttribute("href","http://exemple.com")
+        let text2 = document.createTextNode("Lien vers exemple.com")
+        a.appendChild(text2)
+        
+        mondiv.appendChild(a)
+
+        mondiv.style.color = "#FF0000"
+        mondiv.style.fontSize = "24px"
+
+        //p1.addEventListener("click",function(){alert("coucou")})
+           p1.addEventListener("click",function(){
+            mondiv.classList.add("st1")
+        })
+
+        let i = document.getElementById("monInput")
+        i.addEventListener("blur",function(){alert("sortie")})
+
+     
+
+
+    </script>
+</body>
+</html>
