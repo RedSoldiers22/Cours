@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .grid-1{
+            display: grid;
+            width: 100%;
+            margin: 0 auto;
+      
+
+        grid-template-areas:"entete"
+                            "main"
+                            "aside"
+                            "footer";
+        }
+
+        .item1{
+            grid-area: entete;
+        }
+        .item2{
+            grid-area: aside;
+        }
+        .item3{
+            grid-area: main;
+        }
+        .item4{
+            grid-area: footer;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-1">
+        <div class="item1">entête</div>
+        <div class="item2">aside</div>
+        <div class="item3">main</div>
+        <div class="item4">footer</div>
+    </div>
+</body>
+</html>

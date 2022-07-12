@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    
+    .left 
+        {
+            height:450px ;
+            width: 200px ;
+            background-color: blue ;
+            
+            float:left ; /* left sort du flux et se positionne en haut à gauche à partir du dernier */ 
+        }
+
+    .right {
+            height:480px ;
+            width: 240px ;
+            background-color: red;
+           
+            float:right;  /* left sort du flux et se positionne en haut à droite à partir du dernier */ 
+        }
+    
+        header {
+            height:150px ;
+            background-color: aqua ;
+        }
+
+        footer {
+            height:150px ;
+            background-color: silver ;
+            opacity: 0.5 ;
+            /* rajouter clear left */
+            /*  footer revient dans le flux normal à partir di dernier float gauche
+                pour */ 
+            clear:left ; 
+            /* clear: right ->  footer revient dans le flux normal à partir di dernier float gauche */
+            /* clear: both  -> left et right */
+
+        }
+
+    </style>
+
+</head>
+<body>
+   <header></header>
+    <div class="left"></div>
+    <div class="right"></div>
+    <footer></footer>
+</body>
+</html>
