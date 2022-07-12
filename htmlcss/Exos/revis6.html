@@ -8,27 +8,36 @@
     <style>
         .grid-1{
             display: grid;
-            width: 100%;
+            width: 600px;
             margin: 0 auto;
       
 
-        grid-template-areas:"entete"
-                            "main"
-                            "aside"
-                            "footer";
+        grid-template-areas:"entete entete entete"
+                            "aside main main"
+                            "footer footer footer";
+        }
+
+        .grid-1 div{
+            color: yellow;
+            font-size: 20px;
+            padding: 20px;
         }
 
         .item1{
             grid-area: entete;
+            background-color: green;
         }
         .item2{
             grid-area: aside;
+            background-color: aquamarine;
         }
         .item3{
             grid-area: main;
+            background-color: orange;
         }
         .item4{
             grid-area: footer;
+            background-color: purple;
         }
     </style>
 </head>
