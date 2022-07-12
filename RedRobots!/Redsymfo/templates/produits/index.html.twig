@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page d'accueil{% endblock %}
+{% block monTitre %}Voici la liste{% endblock %}
+
+{% block body %}
+
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    img {max-width: 200px; max-height : 200px; border-radius:100px; }
+
+</style>
+
+    {% for message in app.flashes('success') %}
+    {{message}}
+    {% endfor %}
+
+    {% for produit in produits %}
+        <div class="row align-items-center">
+        
+        <div class="col-auto">
+            <h2>{{produit.nom}}</h2>
+            <div>{{produit.description}}</div>
+            <div>{{produit.poids}}</div>
+            <div>{{produit.prix}}</div>
+            <div>Constructeur :
+      
+             {% for inc in produits.inc %}
+                 <a href={{ path('unInc',{'id':inc.id})}} > {{ inc.nom }}  </a>&nbsp; 
+            {% endfor %}
+        </div>
+        <br>
+        <div class="col-2 text-center">
+        {# <img src="{{asset('images/' ~animal.image)}}}"> #}
+            {#<img src="images/{{animal.image}}">#}
+            <img src={{asset("images/" ~ produits.image)}}
+        </div>
+    </div>
+
+    {% endfor %}
+{% endblock %}
