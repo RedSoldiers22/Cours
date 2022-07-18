@@ -1,0 +1,126 @@
+<script>
+// Exo 1
+    /*class Car{
+        constructor(constr,model,gas){
+        this.constr = constr
+        this.model = model
+        this.gas = gas
+    }
+    } 
+
+    var auto = new Car("Citroen","C5","essence")
+
+    auto.demarrer = function(){"Vroum"}
+    auto.acceler = function(){return "Vrouuuuuuuuuuuuum"}
+    auto.freiner = function(){return "Hiiiiiiiiiiiii"}
+    auto.stopper = function(){return "Tchiouuuuu"}
+
+    auto.protoype = Object.create(Car.prototype)*/
+
+function Car(name, modele, combustible){
+
+    this.name = name;
+
+    this.modele = modele;
+
+    this.combustible = combustible;
+
+
+
+Car.prototype.demarrer = function(){
+
+    console.log(this.name + " " + this.modele + " démarre");
+
+};
+
+Car.prototype.accelerer = function(){
+
+    console.log(this.name + " " + this.modele + " accélère");
+
+};
+
+Car.prototype.freiner = function(){
+
+    console.log(this.name + " " + this.modele + " freine");
+
+};
+
+Car.prototype.stop = function(){
+
+    console.log(this.name + " " + this.modele + " s'arrête");
+
+};
+
+
+
+}
+
+
+// Exo 2
+
+let phrase = "Chercher l’équivalent du explode de php en JS"
+
+let words = phrase.split(' ')
+console.log(words)
+
+// Exo 3
+
+function addition(n1,n2){
+    return n1 + n2
+}
+
+// Exo 4
+
+(function(data){console.log(data+3)})(12);
+
+/*function correct(a,b,...otherLetters){
+    console.log("a", a)
+    console.log("b", b)
+    console.log("otherLetters", otherLetters)
+}*/
+
+// Exo 5
+
+function somme(...nombres) {
+let total = 0;
+
+for (const argument of nombres) {
+  total += argument;
+}
+return total;
+}
+
+console.log(somme(1, 2, 3));
+
+/*[a, b, ...rest] = [10, 20, 30, 40, 50];
+
+console.log(rest);*/
+
+
+const {name, age} = {name: "paul", age:"15"}
+
+// dans la console
+console.log(name) // => donnera "paul"
+
+// Exo 6
+
+function retour(arg1, arg2){
+    echo (arg1)
+    arg2()
+}
+
+retour("coucou", function(x){console.log('execute celle-ci'+x)})
+
+/*function exec() {
+return "execute celle ci";
+
+}
+
+function call(callback) {
+console.log('coucou');
+return callback();
+}
+
+console.log(call(exec));*/
+
+</script>
