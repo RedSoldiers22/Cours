@@ -11,11 +11,10 @@ app.get('/',(req,res)=>res.send('Hello,Express 2!'))
 
 // --------------------Pokémons par id--------------------------------------
 app.get('/api/pokemons/:id',(req,res)=>{
-    const id = parseInt(req.params.id)
-    // parseInt permet de transformer une chaine de caractère en nombre entier
+    const id = parseInt(req.params.id) // parseInt permet de transformer une chaine de caractère en nombre entier
     const pokemon = pokemons.find(pokemon=>pokemon.id===id)
     const message = "Un pokémon  a bien été trouvé."
-    res.json(helper.sucess(message,pokemon))
+    res.json(helper.success(message,pokemon))
 })
 
 // --------------------Nombre total de pokémons---------------------
