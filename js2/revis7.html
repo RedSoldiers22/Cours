@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function saluer() {
+            var reponse = [this.nom, "est un", this.role, "."].join(" ");
+            console.log(reponse);
+            }
+
+            var personne1 = {
+            nom: "Sénèque",
+            role: "philosophe"
+            };
+
+            var personne2 = {
+                nom:"Léonidas",
+                role:"roi"
+            };
+
+            saluer.call(personne1);
+            saluer.call(personne2);
+
+            var prenom = 'Roland'
+            function afficher(){
+                console.log('prenom vaut ' + this.prenom);
+            }
+
+            afficher.call();
+
+            var animaux = [
+                {espece: 'Lion', nom: 'Roi'},
+                {espece: 'Éléphant', nom: 'Dumbo'}
+                ];
+
+                for (var i = 0; i < animaux.length; i++) {
+                (function (i) {
+                    this.print = function () {
+                    console.log('#' + i  + ' ' + this.espece + ' : ' + this.nom);
+                    }
+                    this.print();
+                }).call(animaux[i], i);
+                }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

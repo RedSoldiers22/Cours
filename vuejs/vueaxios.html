@@ -1,0 +1,29 @@
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+<div id="app">
+    <h1>Bitcoin machin trucs</h1>
+</div>
+
+<div v-for="currency in info">
+    {{ currency.description}}:
+    <span v-html="currency.symbol"></span>
+    <span>{{ currency.rate_float }}</span>
+</div>
+
+<script>
+    new Vue ({
+        el:"#app",
+        data: {
+            info:null
+        },
+        mounted(){
+            // hook mounted : une fois l'objet Vue monté => exécution de axios.get
+            axios
+            .get('https://api.coindesk.com/v1/bpi/currentprice.json')
+            .then(response=>(this.info = responde.data.bpi))
+        },
+    })
+
+</script>

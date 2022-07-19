@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <mycomponent>
+    </div>
+
+    <div id="app">
+        <mycomponent>
+    </div>
+
+    <script>
+        Vue.component('mycomponent',{
+            data: function() {
+                return {
+                    letitre: "1ER COMPOSANT !!"
+                }
+            },
+            template: '<h1>{{ letitre }}</h1>'
+        })
+
+        //instance en vue.js
+        new Vue({
+            el:"#app",
+        })
+
+        // datas : il faut faire un return sur les datas contrairement à la vue classique le composant est global et
+        // est visible par toutes les instances de vuejs, on peut utiliser le v-bind pour lier data et valeur dans
+        // l'attribut du component
+    </script>
+</body>
+</html>
