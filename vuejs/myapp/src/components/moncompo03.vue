@@ -35,7 +35,7 @@ export default {
             .then((response) => {
                 this.posts = response.data
             })
-}
+    }
 }
 </script>
 

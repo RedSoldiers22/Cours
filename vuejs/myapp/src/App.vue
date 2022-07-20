@@ -4,6 +4,7 @@
   <router-link to="/moncompo01">moncompo01</router-link>
   <router-link to="/moncompo02">moncompo02</router-link>
   <router-link to="/moncompo03">moncompo03</router-link>
+  <router-link to="/MonGhibli">Ghibli</router-link>
   <hr>
   <router-view/>
   <hr>
