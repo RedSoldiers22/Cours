@@ -6,7 +6,7 @@
         <div v-for="film in films" v-bind:key="film.id">
             <h1>{{ film.title }}</h1>
             <p>{{ film.description }}</p>
-            <img src={{film.image}}>
+            <img v-bind:src=film.image>
             <p>{{ film.original_title_romanised }}</p>
             <p>{{ film.director }}</p>
             <p>{{ film.running_time }}</p>
