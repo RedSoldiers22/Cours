@@ -1,16 +1,18 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App - Khorne"/>
+  <!--<img alt="Vue logo" src="./assets/logo.png">-->
+  <!--<HelloWorld msg="Welcome to Your Vue.js App - Khorne"/> -->
+  <router-link to="/moncompo01">moncompo01</router-link>
+  <router-link to="/moncompo02">moncompo02</router-link>
+  <router-link to="/moncompo03">moncompo03</router-link>
+  <hr>
+  <router-view/>
+  <hr>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+//import HelloWorld from './components/HelloWorld.vue'
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
 }
 </script>
 
