@@ -52,5 +52,15 @@ app.get('/produits',function(req,res){
             })
 })
 
+app.post("/crea_product", function(req,res){
+    Product.create(req.body)
+        .then(function(dbProduct){
+            res.json(dbProduct);
+        })
+        .catch(function(err){
+            res.json(err);
+        });
+})
+
 
 app.listen(3030), ()=>{console.log("listen 3030")}

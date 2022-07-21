@@ -1,5 +1,6 @@
 <template>
   <router-link to="/monmag">monmag</router-link>
+  <router-link to="/monform">monform</router-link>
  
   <hr>
   <router-view/>

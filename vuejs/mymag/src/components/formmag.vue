@@ -1,11 +1,15 @@
 <template>
-    <div>
-        <h3>Produits {{ msg }}</h3>
-        <button @click="getDatas">Lanceba!</button>
+    <div id="app">
+        <label for="name">Nom : </label>
+        <div>
+            <input type="text" v-model="name"    placeholder="Entrer le nom du produit">
+        </div>
+        <label for="quantity">Quantité : </label>
+        <div>
+            <input type="text" v-model="quantity"   placeholder="Entrer la quantitée du produit">
+        </div>
+        <button @click="fonction02">Lanceba!</button>
 
-        <form action="">
-            
-        </form>
 
     </div>
 
@@ -15,19 +19,21 @@
 import axios from 'axios'
 
 export default {
-    name:"MonMag",
+    name:"MonForm",
     data(){
         return{
-            msg: "à ajouter!",
-            prods: {}
+            name: '',
+            quantity: 0
     }
 },
     methods: {
-        getDatas(){
-            axios.get("http://localhost:3030/produits")
-            .then((response) => {
-                this.prods = response.data
-            })
+        fonction01: function(){
+            // les datas sont disponibles dans l'objet courant this
+            this.msg = this.msg + " -tropsuuuuupeeeeeer"
+        },
+        fonction02: function(){
+            axios.post("http://localhost:3030/crea_product", {name: this.name, quantity: this.quantity})
+          
         }
     }
 }
