@@ -1,6 +1,12 @@
 const express = require("express")
 const mongoclient = require('mongodb').MongoClient;
 const cors = require('cors');
+var mongoose = require("mongoose");
+
+var Product = require ("./models/products.js");
+var Review = require ("./models/reviews.js");
+
+mongoose.connect("mongodb://localhost/magasin", {useNewUrlParser:true});
 
 let db;
 mongoclient.connect('mongodb://localhost:27017', function(err,connection){

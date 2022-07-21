@@ -6,6 +6,10 @@
         <div v-for="prod in prods" v-bind:key="prod.id">
             <h1>{{ prod.name }}</h1>
             <p>{{ prod.quantity }}</p>
+            <div v-for="review in prod.reviews" v-bind:key="review.id">
+                <p>Etoiles : {{ review.stars }}</p>
+                <p>Commentaire : {{ review.review }}</p>
+            </div>
 
         </div>
     </div>
@@ -25,7 +29,7 @@ export default {
 },
     methods: {
         getDatas(){
-            axios.get("http://localhost:3030/listemag")
+            axios.get("http://localhost:3030/produits")
             .then((response) => {
                 this.prods = response.data
             })
