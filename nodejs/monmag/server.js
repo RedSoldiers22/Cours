@@ -31,20 +31,55 @@ function generateAccessToken(user) {
   // expire apres 5minutes
   return jwt.sign(user, process.env.TOKEN_SECRET, { expiresIn: '5m' });
 }
+/*
+exiresIn options 
+'2 days'  // 172800000
+'1d'      // 86400000
+'10h'     // 36000000
+'2.5 hrs' // 9000000
+'2h'      // 7200000
+'1m'      // 60000
+'5s'      // 5000
+'1y'      // 31557600000
+'100'     // 100
+*/
 
 //-------------------middleware de verification ------
 function authenticateToken(req, res, next) {
-  const token = req.headers['x-access-token']
+  // const token = req.headers['x-access-token']
+  console.log(req.headers);
+  const token = req.headers.authorization.split(" ")[1]
+  //const token = req.headers.authorization
+  console.log("TOKEN",token);
   if (token == null) { return res.sendStatus(401) } // if there isn't any token
-
-
- 
   jwt.verify(token, process.env.TOKEN_SECRET, (err, user) => {
     if (err) return res.sendStatus(403)
     req.user = user
-    next() // pass the execution off to whatever request the client intended
+    next() 
   })
 }
+
+app.post ('/user/login', (req,res) => {
+  console.log(req.body);
+   User.findOne({ email: req.body.email })
+    .exec((err, user) => {
+        if (err) { res.status(500).send({ message: err }); }
+  
+        if (!user) {
+          console.log("no user")
+          return res.status(404).send({ message: "User Not found." });
+        }
+      
+        if (user) {
+            const isValidPass = bcrypt.compareSync(req.body.password,user.password)
+            if (isValidPass) {
+                  const token = generateAccessToken({user:user})
+                  res.status(200).send(token);
+            }
+          }
+  
+     })
+  })
 
 app.post ('/user/signup', (req,res) => 
 {
@@ -62,7 +97,7 @@ app.post ('/user/signup', (req,res) =>
           name: req.body.name,
 	        password: hash,
           email: req.body.email
-        });
+        })
     user.save(function(err) {
     if (err) return handleError(err); 
       res.status(200).send(user);
@@ -73,7 +108,7 @@ app.post ('/user/signup', (req,res) =>
 
 
 // test du token
-app.get('/api/userOrders', authenticateToken ,  function(req, res) {
+app.get('/api/orders', authenticateToken ,  function(req, res) {
 	console.log("OK TU PASSES!!");
   res.send('ok');
 })
