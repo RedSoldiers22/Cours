@@ -62,5 +62,40 @@ app.post("/crea_product", function(req,res){
         });
 })
 
+app.get('/register', function(req, res){
+    res.render("register");
+ })
+ 
+app.post("/add_user", function(req,res){
+ console.log(req.body)
+ bdd.addUser(req.body, function(err){
+     if (err){
+         console.log(err)
+     }else{
+     console.log("user ajouté")
+     res.json({reponse: "ok"})
+ }})
+})
+
+app.get('/login', function(req, res){
+    res.render("login");
+ })
+
+ 
+
+ app.post('/auth', function(req, res){
+   
+   bdd.login(req.body,function(resultat){ 
+        if(resultat.message != "no") {
+            console.log(resultat)
+            req.session.username = resultat.username
+            res.send("ok "+resultat.username)
+        } else {
+            res.send("pb login/password")
+        }
+   })
+ 
+ })
+
 
 app.listen(3030), ()=>{console.log("listen 3030")}
