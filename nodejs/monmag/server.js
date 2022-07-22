@@ -1,6 +1,5 @@
 const dotenv = require('dotenv'); // npm i dotenv 
 dotenv.config();
-const path = require('path');
 const jwt = require('jsonwebtoken');
 const express = require('express');
 const app = express();
@@ -11,11 +10,6 @@ var bcrypt = require('bcryptjs'); //
 var cors = require('cors'); //
 
 app.use(cors());
-
-mongoose.set('useNewUrlParser', true);
-mongoose.set('useFindAndModify', false);
-mongoose.set('useCreateIndex', true);
-mongoose.set('useUnifiedTopology', true);
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -71,8 +65,7 @@ app.post ('/user/signup', (req,res) =>
         });
     user.save(function(err) {
     if (err) return handleError(err); 
-      const token = generateAccessToken({user:req.body})
-      res.status(200).send(token);
+      res.status(200).send(user);
     })
     } 
   }) // end exec
