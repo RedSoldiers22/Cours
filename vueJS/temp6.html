@@ -15,11 +15,7 @@
 <body>
 
 <div id="app">
-    <button @click="isBlue = !isBlue">alterne bleu/noir</button>
-    <h1 class="title" :class="{couleurbleue:true}">Titre booléen</h1>
-    <h1 class="title" :class="{couleurbleue: isBlue}">Titre booléen from data</h1>
-    <h1 class="title" :class="{couleurbleue: isBlue}">Titre booléen from data</h1>
-
+    <p v-show=""montre>COUCOU</p>
 
 </div>
 
@@ -27,17 +23,13 @@
         new Vue({
             el:"#app",
             data:{
-             isBlue: true
+        
             },
             methods:{
-             
+                montre: true,
             },
             computed:{
-                myClass: function(){
-                    return{
-                        couleurbleue:this.isBlue
-                    }
-                }
+
             }
                 
             })

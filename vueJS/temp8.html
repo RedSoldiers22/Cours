@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+    <div id="monapp">
+        <h1 v-on:click="counter++">{{counter}}</h1>
+    </div>
+
+    <script>
+        const{createApp} = Vue
+
+        createApp({
+            data(){
+                return{
+                    counter: 0,
+                    message:""
+                },
+                computed:{
+                    
+                }
+            }
+        }).mount('#monapp')
+    </script>
+</body>
+</html>
