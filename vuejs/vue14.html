@@ -1,0 +1,39 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    <bouton-compteur></bouton-compteur>
+</div>
+
+<script>
+    Vue.component('bouton-compteur', {
+        data: function(){
+            return {
+                count:0
+            }
+        },
+        template: '<h2 v-on:click="count++">Vous m\'avez cliqué {{ count }} fois.</h2>'
+    })
+
+    new Vue ({
+        el:"#app"
+    })
+
+    /*// Créer un application Vue 
+        const app = Vue.createApp({})
+
+        //Définir un composant global -> button-counter
+        app.component('button-counter', {
+        data() {
+            return {
+            count: 0
+            }
+        },
+        template: `
+            <button v-on:click="count++">
+            Tu as clické {{ count }} fois.
+            </button>`
+        })
+
+        app.mount('#components-demo')*/
+</script>
+</script>

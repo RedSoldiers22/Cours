@@ -1,0 +1,27 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    <mycomponent v-bind:montitre="titleDeData" mytext="texte de clicktest"></mycomponent>
+</div>
+
+<script>
+    Vue.component('mycomponent', {
+        props: ['montitre', 'mytext'],
+        template: '<h3 v-on:click="clickTest">{{ montitre}}</h3>',
+        methods: {
+            clickTest: function(){
+                console.log(this.mytext)
+            }
+        }
+    })
+
+
+    new Vue({
+        el: "#app",
+        data: {
+            titleDeData:"hello from data"
+        }
+    })
+
+    // Parcours du tableau de datas avec v-for et rendu de plusieurs templates avec le lien (bind) effectué
+</script>

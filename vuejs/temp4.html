@@ -1,0 +1,22 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+<mycomponent v-for="chaquetitre in titleDeData" v-bind:key="chaquetitre" v-bind:titre="chaquetitre"></mycomponent>
+</div>
+
+<script>
+    Vue.component('mycomponent', {
+        props: ['titre'],
+        template: '<h3>{{ titre }}</h3>',
+    })
+
+
+    new Vue({
+        el: "#app",
+        data: {
+            titleDeData: ["hello from data", "are you ok?", "Je rajoute","et moi aussi"]
+        }
+    })
+
+    // Parcours du tableau de datas avec v-for et rendu de plusieurs templates avec le lien (bind) effectué
+</script>

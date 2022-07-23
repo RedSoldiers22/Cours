@@ -1,0 +1,22 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <div id="app">
+        <mycomponent montitre= "Hello i am a prop of mycomponent!" montext="autres textes de clicktest"></mycomponent>
+    </div>
+
+    <script>
+        Vue.component('mycomponent', {
+            props: ['montitre', 'montext'],
+            template: '<h3 v-on:click="clickTest">{{ montitre }}</h3>',
+            methods:{
+                clickTest: function(){
+                    console.log(this.montext)
+                }
+            }
+        })
+        
+        new Vue({
+            el:"#app",
+        })
+        
+    </script>
