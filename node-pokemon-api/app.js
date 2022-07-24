@@ -23,6 +23,10 @@ require('./src/routes/createPokemon')(app)
 require('./src/routes/updatePokemon')(app)
 require('./src/routes/deletePokemon')(app)
 
-app.listen(port, ()=>console.log(`Notre application Node est démarrée sur : http://localhost:${port}`))
+// On ajoute la gestion des erreurs 404
+app.use(({res}) =>  {
+    const message = 'Pas la bonne URL connard.'
+    res.status(404).json({message})
+})
 
-// Point de terminaison Express = app.METHODE(CHEMIN,GESTIONNAIRE(req,res))
+app.listen(port, ()=>console.log(`Notre application Node est démarrée sur : http://localhost:${port}`)) // Point de terminaison Express = app.METHODE(CHEMIN,GESTIONNAIRE(req,res))
