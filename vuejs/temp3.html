@@ -1,27 +1,39 @@
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1 v-once>{{ letitre }}</h1>
+        <h2>{{ letitre }}</h2>
 
-<div id="app">
-    <mycomponent v-bind:montitre="titleDeData" mytext="texte de clicktest"></mycomponent>
-</div>
+        <p v-html="texthtml"></p>
+        <p vi-if="seen">TU ME VOIS OU PAS</p>
+        <button v-once:click="modiftitre">modif</button>
+        <input type="text" v-model="title">
+    </div>
+</body>
 
 <script>
-    Vue.component('mycomponent', {
-        props: ['montitre', 'mytext'],
-        template: '<h3 v-on:click="clickTest">{{ montitre}}</h3>',
-        methods: {
-            clickTest: function(){
-                console.log(this.mytext)
+    new Vue({
+        el:"#app",
+        data:{
+            title:'Hello',
+            texthtml:'<strong>texte html</strong>',
+            seen:true,
+            message: ' important!'
+        },
+        methods:{
+            modiftitre: function(){
+                this.letitre += " World"
             }
         }
     })
-
-
-    new Vue({
-        el: "#app",
-        data: {
-            titleDeData:"hello from data"
-        }
-    })
-
-    // Parcours du tableau de datas avec v-for et rendu de plusieurs templates avec le lien (bind) effectué
 </script>
+
+</html>

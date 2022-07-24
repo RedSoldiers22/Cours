@@ -1,22 +1,56 @@
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
 
 <div id="app">
-<mycomponent v-for="chaquetitre in titleDeData" v-bind:key="chaquetitre" v-bind:titre="chaquetitre"></mycomponent>
+    <h2>{{ counter }}</h2>
+    <h3>{{ etatCounter }}</h3>
+    <!--<p v-on:mouseover="hover">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque adipisci accusamus, velit dolorem omnis magni dolor alias expedita officiis laudantium temporibus, commodi molestiae, consequatur quidem unde illo delectus quis quasi.
+    </p>
+    {{ nomDuTag }} -->
+    <button v-on:click="incremente">incrémente</button>
+    <!--<button v-on:click="incremente(2,$event)">incrémente de 2</button>-->
+    <button v-on:click="decremente">décrémente</button>
 </div>
 
-<script>
-    Vue.component('mycomponent', {
-        props: ['titre'],
-        template: '<h3>{{ titre }}</h3>',
-    })
-
-
-    new Vue({
-        el: "#app",
-        data: {
-            titleDeData: ["hello from data", "are you ok?", "Je rajoute","et moi aussi"]
-        }
-    })
-
-    // Parcours du tableau de datas avec v-for et rendu de plusieurs templates avec le lien (bind) effectué
-</script>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+              counter: 0,
+              etatCounter: "positif",
+              nomDuTag: "rien"
+            },
+            methods:{
+              incremente: function(){
+                this.counter++
+                this.etatCounter = this.counter < 0 ? 'négatif' : 'positif'
+              },
+              incrementeStep: function(nb, event){
+                this.counter += nb
+              },
+              decremente: function(){
+                this.counter--
+                this.etatCounter = this.counter < 0 ? 'négatif' : 'positif'
+              },
+              decrementeStep: function(nb, event){
+                this.counter += nb
+              },
+              hover:function(event){
+                console.log(event);
+                this.nomDuTag = event.target.tagName
+              }
+                }
+            })
+    </script>
+    
+</body>
+</html>

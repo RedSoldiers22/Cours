@@ -1,22 +1,16 @@
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
-    <div id="app">
-        <mycomponent montitre= "Hello i am a prop of mycomponent!" montext="autres textes de clicktest"></mycomponent>
-    </div>
+<div id="app">
+    <h1>{{title}}</h1>
+    <p>{{paragraphe}}</p>
+</div>
 
-    <script>
-        Vue.component('mycomponent', {
-            props: ['montitre', 'montext'],
-            template: '<h3 v-on:click="clickTest">{{ montitre }}</h3>',
-            methods:{
-                clickTest: function(){
-                    console.log(this.montext)
-                }
-            }
-        })
-        
-        new Vue({
-            el:"#app",
-        })
-        
-    </script>
+<script>
+    new Vue({
+        el:"#app",
+        data: {
+            title: "Hello World",
+            paragraphe: "Un paragraphe ici"
+        }
+    })
+</script>
