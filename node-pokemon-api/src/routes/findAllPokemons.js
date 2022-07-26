@@ -9,7 +9,7 @@ module.exports = (app) => {
       })
       .catch(error => {
         const message = `La liste n\'a pas pu être récupérée.`
-        res.statuts(500).json({message, data: error})
+        res.status(500).json({message, data: error})
       })
   })
 }
