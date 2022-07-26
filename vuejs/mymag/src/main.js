@@ -15,7 +15,7 @@ const store = createStore({
     },
     getters:{
     affiche: (state)=> {
-        return `${state.nom}${state.prenom} agé de ${state.age}`
+        return `${state.prenom} ${state.nom} agé de ${state.age}`
     }
 },
     mutations: {

@@ -8,11 +8,11 @@
   <router-view/>
   <hr>
  <div>
-  Nom: {{$store.state.nom}}
-  Prenom: {{$store.state.prenom}}
-  Age: {{$store.state.age}}
+  Nom: {{$store.state.nom}} <br>
+  Prenom: {{$store.state.prenom}} <br>
+  Age: {{$store.state.age}} <br>
   
-  {{$store.getters.affiche}}
+  {{$store.getters.affiche}} <br>
   
   <button class="btn btn-primary" @click="plusplus" >++</button>
 
@@ -28,7 +28,6 @@ export default {
   name: 'App',
   methods: {
     plusplus() {
-      
       this.$store.commit('AJOUTE_ANNEE')
     },
     plusx(x){
@@ -39,7 +38,6 @@ export default {
     }
   }
 }
-
 </script>
 
 <style>

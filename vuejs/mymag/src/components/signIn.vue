@@ -4,7 +4,7 @@
         <div>
             <input type="text" v-model="username"    placeholder="Entrer votre usename">
         </div>
-        <label for="quantity">Quantité : </label>
+        <label for="quantity">Mot de passe  : </label>
         <div>
             <input type="text" v-model="password"   placeholder="Entrer votre mot de passe">
         </div>
