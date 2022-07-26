@@ -1,7 +1,7 @@
 <template>
-  <router-link to="/monmag">monmag</router-link>
-  <router-link to="/monform">monform</router-link>
-  <router-link to="/monlog">Log In</router-link>
+  <router-link to="/monmag">Monmag</router-link> <br>
+  <router-link to="/monform">Monform</router-link> <br>
+  <router-link to="/monlog">Log In</router-link> <br>
   <router-link to="/monsign">Sign In</router-link>
  
   <hr>
