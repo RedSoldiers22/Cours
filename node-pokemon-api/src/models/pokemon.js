@@ -10,6 +10,9 @@ module.exports = (sequelize, DataTypes) => {
       name: {
         type: DataTypes.STRING,
         allowNull: false,
+        unique: { 
+          msg: 'Le nom est déjà pris.' // contraintes
+        },
         validate: {
           notEmpty: { msg: "Le nom ne peut être vide"},
           notNull: { msg : 'Un nom est requis.'}
@@ -73,7 +76,7 @@ module.exports = (sequelize, DataTypes) => {
             if(value.split(',').length > 3) {
               throw new Error('Un pokémon ne peux pas avoir plus de trois types.')
             }
-            value.split(',').forEach(type => {
+            value.split(',').forEach( type =>  {
               if(!validTypes.includes(type)) {
                 throw new Error(`Le type d'un pokémon doit appartenir à la liste suivant : ${validTypes}`)
               }   

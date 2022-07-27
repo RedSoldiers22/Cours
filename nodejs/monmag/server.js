@@ -71,6 +71,7 @@ app.post ('/user/login', (req,res) => {
         }
       
         if (user) {
+          console.log(user)
             const isValidPass = bcrypt.compareSync(req.body.password,user.password)
             if (isValidPass) {
                   const token = generateAccessToken({user:user})

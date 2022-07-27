@@ -2,7 +2,7 @@
   <router-link to="/monmag">Monmag</router-link> <br>
   <router-link to="/monform">Monform</router-link> <br>
   <router-link to="/monlog">Log In</router-link> <br>
-  <router-link to="/monsign">Sign In</router-link>
+  <router-link to="/monsign">Sign Up</router-link>
  
   <hr>
   <router-view/>
