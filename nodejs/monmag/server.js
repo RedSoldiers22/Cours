@@ -29,7 +29,7 @@ var db = mongoose.connect('mongodb://localhost/afpauser');
 //--------------------------------------------------------
 function generateAccessToken(user) {
   // expire apres 5minutes
-  return jwt.sign(user, process.env.TOKEN_SECRET, { expiresIn: '5m' });
+  return jwt.sign(user, process.env.TOKEN_SECRET, { expiresIn: '50m' }); 
 }
 /*
 exiresIn options 
