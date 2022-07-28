@@ -34,7 +34,7 @@ export default {
     methods: {
         logUp: function(){
             axios.post("http://localhost:8092/user/signup", {username: this.username, password: this.password, email: this.email})
-            .then(response => { console.log(response.data) } )
+            .then( response => { console.log(response.data) } )
         }
     }
 }
