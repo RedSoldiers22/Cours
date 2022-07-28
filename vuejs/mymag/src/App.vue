@@ -2,7 +2,8 @@
   <router-link to="/monmag">Monmag</router-link> <br>
   <router-link to="/monform">Monform</router-link> <br>
   <router-link to="/login">Log In</router-link> <br>
-  <router-link to="/monsign">Sign Up</router-link>
+  <router-link to="/monsign">Sign Up</router-link> <br>
+  <button @click="test">Test</button>
  
   <hr>
   <router-view/>
@@ -23,6 +24,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 // import HelloWorld from './components/HelloWorld.vue'
 export default {
   name: 'App',
@@ -35,6 +38,17 @@ export default {
     },
     actplus(x){
       this.$store.dispatch('updateAge',x)
+    },
+    test(){
+      var tokenFromLocalStorage = localStorage.getItem("token")
+      var config = {}
+      config.headers = {"Authorization" : 'Bearer ' + tokenFromLocalStorage}
+      console.log(config)
+      axios.get("http://localhost:8092/api/orders", config)
+              .then( response => {
+                  console.log(response.data)
+              })
+
     }
   }
 }

@@ -26,7 +26,8 @@ export default {
     methods: {
         logIn: function(){
             axios.post("http://localhost:8092/user/login", {email: this.email, password: this.password})
-            .then( response => { console.log(response.data) } )
+            .then( response => { console.log(response.data)
+            localStorage.setItem('token', response.data) } )
         }
     }
 }
