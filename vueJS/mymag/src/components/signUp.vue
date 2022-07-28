@@ -2,11 +2,15 @@
     <div id="app">
         <label for="name">Nom : </label>
         <div>
-            <input type="text" v-model="username"    placeholder="Entrer votre usename">
+            <input type="text" v-model="username"    placeholder="Entrer votre username">
         </div>
-        <label for="quantity">Mot de passe  : </label>
+        <label for="password">Mot de passe  : </label>
         <div>
-            <input type="text" v-model="password"   placeholder="Entrer votre mot de passe">
+            <input type="password" v-model="password"   placeholder="Entrer votre mot de passe">
+        </div>
+        <label for="email">Email  : </label>
+        <div>
+            <input type="text" v-model="email"   placeholder="Entrer votre adresse mail">
         </div>
         <button @click="logUp">Lanceba!</button>
 
@@ -23,13 +27,14 @@ export default {
     data(){
         return{
             username: '',
-            password: ''
+            password: '',
+            email: ''
     }
 },
     methods: {
         logUp: function(){
-            axios.post("http://localhost:3030/add_user", {username: this.username, mdp: this.password})
-          
+            axios.post("http://localhost:8092/user/signup", {username: this.username, password: this.password, email: this.email})
+            .then(response => { console.log(response.data) } )
         }
     }
 }

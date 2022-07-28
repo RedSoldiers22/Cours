@@ -64,12 +64,10 @@ app.post ('/user/login', (req,res) => {
    User.findOne({ email: req.body.email })
     .exec((err, user) => {
         if (err) { res.status(500).send({ message: err }); }
-  
         if (!user) {
           console.log("no user")
           return res.status(404).send({ message: "User Not found." });
-        }
-      
+        }  
         if (user) {
           console.log(user)
             const isValidPass = bcrypt.compareSync(req.body.password,user.password)
@@ -84,18 +82,21 @@ app.post ('/user/login', (req,res) => {
 
 app.post ('/user/signup', (req,res) => 
 {
+ console.log(req.body)
  User.findOne({ email: req.body.email })
   .exec((err, user) => {
       if (err) {
         res.status(500).send({ message: err });
       }
       if (user) {
-        res.status(400).send({ message: "Failed! Email is already in use!" });
+        console.log(user)
+        res.send({ message: "Failed! Email is already in use!" });
       } else {
         var salt = bcrypt.genSaltSync(10);
         var hash = bcrypt.hashSync(req.body.password, salt);
+        
         var user = new User({
-          name: req.body.name,
+          username: req.body.username,
 	        password: hash,
           email: req.body.email
         })

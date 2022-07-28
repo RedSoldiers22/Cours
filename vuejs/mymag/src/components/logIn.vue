@@ -1,12 +1,12 @@
 <template>
     <div id="app">
-        <label for="name">Nom : </label>
+        <label for="email">Email : </label>
         <div>
-            <input type="text" v-model="username"    placeholder="Entrer votre usename">
+            <input type="text" v-model="email"    placeholder="Entrer votre email">
         </div>
-        <label for="quantity">Mot de passe : </label>
+        <label for="password">Mot de passe : </label>
         <div>
-            <input type="text" v-model="password"   placeholder="Entrer votre mot de passe">
+            <input type="password" v-model="password"   placeholder="Entrer votre mot de passe">
         </div>
         <button @click="logIn">Lanceba!</button>
     </div>
@@ -16,16 +16,17 @@
 import axios from 'axios'
 
 export default {
-    name:"MonLog",
+    name:"LogIn",
     data(){
         return{
-            username: '',
+            email: '',
             password: ''
     }
 },
     methods: {
         logIn: function(){
-            axios.post("http://localhost:3030/auth", {username: this.username, mdp: this.password})
+            axios.post("http://localhost:8092/user/login", {email: this.email, password: this.password})
+            .then( response => { console.log(response.data) } )
         }
     }
 }
