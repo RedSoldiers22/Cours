@@ -4,8 +4,7 @@ const bodyParser = require('body-parser')
 const sequelize = require('./src/db/sequelize')
 
 const app = express()
-const port = process.env.port || 3000 // process -> pour heroku, 3000 -> pour le local
-      
+const port = process.env.PORT || 3000 // process -> pour heroku, 3000 -> pour le local
 
 app 
     .use(favicon(__dirname + '/favicon.ico'))
@@ -17,7 +16,7 @@ app.get('/', (req, res) => {
     res.json('Hello, Heroku !')
 })
 
-// Ici nous placerons nos futurs points de terminaisons
+// Les points de terminaisons
 require('./src/routes/findAllPokemons')(app)
 require('./src/routes/findPokemonByPk')(app)
 require('./src/routes/createPokemon')(app)
