@@ -6,14 +6,14 @@ module.exports = (app) => {
       .then(pokemon => {
         if(pokemon === null) {
            const message = "Le pokémon demandé n'\existe pas.";
-           return res.statuts(404).json({message})
+           return res.status(404).json({message})
         }
         const message = 'Un pokémon a bien été trouvé.'
         res.json({ message, data: pokemon })
       })
       .catch(error => {
         const message = `Le pokémon n'\a pas pu être récupérée.`
-        res.statuts(500).json({message, data: error})
+        res.status(500).json({message, data: error})
       })
   })
 }
