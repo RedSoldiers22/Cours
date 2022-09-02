@@ -25,13 +25,13 @@
             axios.post("http://localhost:8092/user/login", { email:email , password: password})
                 .then( (response) => {
                     console.log(response.data)
-                    localStorage.setItem('token',response.data)
+                    localStorage.setItem('token',response.data) // stock dans le navigateur
                     // le token c'est trois parties sep par des .
                     // je decoupe pr obteni rla deuxieme qui est payload
-                    var payload = response.data.split('.')[1]
+                    var payload = response.data.split('.')[1] // je prends la deuxième partie du token
                     // payload est la 3eme partie encodée en base64
                     // contenant date d'exp, date de créa et le user (avec le mdp, mais pas bonne pratique)
-                    var infos = JSON.parse(window.atob(payload))
+                    var infos = JSON.parse(window.atob(payload)) // window.atob décode la chaîne de données
                     console.log(infos)
                 })
         }

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+    <style>
+        .title {font-size: 25px;}
+        .couleurbleue {color:blue}
+
+    </style>
+</head>
+<body>
+
+<div id="app">
+    <button @click="isBlue = !isBlue">alterne bleu/noir</button>
+    <h1 class="title" :class="{couleurbleue:true}">Titre booléen</h1>
+    <h1 class="title" :class="{couleurbleue: isBlue}">Titre booléen from data</h1>
+    <h1 class="title" :class="{couleurbleue: isBlue}">Titre booléen from data</h1>
+
+
+</div>
+
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+             isBlue: true
+            },
+            methods:{
+             
+            },
+            computed:{
+                myClass: function(){
+                    return{
+                        couleurbleue:this.isBlue
+                    }
+                }
+            }
+                
+            })
+    </script>
+    
+</body>
+</html>

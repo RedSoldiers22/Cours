@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="nom">
+    <input type="text" id="prenom">
+    <button id="go">Enregistre</button>
+
+    <script>
+        // ici pas de tag <form>, on va récupérer les données saisies et les envoyer
+        // par la méthode post de axios acios.post
+        
+        //détection du bouton
+        let bt = document.getElementById("go")
+        bt.addEventListener('click',function(){
+            let nom = document.getElementById("nom").value
+            let prenom = document.getElementById("prenom").value
+            console.log(nom,prenom)
+
+            axios.post('/enregistre',{nom:vnom,prenom:vprenom})
+
+        })
+    </script>
+
+</body>
+</html>

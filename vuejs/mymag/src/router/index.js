@@ -1,8 +1,8 @@
 import { createWebHistory, createRouter } from "vue-router";
 import MonMag from "@/components/monmag.vue"
 import MonForm from "@/components/formmag.vue"
-import MonLog from "@/components/logIn.vue"
-import MonSign from "@/components/signIn.vue"
+import LogIn from "@/components/logIn.vue"
+import MonSign from "@/components/signUp.vue"
 
 const routes = [
     {
@@ -16,9 +16,9 @@ const routes = [
         component: MonForm
     },
     {
-        path:"/MonLog",
-        name: "MonLog",
-        component: MonLog
+        path:"/LogIn",
+        name: "LogIn",
+        component: LogIn
     },
     {
         path:"/MonSign",

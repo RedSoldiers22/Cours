@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        .component1 {
+            display: block;
+            background-color: green;
+            height: 25Opx;
+            text-align: center;
+            color: white;
+            padding-top: 50px;
+        }
+          
+        .component2 {
+            display: block;
+            background-color: grey;
+            height: 250px;
+            text-align: center;
+            padding-top: 50px;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="root">
+        <parentcomponent></parentcomponent>
+    </div>
+
+    <script>
+    // 1er composant
+    Vue.component('component1',{
+    props:['labeltext'], 
+    template: `<div class="component1">
+            <h1>tu as clickÃ© {{labeltext}} fois</h1>
+            </div>`
+   })
+   
+   // 2eme composant 
+   Vue.component('component2',{ 
+    data() {
+        return {
+            nclick: 0 
+        }
+    },
+    template: `<div class="component2">
+        <button v-on:click="incremente">click</button>
+        </div>`,
+    methods:{
+        incremente() {
+            this.nclick += 1
+            this.$emit('setcounter',this.nclick)
+        }
+    } })
+
+    // parent component
+    Vue.component('parentcomponent',{
+        data() {
+            return {
+                text: 0
+            }
+        },
+        template: `<div>
+                <component1 v-bind:labeltext=text></component1>
+                <component2 v-on:setcounter = "set"></component2>
+            </div>`,
+        methods: {
+            set(n) {
+                this.text = n 
+            }
+        }
+    })
+
+    new Vue({
+        el: "#root"
+    })
+    </script>
+</body>
+</html>
